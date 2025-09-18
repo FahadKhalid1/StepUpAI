@@ -55,7 +55,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ showDots = true
           y: ['300px', '250px', '400px', '200px']
         }}
         transition={{
-          duration: 30,
+          duration: 3000,
           repeat: Infinity,
           ease: "linear"
         }}
@@ -109,7 +109,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ showDots = true
           y: [window.innerHeight + 200, -100, window.innerHeight - 200, 50]
         }}
         transition={{
-          duration: 35,
+          duration: 3050,
           repeat: Infinity,
           ease: "linear"
         }}
