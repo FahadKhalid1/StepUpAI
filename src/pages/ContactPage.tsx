@@ -260,7 +260,7 @@ const ContactPage: React.FC = () => {
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Location</h3>
-                      <p className="text-gray-600">San Francisco, California</p>
+                      <p className="text-gray-600">Paris, France</p>
                       <p className="text-sm text-gray-500 mt-2">Interactive map coming soon</p>
                     </div>
                   </div>
