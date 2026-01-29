@@ -166,6 +166,14 @@ const translations: Translations = {
     es: '¿Listo para transformar tu negocio con IA? Ponte en contacto para una consulta gratuita y descubre cómo podemos ayudarte a lograr tus objetivos.',
     nl: 'Klaar om uw bedrijf te transformeren met AI? Neem contact op voor een gratis consultatie en ontdek hoe we u kunnen helpen uw doelen te bereiken.'
   },
+
+  // Contact - Success message
+  'contact.success_message': {
+    en: 'Thank you, we will get in touch soon.',
+    fr: 'Merci, nous vous contacterons très bientôt.',
+    es: 'Gracias, nos pondremos en contacto pronto.',
+    nl: 'Bedankt, we nemen snel contact met u op.'
+  },
   
   // About
   'about.title': {

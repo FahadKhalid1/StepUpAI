@@ -15,13 +15,43 @@ const ContactPage: React.FC = () => {
   });
   const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the form data to a server
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://fk92.app.n8n.cloud/webhook/step-up-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message. Please try again.');
+      }
+
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (err) {
+      console.error('Error submitting contact form:', err);
+      setError('Something went wrong while sending your message. Please try again in a moment.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -112,18 +142,13 @@ const ContactPage: React.FC = () => {
               >
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a message</h2>
                 
-                {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-8"
-                  >
-                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-                    <p className="text-gray-600">We'll get back to you within 24 hours.</p>
-                  </motion.div>
-                ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {error && (
+                      <div className="p-3 rounded-lg bg-red-50 text-red-700 text-sm border border-red-200">
+                        {error}
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -203,13 +228,15 @@ const ContactPage: React.FC = () => {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                      disabled={isSubmitting}
+                      className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center ${
+                        isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                      }`}
                     >
                       <Send className="w-5 h-5 mr-2" />
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>
-                )}
               </motion.div>
 
               {/* Contact Information */}
@@ -321,6 +348,32 @@ const ContactPage: React.FC = () => {
           </div>
         </section>
       </div>
+
+      {/* Success Overlay */}
+      {isSubmitted && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+          onClick={() => setIsSubmitted(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            className="bg-white rounded-2xl shadow-2xl px-8 py-6 max-w-md w-[90%] text-center cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+              <CheckCircle className="h-8 w-8 text-green-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              {t('contact.success_message')}
+            </h3>
+            <p className="text-sm text-gray-500">
+              {t('hero.subtitle')}
+            </p>
+          </motion.div>
+        </div>
+      )}
     </>
   );
 };
