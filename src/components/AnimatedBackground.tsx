@@ -103,13 +103,13 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ showDots = true
 
       <motion.div
         className="absolute w-96 h-96 bg-gradient-to-r from-purple-400/5 to-indigo-400/5 rounded-full blur-3xl"
-        initial={{ x: window.innerWidth + 200, y: window.innerHeight + 200 }}
+        initial={{ x: winWidth + 200, y: winHeight + 200 }}
         animate={{
-          x: [window.innerWidth + 200, -300, window.innerWidth + 100, -200],
-          y: [window.innerHeight + 200, -100, window.innerHeight - 200, 50]
+          x: [winWidth + 200, -300, winWidth + 100, -200],
+          y: [winHeight + 200, -100, winHeight - 200, 50]
         }}
         transition={{
-          duration: 3050,
+          duration: 30,
           repeat: Infinity,
           ease: "linear"
         }}

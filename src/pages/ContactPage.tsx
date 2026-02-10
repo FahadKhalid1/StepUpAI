@@ -65,7 +65,7 @@ const ContactPage: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'hello@step-upai.com',
+      details: 'contact@step-upai.com',
       description: 'Send us an email anytime'
     },
     {
