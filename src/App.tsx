@@ -77,7 +77,7 @@ function App() {
                     <h3 className="text-lg font-semibold mb-4">Contact</h3>
                     <ul className="space-y-2 text-gray-300">
                       <li>contact@step-upai.com</li>
-                      <li>+1 (555) 123-4567</li>
+                      <li>+33 6 98 22 95 33</li>
                       <li><a href="/contact" className="hover:text-white transition-colors duration-200">Get in Touch</a></li>
                       <li><a href="/about" className="hover:text-white transition-colors duration-200">About Us</a></li>
                     </ul>
