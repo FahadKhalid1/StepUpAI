@@ -243,6 +243,79 @@ const ServicesPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Geo SEO Links - Île-de-France */}
+        <section className="py-20 bg-white/70 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Nos Services en Île-de-France
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Nous accompagnons les entreprises dans toute la région parisienne avec nos solutions d'automatisation IA.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { city: 'Paris', links: [
+                  { to: '/automatisation-ia-paris', label: 'Automatisation IA à Paris' },
+                  { to: '/chatbot-ia-paris', label: 'Chatbot IA à Paris' },
+                  { to: '/developpement-web-paris', label: 'Développement Web à Paris' },
+                ]},
+                { city: 'La Défense', links: [
+                  { to: '/automatisation-ia-nanterre', label: 'Automatisation IA à La Défense' },
+                  { to: '/agents-ia-nanterre', label: 'Agents IA à La Défense' },
+                  { to: '/developpement-web-nanterre', label: 'Développement Web à La Défense' },
+                ]},
+                { city: 'Boulogne-Billancourt', links: [
+                  { to: '/automatisation-ia-boulogne-billancourt', label: 'Automatisation IA à Boulogne' },
+                  { to: '/email-marketing-ia-boulogne-billancourt', label: 'Email Marketing IA à Boulogne' },
+                  { to: '/chatbot-ia-boulogne-billancourt', label: 'Chatbot IA à Boulogne' },
+                ]},
+                { city: 'Neuilly-sur-Seine', links: [
+                  { to: '/automatisation-ia-neuilly-sur-seine', label: 'Automatisation IA à Neuilly' },
+                  { to: '/appels-ia-neuilly-sur-seine', label: 'Appels IA à Neuilly' },
+                  { to: '/developpement-web-neuilly-sur-seine', label: 'Développement Web à Neuilly' },
+                ]},
+                { city: 'Issy-les-Moulineaux', links: [
+                  { to: '/automatisation-ia-issy-les-moulineaux', label: 'Automatisation IA à Issy' },
+                  { to: '/chatbot-ia-issy-les-moulineaux', label: 'Chatbot IA à Issy' },
+                  { to: '/agents-ia-issy-les-moulineaux', label: 'Agents IA à Issy' },
+                ]},
+                { city: 'Versailles', links: [
+                  { to: '/automatisation-ia-versailles', label: 'Automatisation IA à Versailles' },
+                  { to: '/developpement-web-versailles', label: 'Développement Web à Versailles' },
+                  { to: '/email-marketing-ia-versailles', label: 'Email Marketing IA à Versailles' },
+                ]},
+              ].map((group, index) => (
+                <motion.div
+                  key={group.city}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                >
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">{group.city}</h3>
+                  <ul className="space-y-2">
+                    {group.links.map(link => (
+                      <li key={link.to}>
+                        <Link to={link.to} className="text-indigo-600 hover:text-indigo-800 text-sm font-medium transition-colors">
+                          → {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

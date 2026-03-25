@@ -8,6 +8,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   canonical?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -16,7 +17,8 @@ const SEO: React.FC<SEOProps> = ({
   keywords = 'AI automation, n8n, VAPI, cold calling, email marketing, React development, Supabase, Node.js, AI chatbots, business automation',
   ogImage = 'https://step-upai.com/og-image.jpg',
   ogType = 'website',
-  canonical
+  canonical,
+  structuredData
 }) => {
   const siteUrl = 'https://step-upai.com';
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
@@ -69,6 +71,20 @@ const SEO: React.FC<SEOProps> = ({
           }
         })}
       </script>
+      {/* Additional Structured Data */}
+      {structuredData && (
+        Array.isArray(structuredData)
+          ? structuredData.map((data, index) => (
+              <script key={index} type="application/ld+json">
+                {JSON.stringify(data)}
+              </script>
+            ))
+          : (
+              <script type="application/ld+json">
+                {JSON.stringify(structuredData)}
+              </script>
+            )
+      )}
     </Helmet>
   );
 };
