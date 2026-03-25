@@ -134,7 +134,7 @@ const ProjectsPage: React.FC = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Search projects..."
+                  placeholder={t('projects.search')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
@@ -167,7 +167,7 @@ const ProjectsPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {filteredProjects.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No projects found matching your criteria.</p>
+                <p className="text-gray-500 text-lg">{t('projects.no_results')}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -199,7 +199,7 @@ const ProjectsPage: React.FC = () => {
 
                       {/* Technologies */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-2">Technologies Used:</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('projects.tech_used')}</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech, techIndex) => (
                             <span
@@ -214,7 +214,7 @@ const ProjectsPage: React.FC = () => {
 
                       {/* Key Features */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('projects.key_features')}</h4>
                         <ul className="text-sm text-gray-600 space-y-1">
                           {project.features.slice(0, 3).map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-center">
@@ -227,7 +227,7 @@ const ProjectsPage: React.FC = () => {
 
                       {/* Results */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-2">Results:</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('projects.results')}</h4>
                         <div className="grid grid-cols-1 gap-2">
                           {project.results.map((result, resultIndex) => (
                             <div key={resultIndex} className="text-sm text-green-700 bg-green-50 px-3 py-1 rounded-lg">
@@ -241,11 +241,11 @@ const ProjectsPage: React.FC = () => {
                       <div className="flex gap-3">
                         <button className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors duration-200 flex items-center justify-center">
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          View Demo
+                          {t('projects.view_demo')}
                         </button>
                         <button className="flex-1 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors duration-200 flex items-center justify-center">
                           <ArrowRight className="w-4 h-4 mr-2" />
-                          Case Study
+                          {t('projects.case_study')}
                         </button>
                       </div>
                     </div>
@@ -265,23 +265,23 @@ const ProjectsPage: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Start Your Project?
+                {t('projects.ready_start')}
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Let's discuss how we can create a custom AI solution for your business needs.
+                {t('projects.ready_start_desc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
                   className="bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
                 >
-                  Start Your Project
+                  {t('common.start_project')}
                 </Link>
                 <Link
                   to="/services"
                   className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300"
                 >
-                  View Our Services
+                  {t('projects.view_services')}
                 </Link>
               </div>
             </motion.div>

@@ -19,29 +19,29 @@ const HomePage: React.FC = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Users, value: '50+', label: 'Projects Completed' },
-    { icon: Trophy, value: '98%', label: 'Client Satisfaction' },
-    { icon: Target, value: '40%', label: 'Average Efficiency Gain' },
-    { icon: Globe, value: '15+', label: 'Countries Served' }
+    { icon: Users, value: '50+', label: t('stats.projects_completed') },
+    { icon: Trophy, value: '98%', label: t('stats.client_satisfaction') },
+    { icon: Target, value: '40%', label: t('stats.efficiency_gain') },
+    { icon: Globe, value: '15+', label: t('stats.countries_served') }
   ];
 
   const featuredServices = [
     {
       icon: Bot,
-      title: 'AI Automation',
-      description: 'Intelligent workflow automation with n8n and Make.com',
+      title: t('home.service.ai_automation'),
+      description: t('home.service.ai_automation_desc'),
       color: 'from-indigo-500 to-purple-500'
     },
     {
       icon: MessageSquare,
-      title: 'AI Cold Calling',
-      description: 'VAPI-powered calling systems with CRM integration',
+      title: t('home.service.ai_calling'),
+      description: t('home.service.ai_calling_desc'),
       color: 'from-purple-500 to-pink-500'
     },
     {
       icon: Code,
-      title: 'Web Development',
-      description: 'Modern applications with React and Supabase',
+      title: t('home.service.web_dev'),
+      description: t('home.service.web_dev_desc'),
       color: 'from-pink-500 to-rose-500'
     }
   ];
@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
       name: 'Sarah Johnson',
       company: 'TechCorp Inc.',
       role: 'CEO',
-      content: 'Stepup AI transformed our operations with their intelligent automation. We saw 60% efficiency gains within the first month.',
+      content: t('testimonials.1'),
       rating: 5,
       image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg'
     },
@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
       name: 'Michael Chen',
       company: 'EduTech Solutions',
       role: 'Operations Director',
-      content: 'Their AI assistant for school administration has revolutionized how we manage student data and scheduling.',
+      content: t('testimonials.2'),
       rating: 5,
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
     },
@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
       name: 'Emma Rodriguez',
       company: 'Marketing Pro',
       role: 'Marketing Manager',
-      content: 'The LinkedIn automation system increased our lead generation by 300%. Absolutely incredible results!',
+      content: t('testimonials.3'),
       rating: 5,
       image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg'
     }
@@ -87,26 +87,26 @@ const HomePage: React.FC = () => {
   const benefits = [
     {
       icon: TrendingUp,
-      title: 'Increase Productivity',
-      description: 'Automate repetitive tasks and focus on what matters most',
+      title: t('benefits.increase_productivity'),
+      description: t('benefits.increase_productivity_desc'),
       color: 'from-green-500 to-emerald-500'
     },
     {
       icon: Shield,
-      title: 'Reduce Errors',
-      description: 'AI-powered systems eliminate human error and ensure accuracy',
+      title: t('benefits.reduce_errors'),
+      description: t('benefits.reduce_errors_desc'),
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Zap,
-      title: 'Save Time & Money',
-      description: 'Cut operational costs while accelerating business processes',
+      title: t('benefits.save_time'),
+      description: t('benefits.save_time_desc'),
       color: 'from-purple-500 to-violet-500'
     },
     {
       icon: Award,
-      title: 'Scale Efficiently',
-      description: 'Grow your business without proportionally increasing overhead',
+      title: t('benefits.scale'),
+      description: t('benefits.scale_desc'),
       color: 'from-orange-500 to-red-500'
     }
   ];
@@ -130,7 +130,7 @@ const HomePage: React.FC = () => {
               >
                 <div className="mb-6">
                   <span className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
-                    🚀 AI-Powered Business Solutions
+                    {t('home.badge')}
                   </span>
                 </div>
                 
@@ -147,10 +147,10 @@ const HomePage: React.FC = () => {
                 <div className="text-xl md:text-2xl text-gray-600 mb-8 h-16">
                   <TypewriterText
                     texts={[
-                      'Intelligent workflow automation',
-                      'AI-powered business solutions',
-                      'Custom chatbot development',
-                      'Enterprise AI integration'
+                      t('home.typewriter.1'),
+                      t('home.typewriter.2'),
+                      t('home.typewriter.3'),
+                      t('home.typewriter.4')
                     ]}
                     className="text-indigo-600 font-semibold"
                   />
@@ -205,8 +205,8 @@ const HomePage: React.FC = () => {
                         <Bot className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-gray-900">AI Automation</div>
-                        <div className="text-xs text-gray-600">50+ Projects</div>
+                        <div className="text-sm font-semibold text-gray-900">{t('home.floating.ai_automation')}</div>
+                        <div className="text-xs text-gray-600">{t('home.floating.projects')}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -222,8 +222,8 @@ const HomePage: React.FC = () => {
                         <Zap className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-gray-900">98% Success Rate</div>
-                        <div className="text-xs text-gray-600">Client Satisfaction</div>
+                        <div className="text-sm font-semibold text-gray-900">{t('home.floating.success_rate')}</div>
+                        <div className="text-xs text-gray-600">{t('home.floating.satisfaction')}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -270,10 +270,10 @@ const HomePage: React.FC = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Why Choose AI Automation?
+                {t('benefits.title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Transform your business operations with intelligent automation that delivers measurable results.
+                {t('benefits.subtitle')}
               </p>
             </motion.div>
 
@@ -369,10 +369,10 @@ const HomePage: React.FC = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Technologies We Master
+                {t('tech.title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We work with cutting-edge tools and platforms to deliver exceptional AI solutions.
+                {t('tech.subtitle')}
               </p>
             </motion.div>
 
@@ -406,10 +406,10 @@ const HomePage: React.FC = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                What Our Clients Say
+                {t('testimonials.title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Don't just take our word for it. Here's what our satisfied clients have to say about our AI solutions.
+                {t('testimonials.subtitle')}
               </p>
             </motion.div>
 
@@ -457,23 +457,23 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.8 }}
               >
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                  See Our AI Solutions in Action
+                  {t('demo.title')}
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Watch how our AI automation transforms business operations and delivers exceptional results for our clients.
+                  {t('demo.subtitle')}
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
-                    <span className="text-gray-700">Real-time workflow automation</span>
+                    <span className="text-gray-700">{t('demo.check1')}</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
-                    <span className="text-gray-700">Intelligent data processing</span>
+                    <span className="text-gray-700">{t('demo.check2')}</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
-                    <span className="text-gray-700">Seamless system integration</span>
+                    <span className="text-gray-700">{t('demo.check3')}</span>
                   </div>
                 </div>
               </motion.div>
@@ -494,9 +494,9 @@ const HomePage: React.FC = () => {
                     >
                       <Play className="w-8 h-8 text-white ml-1" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-4">Watch Demo Video</h3>
+                    <h3 className="text-2xl font-bold mb-4">{t('demo.watch')}</h3>
                     <p className="text-white/80">
-                      See how we've helped businesses achieve 40% efficiency gains through intelligent automation.
+                      {t('demo.efficiency')}
                     </p>
                   </div>
                 </div>

@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
       setTimeout(() => setIsSubmitted(false), 3000);
     } catch (err) {
       console.error('Error submitting contact form:', err);
-      setError('Something went wrong while sending your message. Please try again in a moment.');
+      setError(t('contact.error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -64,38 +64,38 @@ const ContactPage: React.FC = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Us',
+      title: t('contact.info.email'),
       details: 'contact@step-upai.com',
-      description: 'Send us an email anytime'
+      description: t('contact.info.email_desc')
     },
     {
       icon: Phone,
-      title: 'Call Us',
+      title: t('contact.info.phone'),
       details: '+33 6 98 22 95 33',
-      description: 'Mon-Fri from 8am to 5pm'
+      description: t('contact.info.phone_desc')
     },
     {
       icon: MapPin,
-      title: 'Visit Us',
+      title: t('contact.info.visit'),
       details: 'Paris, France',
-      description: 'Come say hello at our office'
+      description: t('contact.info.visit_desc')
     },
     {
       icon: Clock,
-      title: 'Working Hours',
-      details: 'Mon-Fri: 8am-5pm PST',
-      description: 'We\'re here to help'
+      title: t('contact.info.hours'),
+      details: t('contact.info.hours_detail'),
+      description: t('contact.info.hours_desc')
     }
   ];
 
   const services = [
-    'AI Workflow Automation',
-    'Cold Calling Systems',
-    'Email Marketing Automation',
-    'Web Development',
-    'Custom AI Chatbots',
-    'AI Agentic Systems',
-    'Consultation & Strategy'
+    t('contact.service.workflow'),
+    t('contact.service.calling'),
+    t('contact.service.email'),
+    t('contact.service.web'),
+    t('contact.service.chatbots'),
+    t('contact.service.agentic'),
+    t('contact.service.consultation'),
   ];
 
   return (
@@ -140,7 +140,7 @@ const ContactPage: React.FC = () => {
                 transition={{ duration: 0.8 }}
                 className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg"
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a message</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('contact.send_message')}</h2>
                 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {error && (
@@ -152,7 +152,7 @@ const ContactPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Full Name *
+                          {t('contact.full_name')}
                         </label>
                         <input
                           type="text"
@@ -161,12 +161,12 @@ const ContactPage: React.FC = () => {
                           value={formData.name}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-200"
-                          placeholder="Your full name"
+                          placeholder={t('contact.full_name_placeholder')}
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
+                          {t('contact.email')}
                         </label>
                         <input
                           type="email"
@@ -175,14 +175,14 @@ const ContactPage: React.FC = () => {
                           value={formData.email}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-200"
-                          placeholder="your@email.com"
+                          placeholder={t('contact.email_placeholder')}
                         />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Company Name
+                        {t('contact.company')}
                       </label>
                       <input
                         type="text"
@@ -190,13 +190,13 @@ const ContactPage: React.FC = () => {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-200"
-                        placeholder="Your company name"
+                        placeholder={t('contact.company_placeholder')}
                       />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Service Interested In
+                        {t('contact.service_interest')}
                       </label>
                       <select
                         name="service"
@@ -204,7 +204,7 @@ const ContactPage: React.FC = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-200"
                       >
-                        <option value="">Select a service</option>
+                        <option value="">{t('contact.select_service')}</option>
                         {services.map(service => (
                           <option key={service} value={service}>{service}</option>
                         ))}
@@ -213,7 +213,7 @@ const ContactPage: React.FC = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message *
+                        {t('contact.message')}
                       </label>
                       <textarea
                         name="message"
@@ -222,7 +222,7 @@ const ContactPage: React.FC = () => {
                         value={formData.message}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-200 resize-none"
-                        placeholder="Tell us about your project and how we can help..."
+                        placeholder={t('contact.message_placeholder')}
                       />
                     </div>
 
@@ -234,7 +234,7 @@ const ContactPage: React.FC = () => {
                       }`}
                     >
                       <Send className="w-5 h-5 mr-2" />
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? t('contact.sending') : t('contact.send')}
                     </button>
                   </form>
               </motion.div>
@@ -247,9 +247,9 @@ const ContactPage: React.FC = () => {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in touch</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('contact.get_in_touch')}</h2>
                   <p className="text-lg text-gray-600 mb-8">
-                    We'd love to hear from you. Choose the most convenient way to reach us and we'll respond as quickly as possible.
+                    {t('contact.get_in_touch_desc')}
                   </p>
                 </div>
 
@@ -286,9 +286,9 @@ const ContactPage: React.FC = () => {
                   <div className="h-64 bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Location</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('contact.location')}</h3>
                       <p className="text-gray-600">Paris, France</p>
-                      <p className="text-sm text-gray-500 mt-2">Interactive map coming soon</p>
+                      <p className="text-sm text-gray-500 mt-2">{t('contact.map_soon')}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -307,30 +307,30 @@ const ContactPage: React.FC = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Frequently Asked Questions
+                {t('contact.faq_title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Quick answers to common questions about our AI automation services.
+                {t('contact.faq_subtitle')}
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
-                  question: "How long does it take to implement an AI solution?",
-                  answer: "Implementation time varies based on complexity, typically ranging from 2-8 weeks for most projects."
+                  question: t('contact.faq.q1'),
+                  answer: t('contact.faq.a1')
                 },
                 {
-                  question: "Do you provide ongoing support and maintenance?",
-                  answer: "Yes, we offer comprehensive support packages to ensure your AI systems continue to perform optimally."
+                  question: t('contact.faq.q2'),
+                  answer: t('contact.faq.a2')
                 },
                 {
-                  question: "Can you integrate with our existing systems?",
-                  answer: "Absolutely! We specialize in seamless integration with existing business tools and platforms."
+                  question: t('contact.faq.q3'),
+                  answer: t('contact.faq.a3')
                 },
                 {
-                  question: "What's the ROI of AI automation?",
-                  answer: "Most clients see 40-70% efficiency gains and ROI within 3-6 months of implementation."
+                  question: t('contact.faq.q4'),
+                  answer: t('contact.faq.a4')
                 }
               ].map((faq, index) => (
                 <motion.div

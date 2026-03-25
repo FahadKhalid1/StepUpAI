@@ -10,26 +10,26 @@ const AboutPage: React.FC = () => {
   const values = [
     {
       icon: Brain,
-      title: 'Innovation First',
-      description: 'We stay at the forefront of AI technology to deliver cutting-edge solutions.',
+      title: t('about.value.innovation'),
+      description: t('about.value.innovation_desc'),
       color: 'from-indigo-500 to-purple-500'
     },
     {
       icon: Heart,
-      title: 'Client Success',
-      description: 'Your success is our success. We\'re committed to delivering exceptional results.',
+      title: t('about.value.client_success'),
+      description: t('about.value.client_success_desc'),
       color: 'from-purple-500 to-pink-500'
     },
     {
       icon: Zap,
-      title: 'Efficiency',
-      description: 'We optimize every process to maximize productivity and minimize waste.',
+      title: t('about.value.efficiency'),
+      description: t('about.value.efficiency_desc'),
       color: 'from-pink-500 to-rose-500'
     },
     {
       icon: Lightbulb,
-      title: 'Transparency',
-      description: 'Clear communication and honest partnerships are the foundation of our work.',
+      title: t('about.value.transparency'),
+      description: t('about.value.transparency_desc'),
       color: 'from-rose-500 to-orange-500'
     }
   ];
@@ -37,36 +37,36 @@ const AboutPage: React.FC = () => {
   const team = [
     {
       name: 'Alex Johnson',
-      role: 'CEO & AI Strategist',
+      role: t('about.team.role1'),
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      bio: 'Leading AI transformation with 10+ years in automation and machine learning.'
+      bio: t('about.team.bio1')
     },
     {
       name: 'Sarah Chen',
-      role: 'CTO & Lead Developer',
+      role: t('about.team.role2'),
       image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg',
-      bio: 'Expert in React, Node.js, and AI integration with a passion for clean code.'
+      bio: t('about.team.bio2')
     },
     {
       name: 'Marcus Rodriguez',
-      role: 'AI Solutions Architect',
+      role: t('about.team.role3'),
       image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg',
-      bio: 'Specializes in n8n workflows and enterprise automation systems.'
+      bio: t('about.team.bio3')
     },
     {
       name: 'Emma Thompson',
-      role: 'UX/UI Designer',
+      role: t('about.team.role4'),
       image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg',
-      bio: 'Creates intuitive interfaces that make complex AI systems accessible to everyone.'
+      bio: t('about.team.bio4')
     }
   ];
 
   const milestones = [
-    { year: '2020', title: 'Company Founded', description: 'Started with a vision to democratize AI automation' },
-    { year: '2021', title: 'First 10 Clients', description: 'Successfully automated workflows for early adopters' },
-    { year: '2022', title: 'International Expansion', description: 'Extended services to 15+ countries worldwide' },
-    { year: '2023', title: '50+ Projects', description: 'Completed major enterprise automation projects' },
-    { year: '2024', title: 'AI Innovation Hub', description: 'Launched advanced AI agent development services' }
+    { year: '2020', title: t('about.milestone.1_title'), description: t('about.milestone.1_desc') },
+    { year: '2021', title: t('about.milestone.2_title'), description: t('about.milestone.2_desc') },
+    { year: '2022', title: t('about.milestone.3_title'), description: t('about.milestone.3_desc') },
+    { year: '2023', title: t('about.milestone.4_title'), description: t('about.milestone.4_desc') },
+    { year: '2024', title: t('about.milestone.5_title'), description: t('about.milestone.5_desc') }
   ];
 
   return (
@@ -100,11 +100,11 @@ const AboutPage: React.FC = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center p-4 bg-white/70 rounded-xl">
                     <div className="text-3xl font-bold text-indigo-600">50+</div>
-                    <div className="text-gray-600">Projects Delivered</div>
+                    <div className="text-gray-600">{t('about.projects_delivered')}</div>
                   </div>
                   <div className="text-center p-4 bg-white/70 rounded-xl">
                     <div className="text-3xl font-bold text-purple-600">15+</div>
-                    <div className="text-gray-600">Countries Served</div>
+                    <div className="text-gray-600">{t('about.countries_served')}</div>
                   </div>
                 </div>
               </motion.div>
@@ -137,10 +137,9 @@ const AboutPage: React.FC = () => {
                 className="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-2xl"
               >
                 <Target className="w-12 h-12 text-indigo-600 mb-6" />
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('about.mission_title')}</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  To democratize AI automation by making advanced technologies accessible to businesses of all sizes. 
-                  We believe every company should have the power to optimize their operations through intelligent systems.
+                  {t('about.mission_text')}
                 </p>
               </motion.div>
 
@@ -151,10 +150,9 @@ const AboutPage: React.FC = () => {
                 className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl"
               >
                 <Globe className="w-12 h-12 text-purple-600 mb-6" />
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('about.vision_title')}</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  To be the global leader in AI-powered business transformation, creating a world where intelligent 
-                  automation enhances human potential and drives sustainable growth across all industries.
+                  {t('about.vision_text')}
                 </p>
               </motion.div>
             </div>
@@ -170,9 +168,9 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Values</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('about.values_title')}</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                The principles that guide everything we do and every solution we create.
+                {t('about.values_subtitle')}
               </p>
             </motion.div>
 
@@ -209,9 +207,9 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Meet Our Team</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('about.team_title')}</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Passionate experts dedicated to delivering exceptional AI solutions.
+                {t('about.team_subtitle')}
               </p>
             </motion.div>
 
@@ -247,9 +245,9 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Journey</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('about.journey_title')}</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Key milestones in our mission to transform businesses through AI.
+                {t('about.journey_subtitle')}
               </p>
             </motion.div>
 

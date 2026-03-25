@@ -10,8 +10,8 @@ const ServicesPage: React.FC = () => {
   const services = [
     {
       icon: Bot,
-      title: 'AI Workflow Automation',
-      description: 'Streamline your business processes with intelligent automation using industry-leading platforms.',
+      title: t('services.item.workflow_title'),
+      description: t('services.item.workflow_desc'),
       features: ['n8n Workflow Design', 'Make.com Integration', 'Zapier Automation', 'Custom API Connections'],
       technologies: ['n8n', 'Make.com', 'Zapier', 'REST APIs'],
       color: 'from-indigo-500 to-purple-500',
@@ -19,8 +19,8 @@ const ServicesPage: React.FC = () => {
     },
     {
       icon: Phone,
-      title: 'AI Cold Calling Systems',
-      description: 'Revolutionary voice AI systems that handle outbound calls with human-like conversations.',
+      title: t('services.item.calling_title'),
+      description: t('services.item.calling_desc'),
       features: ['VAPI Voice Integration', 'Telnyx Phone Services', 'Airtable CRM Sync', 'Call Analytics'],
       technologies: ['VAPI', 'Telnyx', 'Airtable', 'n8n'],
       color: 'from-purple-500 to-pink-500',
@@ -28,8 +28,8 @@ const ServicesPage: React.FC = () => {
     },
     {
       icon: Mail,
-      title: 'Email Marketing Automation',
-      description: 'Intelligent email campaigns that nurture leads and convert prospects automatically.',
+      title: t('services.item.email_title'),
+      description: t('services.item.email_desc'),
       features: ['Automated Sequences', 'Lead Scoring', 'Personalization', 'Performance Analytics'],
       technologies: ['Mailchimp', 'SendGrid', 'HubSpot', 'Custom APIs'],
       color: 'from-pink-500 to-rose-500',
@@ -37,8 +37,8 @@ const ServicesPage: React.FC = () => {
     },
     {
       icon: Code,
-      title: 'Web Development',
-      description: 'Modern, scalable web applications built with cutting-edge technologies.',
+      title: t('services.item.web_title'),
+      description: t('services.item.web_desc'),
       features: ['React Applications', 'Supabase Backend', 'Node.js APIs', 'Responsive Design'],
       technologies: ['React', 'Supabase', 'Node.js', 'TypeScript'],
       color: 'from-rose-500 to-orange-500',
@@ -46,8 +46,8 @@ const ServicesPage: React.FC = () => {
     },
     {
       icon: MessageSquare,
-      title: 'Custom AI Chatbots',
-      description: 'Intelligent conversational interfaces that understand and assist your customers 24/7.',
+      title: t('services.item.chatbot_title'),
+      description: t('services.item.chatbot_desc'),
       features: ['Natural Language Processing', 'Multi-platform Integration', 'Learning Capabilities', 'Analytics Dashboard'],
       technologies: ['OpenAI', 'Dialogflow', 'Custom NLP', 'Webhooks'],
       color: 'from-orange-500 to-yellow-500',
@@ -55,8 +55,8 @@ const ServicesPage: React.FC = () => {
     },
     {
       icon: Zap,
-      title: 'AI Agentic Systems',
-      description: 'Autonomous AI agents that can perform complex tasks and make decisions independently.',
+      title: t('services.item.agentic_title'),
+      description: t('services.item.agentic_desc'),
       features: ['Task Automation', 'Decision Making', 'Multi-step Workflows', 'Learning & Adaptation'],
       technologies: ['LangChain', 'AutoGPT', 'Custom Agents', 'Vector Databases'],
       color: 'from-yellow-500 to-green-500',
@@ -67,26 +67,26 @@ const ServicesPage: React.FC = () => {
   const process = [
     {
       step: '01',
-      title: 'Discovery & Analysis',
-      description: 'We analyze your current processes and identify automation opportunities.',
+      title: t('services.process.step1_title'),
+      description: t('services.process.step1_desc'),
       icon: Database
     },
     {
       step: '02',
-      title: 'Strategy & Planning',
-      description: 'Develop a comprehensive automation strategy tailored to your business.',
+      title: t('services.process.step2_title'),
+      description: t('services.process.step2_desc'),
       icon: Globe
     },
     {
       step: '03',
-      title: 'Development & Integration',
-      description: 'Build and integrate AI solutions with your existing systems.',
+      title: t('services.process.step3_title'),
+      description: t('services.process.step3_desc'),
       icon: Code
     },
     {
       step: '04',
-      title: 'Testing & Optimization',
-      description: 'Rigorous testing and continuous optimization for peak performance.',
+      title: t('services.process.step4_title'),
+      description: t('services.process.step4_desc'),
       icon: Zap
     }
   ];
@@ -113,7 +113,7 @@ const ServicesPage: React.FC = () => {
                   {t('nav.services')}
                 </span>
                 <br />
-                <span className="text-gray-900">That Transform</span>
+                <span className="text-gray-900">{t('services.that_transform')}</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                 {t('services.subtitle')}
@@ -164,7 +164,7 @@ const ServicesPage: React.FC = () => {
                     <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
 
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Features:</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('services.key_features')}</h4>
                       <ul className="space-y-2">
                         {service.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-center text-gray-600">
@@ -176,7 +176,7 @@ const ServicesPage: React.FC = () => {
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Technologies:</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('services.technologies')}</h4>
                       <div className="flex flex-wrap gap-2">
                         {service.technologies.map((tech, techIndex) => (
                           <span
@@ -193,7 +193,7 @@ const ServicesPage: React.FC = () => {
                       to="/contact"
                       className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200"
                     >
-                      Learn More
+                      {t('common.learn_more')}
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
                   </div>
@@ -212,9 +212,9 @@ const ServicesPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Process</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('services.process_title')}</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                A proven methodology that ensures successful AI implementation and maximum ROI.
+                {t('services.process_subtitle')}
               </p>
             </motion.div>
 
@@ -252,23 +252,23 @@ const ServicesPage: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Automate Your Business?
+                {t('services.ready_automate')}
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Let's discuss how our AI solutions can transform your operations and drive growth.
+                {t('services.ready_automate_desc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
                   className="bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
                 >
-                  Start Your Project
+                  {t('common.start_project')}
                 </Link>
                 <Link
                   to="/projects"
                   className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300"
                 >
-                  View Case Studies
+                  {t('common.view_case_studies')}
                 </Link>
               </div>
             </motion.div>
