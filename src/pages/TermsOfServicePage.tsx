@@ -2,77 +2,79 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Scale, Shield, AlertTriangle, CheckCircle, Mail, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const TermsOfServicePage: React.FC = () => {
+  const { t } = useLanguage();
   const sections = [
     {
       icon: CheckCircle,
-      title: 'Acceptance of Terms',
+      title: t('terms.s1.title'),
       content: [
-        'By accessing and using our website and services, you accept and agree to be bound by these Terms of Service',
-        'If you do not agree to these terms, you may not access or use our services',
-        'We reserve the right to modify these terms at any time with notice to users',
-        'Continued use of our services after changes constitutes acceptance of new terms'
+        t('terms.s1.c1'),
+        t('terms.s1.c2'),
+        t('terms.s1.c3'),
+        t('terms.s1.c4')
       ]
     },
     {
       icon: Shield,
-      title: 'Services Description',
+      title: t('terms.s2.title'),
       content: [
-        'Stepup AI provides AI automation services including workflow automation, chatbot development, and system integration',
-        'We offer consulting, development, implementation, and support services',
-        'Service specifications and deliverables are defined in individual project agreements',
-        'We reserve the right to modify or discontinue services with reasonable notice'
+        t('terms.s2.c1'),
+        t('terms.s2.c2'),
+        t('terms.s2.c3'),
+        t('terms.s2.c4')
       ]
     },
     {
       icon: Scale,
-      title: 'User Responsibilities',
+      title: t('terms.s3.title'),
       content: [
-        'You must provide accurate and complete information when using our services',
-        'You are responsible for maintaining the confidentiality of your account credentials',
-        'You agree not to use our services for any unlawful or prohibited activities',
-        'You must comply with all applicable laws and regulations when using our services',
-        'You are responsible for any content you provide or generate using our services'
+        t('terms.s3.c1'),
+        t('terms.s3.c2'),
+        t('terms.s3.c3'),
+        t('terms.s3.c4'),
+        t('terms.s3.c5')
       ]
     },
     {
       icon: AlertTriangle,
-      title: 'Limitations and Disclaimers',
+      title: t('terms.s4.title'),
       content: [
-        'Our services are provided "as is" without warranties of any kind',
-        'We do not guarantee uninterrupted or error-free service operation',
-        'We are not liable for indirect, incidental, or consequential damages',
-        'Our total liability is limited to the amount paid for services in the preceding 12 months',
-        'Some jurisdictions do not allow limitation of liability, so these limits may not apply to you'
+        t('terms.s4.c1'),
+        t('terms.s4.c2'),
+        t('terms.s4.c3'),
+        t('terms.s4.c4'),
+        t('terms.s4.c5')
       ]
     }
   ];
 
   const additionalTerms = [
     {
-      title: 'Intellectual Property',
-      content: 'All intellectual property rights in our services, including software, documentation, and methodologies, remain our property. You receive a limited license to use our services as specified in your agreement.'
+      title: t('terms.a1.title'),
+      content: t('terms.a1.content')
     },
     {
-      title: 'Confidentiality',
-      content: 'We maintain strict confidentiality regarding your business information and data. Both parties agree to protect confidential information disclosed during the course of our business relationship.'
+      title: t('terms.a2.title'),
+      content: t('terms.a2.content')
     },
     {
-      title: 'Data Protection',
-      content: 'We process your data in accordance with our Privacy Policy and applicable data protection laws. You retain ownership of your data, and we implement appropriate security measures to protect it.'
+      title: t('terms.a3.title'),
+      content: t('terms.a3.content')
     },
     {
-      title: 'Payment Terms',
-      content: 'Payment terms are specified in individual project agreements. Generally, payments are due within 30 days of invoice date. Late payments may incur additional charges as permitted by law.'
+      title: t('terms.a4.title'),
+      content: t('terms.a4.content')
     },
     {
-      title: 'Termination',
-      content: 'Either party may terminate services with appropriate notice as specified in the service agreement. Upon termination, you retain access to your data, and we will assist with data export as needed.'
+      title: t('terms.a5.title'),
+      content: t('terms.a5.content')
     },
     {
-      title: 'Governing Law',
-      content: 'These terms are governed by the laws of California, United States. Any disputes will be resolved through binding arbitration in San Francisco, California, unless otherwise agreed.'
+      title: t('terms.a6.title'),
+      content: t('terms.a6.content')
     }
   ];
 
@@ -98,16 +100,16 @@ const TermsOfServicePage: React.FC = () => {
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Terms of
+                  {t('terms.title1')}
                 </span>
                 <br />
-                <span className="text-gray-900">Service</span>
+                <span className="text-gray-900">{t('terms.title2')}</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                These terms govern your use of our AI automation services and website. Please read them carefully.
+                {t('terms.intro')}
               </p>
               <div className="text-sm text-gray-500">
-                Last updated: January 15, 2024
+                {t('terms.date')}
               </div>
             </motion.div>
           </div>
@@ -123,15 +125,12 @@ const TermsOfServicePage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-12"
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Agreement Overview</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('terms.overview_title')}</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                These Terms of Service ("Terms") constitute a legally binding agreement between you and Stepup AI 
-                regarding your use of our website, services, and any related applications or tools we provide.
+                {t('terms.overview_p1')}
               </p>
               <p className="text-gray-600 leading-relaxed">
-                By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. 
-                If you are using our services on behalf of an organization, you represent that you have the authority to 
-                bind that organization to these Terms.
+                {t('terms.overview_p2')}
               </p>
             </motion.div>
 
@@ -171,7 +170,7 @@ const TermsOfServicePage: React.FC = () => {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-8"
               >
-                <h2 className="text-3xl font-bold text-gray-900">Additional Terms</h2>
+                <h2 className="text-3xl font-bold text-gray-900">{t('terms.add_title')}</h2>
               </motion.div>
 
               {additionalTerms.map((term, index) => (
@@ -195,22 +194,22 @@ const TermsOfServicePage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mt-12"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Service Level Agreement</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('terms.sla_title')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Response Times</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">{t('terms.response_title')}</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Critical issues: 4 hours</li>
-                    <li>• High priority: 24 hours</li>
-                    <li>• Normal priority: 48 hours</li>
+                    <li>{t('terms.response1')}</li>
+                    <li>{t('terms.response2')}</li>
+                    <li>{t('terms.response3')}</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Availability</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">{t('terms.availability_title')}</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Target uptime: 99.5%</li>
-                    <li>• Planned maintenance windows</li>
-                    <li>• Status page notifications</li>
+                    <li>{t('terms.availability1')}</li>
+                    <li>{t('terms.availability2')}</li>
+                    <li>{t('terms.availability3')}</li>
                   </ul>
                 </div>
               </div>
@@ -223,22 +222,22 @@ const TermsOfServicePage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mt-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Dispute Resolution</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('terms.dispute_title')}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We are committed to resolving any disputes amicably. If you have concerns about our services:
+                {t('terms.dispute_desc')}
               </p>
               <div className="space-y-3">
                 <div className="flex items-start">
                   <div className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</div>
-                  <span className="text-gray-600">Contact our support team to discuss the issue</span>
+                  <span className="text-gray-600">{t('terms.d1')}</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</div>
-                  <span className="text-gray-600">We will work with you to find a mutually acceptable solution</span>
+                  <span className="text-gray-600">{t('terms.d2')}</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</div>
-                  <span className="text-gray-600">If needed, disputes will be resolved through binding arbitration</span>
+                  <span className="text-gray-600">{t('terms.d3')}</span>
                 </div>
               </div>
             </motion.div>
@@ -250,9 +249,9 @@ const TermsOfServicePage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-3xl p-8 shadow-lg mt-8"
             >
-              <h3 className="text-2xl font-bold mb-6">Questions About These Terms?</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('terms.questions_title')}</h3>
               <p className="mb-6 opacity-90">
-                If you have any questions about these Terms of Service or need clarification on any provisions, please contact us.
+                {t('terms.questions_desc')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-center">

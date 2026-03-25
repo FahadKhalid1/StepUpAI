@@ -891,7 +891,899 @@ const translations: Translations = {
   'common.all': {
     en: 'All',
     fr: 'Tout',
-  }
+  },
+
+  // Services Features
+  'services.feat.workflow1': {
+    en: 'n8n Workflow Design',
+    fr: 'Conception de workflows n8n',
+  },
+  'services.feat.workflow2': {
+    en: 'Make.com Integration',
+    fr: 'Intégration Make.com',
+  },
+  'services.feat.workflow3': {
+    en: 'Zapier Automation',
+    fr: 'Automatisation Zapier',
+  },
+  'services.feat.workflow4': {
+    en: 'Custom API Connections',
+    fr: 'Connexions API personnalisées',
+  },
+  'services.feat.calling1': {
+    en: 'VAPI Voice Integration',
+    fr: 'Intégration vocale VAPI',
+  },
+  'services.feat.calling2': {
+    en: 'Telnyx Phone Services',
+    fr: 'Services téléphoniques Telnyx',
+  },
+  'services.feat.calling3': {
+    en: 'Airtable CRM Sync',
+    fr: 'Synchronisation CRM Airtable',
+  },
+  'services.feat.calling4': {
+    en: 'Call Analytics',
+    fr: 'Analyse des appels',
+  },
+  'services.feat.email1': {
+    en: 'Automated Sequences',
+    fr: 'Séquences automatisées',
+  },
+  'services.feat.email2': {
+    en: 'Lead Scoring',
+    fr: 'Scoring des leads',
+  },
+  'services.feat.email3': {
+    en: 'Personalization',
+    fr: 'Personnalisation',
+  },
+  'services.feat.email4': {
+    en: 'Performance Analytics',
+    fr: 'Analyses de performance',
+  },
+  'services.feat.web1': {
+    en: 'React Applications',
+    fr: 'Applications React',
+  },
+  'services.feat.web2': {
+    en: 'Supabase Backend',
+    fr: 'Backend Supabase',
+  },
+  'services.feat.web3': {
+    en: 'Node.js APIs',
+    fr: 'APIs Node.js',
+  },
+  'services.feat.web4': {
+    en: 'Responsive Design',
+    fr: 'Design responsive',
+  },
+  'services.feat.chatbot1': {
+    en: 'Natural Language Processing',
+    fr: 'Traitement du langage naturel',
+  },
+  'services.feat.chatbot2': {
+    en: 'Multi-platform Integration',
+    fr: 'Intégration multi-plateforme',
+  },
+  'services.feat.chatbot3': {
+    en: 'Learning Capabilities',
+    fr: 'Capacités d\'apprentissage',
+  },
+  'services.feat.chatbot4': {
+    en: 'Analytics Dashboard',
+    fr: 'Tableau de bord analytique',
+  },
+  'services.feat.agentic1': {
+    en: 'Task Automation',
+    fr: 'Automatisation des tâches',
+  },
+  'services.feat.agentic2': {
+    en: 'Decision Making',
+    fr: 'Prise de décision',
+  },
+  'services.feat.agentic3': {
+    en: 'Multi-step Workflows',
+    fr: 'Workflows multi-étapes',
+  },
+  'services.feat.agentic4': {
+    en: 'Learning & Adaptation',
+    fr: 'Apprentissage et adaptation',
+  },
+
+  // Project Categories
+  'projects.cat.all': {
+    en: 'All',
+    fr: 'Tous',
+  },
+  'projects.cat.ai_assistant': {
+    en: 'AI Assistant',
+    fr: 'Assistant IA',
+  },
+  'projects.cat.marketing': {
+    en: 'Marketing Automation',
+    fr: 'Automatisation Marketing',
+  },
+  'projects.cat.voice': {
+    en: 'Voice AI',
+    fr: 'IA Vocale',
+  },
+  'projects.cat.workflow': {
+    en: 'Workflow Automation',
+    fr: 'Automatisation Workflow',
+  },
+
+  // Project 1
+  'projects.p1.title': {
+    en: 'School AI Administration Assistant',
+    fr: 'Assistant IA d\'Administration Scolaire',
+  },
+  'projects.p1.desc': {
+    en: 'Comprehensive AI assistant for educational institutions managing student data, scheduling, and administrative tasks with natural language processing.',
+    fr: 'Assistant IA complet pour les établissements scolaires gérant les données étudiantes, la planification et les tâches administratives grâce au traitement du langage naturel.',
+  },
+  'projects.p1.category': {
+    en: 'AI Assistant',
+    fr: 'Assistant IA',
+  },
+  'projects.p1.feat1': {
+    en: 'Student Data Management',
+    fr: 'Gestion des données étudiantes',
+  },
+  'projects.p1.feat2': {
+    en: 'Automated Scheduling',
+    fr: 'Planification automatisée',
+  },
+  'projects.p1.feat3': {
+    en: 'Report Generation',
+    fr: 'Génération de rapports',
+  },
+  'projects.p1.feat4': {
+    en: 'Multi-language Support',
+    fr: 'Support multilingue',
+  },
+  'projects.p1.result1': {
+    en: '60% reduction in admin time',
+    fr: '60% de réduction du temps administratif',
+  },
+  'projects.p1.result2': {
+    en: '95% accuracy in data processing',
+    fr: '95% de précision dans le traitement des données',
+  },
+  'projects.p1.result3': {
+    en: '40+ schools implemented',
+    fr: '40+ établissements déployés',
+  },
+
+  // Project 2
+  'projects.p2.title': {
+    en: 'LinkedIn Automation System',
+    fr: 'Système d\'Automatisation LinkedIn',
+  },
+  'projects.p2.desc': {
+    en: 'Advanced automation system for LinkedIn posting and lead capture built with n8n workflows and Airtable integration.',
+    fr: 'Système d\'automatisation avancé pour la publication LinkedIn et la capture de leads avec des workflows n8n et l\'intégration Airtable.',
+  },
+  'projects.p2.category': {
+    en: 'Marketing Automation',
+    fr: 'Automatisation Marketing',
+  },
+  'projects.p2.feat1': {
+    en: 'Automated Post Scheduling',
+    fr: 'Planification automatique des publications',
+  },
+  'projects.p2.feat2': {
+    en: 'Lead Capture & Scoring',
+    fr: 'Capture et scoring des leads',
+  },
+  'projects.p2.feat3': {
+    en: 'CRM Integration',
+    fr: 'Intégration CRM',
+  },
+  'projects.p2.feat4': {
+    en: 'Analytics Dashboard',
+    fr: 'Tableau de bord analytique',
+  },
+  'projects.p2.result1': {
+    en: '300% increase in leads',
+    fr: '300% d\'augmentation des leads',
+  },
+  'projects.p2.result2': {
+    en: '80% time savings',
+    fr: '80% de gain de temps',
+  },
+  'projects.p2.result3': {
+    en: '50+ companies using',
+    fr: '50+ entreprises utilisatrices',
+  },
+
+  // Project 3
+  'projects.p3.title': {
+    en: 'VAPI Cold Calling System',
+    fr: 'Système d\'Appels à Froid VAPI',
+  },
+  'projects.p3.desc': {
+    en: 'Revolutionary AI-powered cold calling system using VAPI and Telnyx for human-like conversations and automated lead qualification.',
+    fr: 'Système d\'appels à froid révolutionnaire utilisant VAPI et Telnyx pour des conversations naturelles et la qualification automatisée des leads.',
+  },
+  'projects.p3.category': {
+    en: 'Voice AI',
+    fr: 'IA Vocale',
+  },
+  'projects.p3.feat1': {
+    en: 'Human-like Conversations',
+    fr: 'Conversations naturelles',
+  },
+  'projects.p3.feat2': {
+    en: 'Lead Qualification',
+    fr: 'Qualification des leads',
+  },
+  'projects.p3.feat3': {
+    en: 'CRM Integration',
+    fr: 'Intégration CRM',
+  },
+  'projects.p3.feat4': {
+    en: 'Call Analytics',
+    fr: 'Analyse des appels',
+  },
+  'projects.p3.result1': {
+    en: '85% conversation completion',
+    fr: '85% de taux de complétion des conversations',
+  },
+  'projects.p3.result2': {
+    en: '45% lead qualification rate',
+    fr: '45% de taux de qualification des leads',
+  },
+  'projects.p3.result3': {
+    en: '200+ calls per day',
+    fr: '200+ appels par jour',
+  },
+
+  // Project 4
+  'projects.p4.title': {
+    en: 'Enterprise Workflow Automation',
+    fr: 'Automatisation Workflow Entreprise',
+  },
+  'projects.p4.desc': {
+    en: 'Complete business process automation suite integrating multiple tools and APIs for seamless operations.',
+    fr: 'Suite complète d\'automatisation des processus métier intégrant plusieurs outils et APIs pour des opérations fluides.',
+  },
+  'projects.p4.category': {
+    en: 'Workflow Automation',
+    fr: 'Automatisation Workflow',
+  },
+  'projects.p4.feat1': {
+    en: 'Multi-platform Integration',
+    fr: 'Intégration multi-plateforme',
+  },
+  'projects.p4.feat2': {
+    en: 'Custom Workflows',
+    fr: 'Workflows personnalisés',
+  },
+  'projects.p4.feat3': {
+    en: 'Real-time Monitoring',
+    fr: 'Surveillance en temps réel',
+  },
+  'projects.p4.feat4': {
+    en: 'Scalable Architecture',
+    fr: 'Architecture évolutive',
+  },
+  'projects.p4.result1': {
+    en: '70% process efficiency gain',
+    fr: '70% de gain d\'efficacité des processus',
+  },
+  'projects.p4.result2': {
+    en: '90% error reduction',
+    fr: '90% de réduction des erreurs',
+  },
+  'projects.p4.result3': {
+    en: '25+ integrated systems',
+    fr: '25+ systèmes intégrés',
+  },
+
+  // Project 5
+  'projects.p5.title': {
+    en: 'E-commerce AI Chatbot',
+    fr: 'Chatbot IA E-commerce',
+  },
+  'projects.p5.desc': {
+    en: 'Intelligent customer service chatbot for e-commerce platforms with product recommendations and order management.',
+    fr: 'Chatbot de service client intelligent pour les plateformes e-commerce avec recommandations produits et gestion des commandes.',
+  },
+  'projects.p5.category': {
+    en: 'AI Assistant',
+    fr: 'Assistant IA',
+  },
+  'projects.p5.feat1': {
+    en: 'Product Recommendations',
+    fr: 'Recommandations produits',
+  },
+  'projects.p5.feat2': {
+    en: 'Order Tracking',
+    fr: 'Suivi des commandes',
+  },
+  'projects.p5.feat3': {
+    en: '24/7 Support',
+    fr: 'Support 24/7',
+  },
+  'projects.p5.feat4': {
+    en: 'Multi-language',
+    fr: 'Multilingue',
+  },
+  'projects.p5.result1': {
+    en: '40% reduction in support tickets',
+    fr: '40% de réduction des tickets support',
+  },
+  'projects.p5.result2': {
+    en: '25% increase in sales',
+    fr: '25% d\'augmentation des ventes',
+  },
+  'projects.p5.result3': {
+    en: '95% customer satisfaction',
+    fr: '95% de satisfaction client',
+  },
+
+  // Project 6
+  'projects.p6.title': {
+    en: 'Email Marketing Automation Platform',
+    fr: 'Plateforme d\'Automatisation Email Marketing',
+  },
+  'projects.p6.desc': {
+    en: 'Comprehensive email marketing automation with AI-powered personalization and advanced analytics.',
+    fr: 'Automatisation email marketing complète avec personnalisation par IA et analyses avancées.',
+  },
+  'projects.p6.category': {
+    en: 'Marketing Automation',
+    fr: 'Automatisation Marketing',
+  },
+  'projects.p6.feat1': {
+    en: 'AI Personalization',
+    fr: 'Personnalisation IA',
+  },
+  'projects.p6.feat2': {
+    en: 'A/B Testing',
+    fr: 'Tests A/B',
+  },
+  'projects.p6.feat3': {
+    en: 'Advanced Analytics',
+    fr: 'Analyses avancées',
+  },
+  'projects.p6.feat4': {
+    en: 'Automated Sequences',
+    fr: 'Séquences automatisées',
+  },
+  'projects.p6.result1': {
+    en: '55% open rate improvement',
+    fr: '55% d\'amélioration du taux d\'ouverture',
+  },
+  'projects.p6.result2': {
+    en: '35% conversion increase',
+    fr: '35% d\'augmentation des conversions',
+  },
+  'projects.p6.result3': {
+    en: '100+ campaigns managed',
+    fr: '100+ campagnes gérées',
+  },
+
+  // Blog Posts
+  'blog.author': {
+    en: 'Stepup AI Team',
+    fr: 'Équipe Stepup AI',
+  },
+  'blog.p1.title': {
+    en: 'The Future of AI Automation in Business',
+    fr: 'L\'Avenir de l\'Automatisation IA en Entreprise',
+  },
+  'blog.p1.excerpt': {
+    en: 'Discover how AI automation is revolutionizing business processes and what it means for the future of work.',
+    fr: 'Découvrez comment l\'automatisation IA révolutionne les processus métier et ce que cela signifie pour l\'avenir du travail.',
+  },
+  'blog.p1.readtime': {
+    en: '8 min read',
+    fr: '8 min de lecture',
+  },
+  'blog.p2.title': {
+    en: 'Building Intelligent Chatbots with Modern AI',
+    fr: 'Construire des Chatbots Intelligents avec l\'IA Moderne',
+  },
+  'blog.p2.excerpt': {
+    en: 'Learn the best practices for creating conversational AI that truly understands and helps your customers.',
+    fr: 'Apprenez les meilleures pratiques pour créer une IA conversationnelle qui comprend vraiment et aide vos clients.',
+  },
+  'blog.p2.readtime': {
+    en: '6 min read',
+    fr: '6 min de lecture',
+  },
+  'blog.p3.title': {
+    en: 'N8N vs Make.com: Which Automation Tool is Right for You?',
+    fr: 'N8N vs Make.com : Quel Outil d\'Automatisation Vous Convient ?',
+  },
+  'blog.p3.excerpt': {
+    en: 'A comprehensive comparison of popular no-code automation platforms to help you make the right choice.',
+    fr: 'Une comparaison complète des plateformes d\'automatisation no-code populaires pour vous aider à faire le bon choix.',
+  },
+  'blog.p3.readtime': {
+    en: '10 min read',
+    fr: '10 min de lecture',
+  },
+  'blog.p4.title': {
+    en: 'Implementing VAPI for Voice AI Solutions',
+    fr: 'Implémenter VAPI pour des Solutions d\'IA Vocale',
+  },
+  'blog.p4.excerpt': {
+    en: 'Step-by-step guide to integrating voice AI capabilities into your business applications using VAPI.',
+    fr: 'Guide étape par étape pour intégrer les capacités d\'IA vocale dans vos applications métier avec VAPI.',
+  },
+  'blog.p4.readtime': {
+    en: '12 min read',
+    fr: '12 min de lecture',
+  },
+
+  // Privacy Policy
+  'privacy.title1': {
+    en: 'Privacy',
+    fr: 'Politique de',
+  },
+  'privacy.title2': {
+    en: 'Policy',
+    fr: 'Confidentialité',
+  },
+  'privacy.intro': {
+    en: 'Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.',
+    fr: 'Votre vie privée est importante pour nous. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles.',
+  },
+  'privacy.date': {
+    en: 'Last updated: January 15, 2024',
+    fr: 'Dernière mise à jour : 15 janvier 2024',
+  },
+  'privacy.commitment_title': {
+    en: 'Our Commitment to Privacy',
+    fr: 'Notre Engagement envers la Confidentialité',
+  },
+  'privacy.commitment_p1': {
+    en: 'At Stepup AI, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.',
+    fr: 'Chez Stepup AI, nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos informations personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou utilisez nos services.',
+  },
+  'privacy.commitment_p2': {
+    en: 'By using our website or services, you agree to the collection and use of information in accordance with this policy. We will not use or share your information with anyone except as described in this Privacy Policy.',
+    fr: 'En utilisant notre site web ou nos services, vous acceptez la collecte et l\'utilisation des informations conformément à cette politique. Nous n\'utiliserons ni ne partagerons vos informations avec quiconque, sauf comme décrit dans cette politique de confidentialité.',
+  },
+  'privacy.s1.title': {
+    en: 'Information We Collect',
+    fr: 'Informations que Nous Collectons',
+  },
+  'privacy.s1.c1': {
+    en: 'Personal information you provide when contacting us (name, email, phone number)',
+    fr: 'Informations personnelles que vous fournissez en nous contactant (nom, email, numéro de téléphone)',
+  },
+  'privacy.s1.c2': {
+    en: 'Technical information about your device and browser when visiting our website',
+    fr: 'Informations techniques sur votre appareil et navigateur lors de votre visite sur notre site',
+  },
+  'privacy.s1.c3': {
+    en: 'Usage data about how you interact with our services',
+    fr: 'Données d\'utilisation sur la façon dont vous interagissez avec nos services',
+  },
+  'privacy.s1.c4': {
+    en: 'Communication records when you contact our support team',
+    fr: 'Enregistrements de communication lorsque vous contactez notre équipe support',
+  },
+  'privacy.s2.title': {
+    en: 'How We Use Your Information',
+    fr: 'Comment Nous Utilisons Vos Informations',
+  },
+  'privacy.s2.c1': {
+    en: 'To provide and improve our AI automation services',
+    fr: 'Pour fournir et améliorer nos services d\'automatisation IA',
+  },
+  'privacy.s2.c2': {
+    en: 'To communicate with you about your projects and inquiries',
+    fr: 'Pour communiquer avec vous concernant vos projets et demandes',
+  },
+  'privacy.s2.c3': {
+    en: 'To send you relevant updates about our services (with your consent)',
+    fr: 'Pour vous envoyer des mises à jour pertinentes sur nos services (avec votre consentement)',
+  },
+  'privacy.s2.c4': {
+    en: 'To analyze website usage and improve user experience',
+    fr: 'Pour analyser l\'utilisation du site et améliorer l\'expérience utilisateur',
+  },
+  'privacy.s2.c5': {
+    en: 'To comply with legal obligations and protect our rights',
+    fr: 'Pour respecter les obligations légales et protéger nos droits',
+  },
+  'privacy.s3.title': {
+    en: 'Data Protection & Security',
+    fr: 'Protection et Sécurité des Données',
+  },
+  'privacy.s3.c1': {
+    en: 'We implement industry-standard security measures to protect your data',
+    fr: 'Nous mettons en œuvre des mesures de sécurité aux normes de l\'industrie pour protéger vos données',
+  },
+  'privacy.s3.c2': {
+    en: 'All data transmission is encrypted using SSL/TLS protocols',
+    fr: 'Toutes les transmissions de données sont chiffrées via les protocoles SSL/TLS',
+  },
+  'privacy.s3.c3': {
+    en: 'Access to personal information is restricted to authorized personnel only',
+    fr: 'L\'accès aux informations personnelles est limité au personnel autorisé uniquement',
+  },
+  'privacy.s3.c4': {
+    en: 'We regularly audit our security practices and update them as needed',
+    fr: 'Nous auditons régulièrement nos pratiques de sécurité et les mettons à jour si nécessaire',
+  },
+  'privacy.s3.c5': {
+    en: 'We do not sell, rent, or share your personal information with third parties',
+    fr: 'Nous ne vendons, ne louons ni ne partageons vos informations personnelles avec des tiers',
+  },
+  'privacy.s4.title': {
+    en: 'Your Rights',
+    fr: 'Vos Droits',
+  },
+  'privacy.s4.c1': {
+    en: 'Right to access your personal information we hold',
+    fr: 'Droit d\'accéder à vos informations personnelles que nous détenons',
+  },
+  'privacy.s4.c2': {
+    en: 'Right to correct or update your information',
+    fr: 'Droit de corriger ou mettre à jour vos informations',
+  },
+  'privacy.s4.c3': {
+    en: 'Right to delete your personal information (subject to legal requirements)',
+    fr: 'Droit de supprimer vos informations personnelles (sous réserve des exigences légales)',
+  },
+  'privacy.s4.c4': {
+    en: 'Right to restrict processing of your information',
+    fr: 'Droit de limiter le traitement de vos informations',
+  },
+  'privacy.s4.c5': {
+    en: 'Right to data portability where technically feasible',
+    fr: 'Droit à la portabilité des données lorsque techniquement possible',
+  },
+  'privacy.s4.c6': {
+    en: 'Right to withdraw consent for marketing communications',
+    fr: 'Droit de retirer le consentement pour les communications marketing',
+  },
+  'privacy.cookies_title': {
+    en: 'Cookies and Tracking',
+    fr: 'Cookies et Suivi',
+  },
+  'privacy.cookies_desc': {
+    en: 'We use cookies and similar tracking technologies to enhance your browsing experience and analyze website traffic. Cookies are small data files stored on your device that help us remember your preferences and improve our services.',
+    fr: 'Nous utilisons des cookies et des technologies de suivi similaires pour améliorer votre expérience de navigation et analyser le trafic du site. Les cookies sont de petits fichiers de données stockés sur votre appareil qui nous aident à mémoriser vos préférences et à améliorer nos services.',
+  },
+  'privacy.essential_title': {
+    en: 'Essential Cookies',
+    fr: 'Cookies Essentiels',
+  },
+  'privacy.essential_desc': {
+    en: 'Required for basic website functionality and cannot be disabled.',
+    fr: 'Nécessaires au fonctionnement de base du site et ne peuvent pas être désactivés.',
+  },
+  'privacy.analytics_title': {
+    en: 'Analytics Cookies',
+    fr: 'Cookies Analytiques',
+  },
+  'privacy.analytics_desc': {
+    en: 'Help us understand how visitors interact with our website.',
+    fr: 'Nous aident à comprendre comment les visiteurs interagissent avec notre site.',
+  },
+  'privacy.third_party_title': {
+    en: 'Third-Party Services',
+    fr: 'Services Tiers',
+  },
+  'privacy.third_party_desc': {
+    en: 'We may use third-party services to provide and improve our services. These services may collect information sent by your browser as part of a web page request, such as cookies or your IP address.',
+    fr: 'Nous pouvons utiliser des services tiers pour fournir et améliorer nos services. Ces services peuvent collecter des informations envoyées par votre navigateur dans le cadre d\'une requête web, telles que les cookies ou votre adresse IP.',
+  },
+  'privacy.tp1': {
+    en: 'Google Analytics for website analytics',
+    fr: 'Google Analytics pour l\'analyse du site web',
+  },
+  'privacy.tp2': {
+    en: 'Email service providers for communication',
+    fr: 'Fournisseurs de services email pour la communication',
+  },
+  'privacy.tp3': {
+    en: 'Cloud hosting services for data storage',
+    fr: 'Services d\'hébergement cloud pour le stockage des données',
+  },
+  'privacy.questions_title': {
+    en: 'Questions About This Policy?',
+    fr: 'Questions sur Cette Politique ?',
+  },
+  'privacy.questions_desc': {
+    en: 'If you have any questions about this Privacy Policy or our data practices, please don\'t hesitate to contact us.',
+    fr: 'Si vous avez des questions sur cette politique de confidentialité ou nos pratiques en matière de données, n\'hésitez pas à nous contacter.',
+  },
+
+  // Terms of Service
+  'terms.title1': {
+    en: 'Terms of',
+    fr: 'Conditions',
+  },
+  'terms.title2': {
+    en: 'Service',
+    fr: 'de Service',
+  },
+  'terms.intro': {
+    en: 'These terms govern your use of our AI automation services and website. Please read them carefully.',
+    fr: 'Ces conditions régissent votre utilisation de nos services d\'automatisation IA et de notre site web. Veuillez les lire attentivement.',
+  },
+  'terms.date': {
+    en: 'Last updated: January 15, 2024',
+    fr: 'Dernière mise à jour : 15 janvier 2024',
+  },
+  'terms.overview_title': {
+    en: 'Agreement Overview',
+    fr: 'Aperçu de l\'Accord',
+  },
+  'terms.overview_p1': {
+    en: 'These Terms of Service ("Terms") constitute a legally binding agreement between you and Stepup AI regarding your use of our website, services, and any related applications or tools we provide.',
+    fr: 'Ces Conditions de Service (« Conditions ») constituent un accord juridiquement contraignant entre vous et Stepup AI concernant votre utilisation de notre site web, de nos services et de toute application ou outil connexe que nous fournissons.',
+  },
+  'terms.overview_p2': {
+    en: 'By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you are using our services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.',
+    fr: 'En utilisant nos services, vous reconnaissez avoir lu, compris et accepté d\'être lié par ces Conditions. Si vous utilisez nos services au nom d\'une organisation, vous déclarez avoir l\'autorité pour lier cette organisation à ces Conditions.',
+  },
+  'terms.s1.title': {
+    en: 'Acceptance of Terms',
+    fr: 'Acceptation des Conditions',
+  },
+  'terms.s1.c1': {
+    en: 'By accessing and using our website and services, you accept and agree to be bound by these Terms of Service',
+    fr: 'En accédant et utilisant notre site web et nos services, vous acceptez d\'être lié par ces Conditions de Service',
+  },
+  'terms.s1.c2': {
+    en: 'If you do not agree to these terms, you may not access or use our services',
+    fr: 'Si vous n\'acceptez pas ces conditions, vous ne pouvez pas accéder ni utiliser nos services',
+  },
+  'terms.s1.c3': {
+    en: 'We reserve the right to modify these terms at any time with notice to users',
+    fr: 'Nous nous réservons le droit de modifier ces conditions à tout moment avec notification aux utilisateurs',
+  },
+  'terms.s1.c4': {
+    en: 'Continued use of our services after changes constitutes acceptance of new terms',
+    fr: 'L\'utilisation continue de nos services après les modifications constitue l\'acceptation des nouvelles conditions',
+  },
+  'terms.s2.title': {
+    en: 'Services Description',
+    fr: 'Description des Services',
+  },
+  'terms.s2.c1': {
+    en: 'Stepup AI provides AI automation services including workflow automation, chatbot development, and system integration',
+    fr: 'Stepup AI fournit des services d\'automatisation IA incluant l\'automatisation des workflows, le développement de chatbots et l\'intégration de systèmes',
+  },
+  'terms.s2.c2': {
+    en: 'We offer consulting, development, implementation, and support services',
+    fr: 'Nous proposons des services de conseil, développement, mise en œuvre et support',
+  },
+  'terms.s2.c3': {
+    en: 'Service specifications and deliverables are defined in individual project agreements',
+    fr: 'Les spécifications et livrables des services sont définis dans les accords de projet individuels',
+  },
+  'terms.s2.c4': {
+    en: 'We reserve the right to modify or discontinue services with reasonable notice',
+    fr: 'Nous nous réservons le droit de modifier ou d\'interrompre les services avec un préavis raisonnable',
+  },
+  'terms.s3.title': {
+    en: 'User Responsibilities',
+    fr: 'Responsabilités de l\'Utilisateur',
+  },
+  'terms.s3.c1': {
+    en: 'You must provide accurate and complete information when using our services',
+    fr: 'Vous devez fournir des informations exactes et complètes lors de l\'utilisation de nos services',
+  },
+  'terms.s3.c2': {
+    en: 'You are responsible for maintaining the confidentiality of your account credentials',
+    fr: 'Vous êtes responsable du maintien de la confidentialité de vos identifiants de compte',
+  },
+  'terms.s3.c3': {
+    en: 'You agree not to use our services for any unlawful or prohibited activities',
+    fr: 'Vous acceptez de ne pas utiliser nos services pour des activités illégales ou interdites',
+  },
+  'terms.s3.c4': {
+    en: 'You must comply with all applicable laws and regulations when using our services',
+    fr: 'Vous devez respecter toutes les lois et réglementations applicables lors de l\'utilisation de nos services',
+  },
+  'terms.s3.c5': {
+    en: 'You are responsible for any content you provide or generate using our services',
+    fr: 'Vous êtes responsable de tout contenu que vous fournissez ou générez en utilisant nos services',
+  },
+  'terms.s4.title': {
+    en: 'Limitations and Disclaimers',
+    fr: 'Limitations et Avertissements',
+  },
+  'terms.s4.c1': {
+    en: 'Our services are provided "as is" without warranties of any kind',
+    fr: 'Nos services sont fournis « en l\'état » sans garantie d\'aucune sorte',
+  },
+  'terms.s4.c2': {
+    en: 'We do not guarantee uninterrupted or error-free service operation',
+    fr: 'Nous ne garantissons pas un fonctionnement ininterrompu ou sans erreur des services',
+  },
+  'terms.s4.c3': {
+    en: 'We are not liable for indirect, incidental, or consequential damages',
+    fr: 'Nous ne sommes pas responsables des dommages indirects, accessoires ou consécutifs',
+  },
+  'terms.s4.c4': {
+    en: 'Our total liability is limited to the amount paid for services in the preceding 12 months',
+    fr: 'Notre responsabilité totale est limitée au montant payé pour les services au cours des 12 mois précédents',
+  },
+  'terms.s4.c5': {
+    en: 'Some jurisdictions do not allow limitation of liability, so these limits may not apply to you',
+    fr: 'Certaines juridictions n\'autorisent pas la limitation de responsabilité, ces limites peuvent donc ne pas s\'appliquer à vous',
+  },
+  'terms.add_title': {
+    en: 'Additional Terms',
+    fr: 'Conditions Supplémentaires',
+  },
+  'terms.a1.title': {
+    en: 'Intellectual Property',
+    fr: 'Propriété Intellectuelle',
+  },
+  'terms.a1.content': {
+    en: 'All intellectual property rights in our services, including software, documentation, and methodologies, remain our property. You receive a limited license to use our services as specified in your agreement.',
+    fr: 'Tous les droits de propriété intellectuelle sur nos services, y compris les logiciels, la documentation et les méthodologies, restent notre propriété. Vous recevez une licence limitée pour utiliser nos services comme spécifié dans votre accord.',
+  },
+  'terms.a2.title': {
+    en: 'Confidentiality',
+    fr: 'Confidentialité',
+  },
+  'terms.a2.content': {
+    en: 'We maintain strict confidentiality regarding your business information and data. Both parties agree to protect confidential information disclosed during the course of our business relationship.',
+    fr: 'Nous maintenons une stricte confidentialité concernant vos informations et données commerciales. Les deux parties s\'engagent à protéger les informations confidentielles divulguées au cours de notre relation commerciale.',
+  },
+  'terms.a3.title': {
+    en: 'Data Protection',
+    fr: 'Protection des Données',
+  },
+  'terms.a3.content': {
+    en: 'We process your data in accordance with our Privacy Policy and applicable data protection laws. You retain ownership of your data, and we implement appropriate security measures to protect it.',
+    fr: 'Nous traitons vos données conformément à notre politique de confidentialité et aux lois applicables en matière de protection des données. Vous conservez la propriété de vos données et nous mettons en œuvre des mesures de sécurité appropriées pour les protéger.',
+  },
+  'terms.a4.title': {
+    en: 'Payment Terms',
+    fr: 'Conditions de Paiement',
+  },
+  'terms.a4.content': {
+    en: 'Payment terms are specified in individual project agreements. Generally, payments are due within 30 days of invoice date. Late payments may incur additional charges as permitted by law.',
+    fr: 'Les conditions de paiement sont spécifiées dans les accords de projet individuels. En général, les paiements sont dus dans les 30 jours suivant la date de facturation. Les retards de paiement peuvent entraîner des frais supplémentaires conformément à la loi.',
+  },
+  'terms.a5.title': {
+    en: 'Termination',
+    fr: 'Résiliation',
+  },
+  'terms.a5.content': {
+    en: 'Either party may terminate services with appropriate notice as specified in the service agreement. Upon termination, you retain access to your data, and we will assist with data export as needed.',
+    fr: 'Chaque partie peut résilier les services avec un préavis approprié tel que spécifié dans l\'accord de service. À la résiliation, vous conservez l\'accès à vos données et nous vous aiderons pour l\'exportation des données si nécessaire.',
+  },
+  'terms.a6.title': {
+    en: 'Governing Law',
+    fr: 'Droit Applicable',
+  },
+  'terms.a6.content': {
+    en: 'These terms are governed by the laws of France. Any disputes will be resolved through the competent courts of Paris, France, unless otherwise agreed.',
+    fr: 'Ces conditions sont régies par le droit français. Tout litige sera résolu par les tribunaux compétents de Paris, France, sauf accord contraire.',
+  },
+  'terms.sla_title': {
+    en: 'Service Level Agreement',
+    fr: 'Accord de Niveau de Service',
+  },
+  'terms.response_title': {
+    en: 'Response Times',
+    fr: 'Temps de Réponse',
+  },
+  'terms.response1': {
+    en: 'Critical issues: 4 hours',
+    fr: 'Problèmes critiques : 4 heures',
+  },
+  'terms.response2': {
+    en: 'High priority: 24 hours',
+    fr: 'Haute priorité : 24 heures',
+  },
+  'terms.response3': {
+    en: 'Normal priority: 48 hours',
+    fr: 'Priorité normale : 48 heures',
+  },
+  'terms.availability_title': {
+    en: 'Availability',
+    fr: 'Disponibilité',
+  },
+  'terms.availability1': {
+    en: 'Target uptime: 99.5%',
+    fr: 'Temps de disponibilité cible : 99,5%',
+  },
+  'terms.availability2': {
+    en: 'Planned maintenance windows',
+    fr: 'Fenêtres de maintenance planifiées',
+  },
+  'terms.availability3': {
+    en: 'Status page notifications',
+    fr: 'Notifications de la page de statut',
+  },
+  'terms.dispute_title': {
+    en: 'Dispute Resolution',
+    fr: 'Résolution des Litiges',
+  },
+  'terms.dispute_desc': {
+    en: 'We are committed to resolving any disputes amicably. If you have concerns about our services:',
+    fr: 'Nous nous engageons à résoudre tout litige à l\'amiable. Si vous avez des préoccupations concernant nos services :',
+  },
+  'terms.d1': {
+    en: 'Contact our support team to discuss the issue',
+    fr: 'Contactez notre équipe support pour discuter du problème',
+  },
+  'terms.d2': {
+    en: 'We will work with you to find a mutually acceptable solution',
+    fr: 'Nous travaillerons avec vous pour trouver une solution mutuellement acceptable',
+  },
+  'terms.d3': {
+    en: 'If needed, disputes will be resolved through binding arbitration',
+    fr: 'Si nécessaire, les litiges seront résolus par arbitrage contraignant',
+  },
+  'terms.questions_title': {
+    en: 'Questions About These Terms?',
+    fr: 'Questions sur Ces Conditions ?',
+  },
+  'terms.questions_desc': {
+    en: 'If you have any questions about these Terms of Service or need clarification on any provisions, please contact us.',
+    fr: 'Si vous avez des questions sur ces Conditions de Service ou avez besoin de clarifications sur certaines dispositions, veuillez nous contacter.',
+  },
+
+  // Footer
+  'footer.description': {
+    en: 'Transforming businesses with intelligent AI automation solutions.',
+    fr: 'Transformer les entreprises avec des solutions d\'automatisation IA intelligentes.',
+  },
+  'footer.services_title': {
+    en: 'Services',
+    fr: 'Services',
+  },
+  'footer.service1': {
+    en: 'AI Automation',
+    fr: 'Automatisation IA',
+  },
+  'footer.service2': {
+    en: 'AI Calling',
+    fr: 'Appels IA',
+  },
+  'footer.service3': {
+    en: 'AI Email Marketing',
+    fr: 'Email Marketing IA',
+  },
+  'footer.service4': {
+    en: 'Web Development',
+    fr: 'Développement Web',
+  },
+  'footer.idf_title': {
+    en: 'Île-de-France',
+    fr: 'Île-de-France',
+  },
+  'footer.contact_title': {
+    en: 'Contact',
+    fr: 'Contact',
+  },
+  'footer.contact_us': {
+    en: 'Contact Us',
+    fr: 'Nous Contacter',
+  },
+  'footer.about_us': {
+    en: 'About Us',
+    fr: 'À Propos',
+  },
+  'footer.copyright': {
+    en: '© 2025 Stepup AI. All rights reserved.',
+    fr: '© 2025 Stepup AI. Tous droits réservés.',
+  },
+  'footer.privacy': {
+    en: 'Privacy Policy',
+    fr: 'Politique de Confidentialité',
+  },
+  'footer.terms': {
+    en: 'Terms of Service',
+    fr: 'Conditions d\'Utilisation',
+  },
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

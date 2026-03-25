@@ -6,89 +6,89 @@ import SEO from '../components/SEO';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ProjectsPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const { t } = useLanguage();
 
   const projects = [
     {
       id: 1,
-      title: 'School AI Administration Assistant',
-      description: 'Comprehensive AI assistant for educational institutions managing student data, scheduling, and administrative tasks with natural language processing.',
+      title: t('projects.p1.title'),
+      description: t('projects.p1.desc'),
       image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg',
-      category: 'AI Assistant',
+      category: t('projects.p1.category'),
       technologies: ['OpenAI', 'NLP', 'Database Management', 'React'],
-      features: ['Student Data Management', 'Automated Scheduling', 'Report Generation', 'Multi-language Support'],
-      results: ['60% reduction in admin time', '95% accuracy in data processing', '40+ schools implemented'],
+      features: [t('projects.p1.feat1'), t('projects.p1.feat2'), t('projects.p1.feat3'), t('projects.p1.feat4')],
+      results: [t('projects.p1.result1'), t('projects.p1.result2'), t('projects.p1.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
     },
     {
       id: 2,
-      title: 'LinkedIn Automation System',
-      description: 'Advanced automation system for LinkedIn posting and lead capture built with n8n workflows and Airtable integration.',
+      title: t('projects.p2.title'),
+      description: t('projects.p2.desc'),
       image: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg',
-      category: 'Marketing Automation',
+      category: t('projects.p2.category'),
       technologies: ['n8n', 'LinkedIn API', 'Airtable', 'Webhooks'],
-      features: ['Automated Post Scheduling', 'Lead Capture & Scoring', 'CRM Integration', 'Analytics Dashboard'],
-      results: ['300% increase in leads', '80% time savings', '50+ companies using'],
+      features: [t('projects.p2.feat1'), t('projects.p2.feat2'), t('projects.p2.feat3'), t('projects.p2.feat4')],
+      results: [t('projects.p2.result1'), t('projects.p2.result2'), t('projects.p2.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
     },
     {
       id: 3,
-      title: 'VAPI Cold Calling System',
-      description: 'Revolutionary AI-powered cold calling system using VAPI and Telnyx for human-like conversations and automated lead qualification.',
+      title: t('projects.p3.title'),
+      description: t('projects.p3.desc'),
       image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg',
-      category: 'Voice AI',
+      category: t('projects.p3.category'),
       technologies: ['VAPI', 'Telnyx', 'Airtable', 'n8n'],
-      features: ['Human-like Conversations', 'Lead Qualification', 'CRM Integration', 'Call Analytics'],
-      results: ['85% conversation completion', '45% lead qualification rate', '200+ calls per day'],
+      features: [t('projects.p3.feat1'), t('projects.p3.feat2'), t('projects.p3.feat3'), t('projects.p3.feat4')],
+      results: [t('projects.p3.result1'), t('projects.p3.result2'), t('projects.p3.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
     },
     {
       id: 4,
-      title: 'Enterprise Workflow Automation',
-      description: 'Complete business process automation suite integrating multiple tools and APIs for seamless operations.',
+      title: t('projects.p4.title'),
+      description: t('projects.p4.desc'),
       image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg',
-      category: 'Workflow Automation',
+      category: t('projects.p4.category'),
       technologies: ['Make.com', 'Multiple APIs', 'Webhooks', 'Cloud Integration'],
-      features: ['Multi-platform Integration', 'Custom Workflows', 'Real-time Monitoring', 'Scalable Architecture'],
-      results: ['70% process efficiency gain', '90% error reduction', '25+ integrated systems'],
+      features: [t('projects.p4.feat1'), t('projects.p4.feat2'), t('projects.p4.feat3'), t('projects.p4.feat4')],
+      results: [t('projects.p4.result1'), t('projects.p4.result2'), t('projects.p4.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
     },
     {
       id: 5,
-      title: 'E-commerce AI Chatbot',
-      description: 'Intelligent customer service chatbot for e-commerce platforms with product recommendations and order management.',
+      title: t('projects.p5.title'),
+      description: t('projects.p5.desc'),
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
-      category: 'AI Assistant',
+      category: t('projects.p5.category'),
       technologies: ['Dialogflow', 'React', 'Supabase', 'Stripe API'],
-      features: ['Product Recommendations', 'Order Tracking', '24/7 Support', 'Multi-language'],
-      results: ['40% reduction in support tickets', '25% increase in sales', '95% customer satisfaction'],
+      features: [t('projects.p5.feat1'), t('projects.p5.feat2'), t('projects.p5.feat3'), t('projects.p5.feat4')],
+      results: [t('projects.p5.result1'), t('projects.p5.result2'), t('projects.p5.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
     },
     {
       id: 6,
-      title: 'Email Marketing Automation Platform',
-      description: 'Comprehensive email marketing automation with AI-powered personalization and advanced analytics.',
+      title: t('projects.p6.title'),
+      description: t('projects.p6.desc'),
       image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg',
-      category: 'Marketing Automation',
+      category: t('projects.p6.category'),
       technologies: ['SendGrid', 'React', 'Node.js', 'Machine Learning'],
-      features: ['AI Personalization', 'A/B Testing', 'Advanced Analytics', 'Automated Sequences'],
-      results: ['55% open rate improvement', '35% conversion increase', '100+ campaigns managed'],
+      features: [t('projects.p6.feat1'), t('projects.p6.feat2'), t('projects.p6.feat3'), t('projects.p6.feat4')],
+      results: [t('projects.p6.result1'), t('projects.p6.result2'), t('projects.p6.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
     }
   ];
 
-  const categories = ['All', 'AI Assistant', 'Marketing Automation', 'Voice AI', 'Workflow Automation'];
+  const categories = [t('projects.cat.all'), t('projects.cat.ai_assistant'), t('projects.cat.marketing'), t('projects.cat.voice'), t('projects.cat.workflow')];
 
   const filteredProjects = projects.filter(project => {
-    const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory;
+    const matchesCategory = selectedCategory === '' || selectedCategory === t('projects.cat.all') || project.category === selectedCategory;
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -149,7 +149,7 @@ const ProjectsPage: React.FC = () => {
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                      selectedCategory === category
+                      selectedCategory === category || (selectedCategory === '' && category === t('projects.cat.all'))
                         ? 'bg-indigo-600 text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-indigo-100'
                     }`}

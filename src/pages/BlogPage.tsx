@@ -28,51 +28,51 @@ const BlogPage: React.FC = () => {
     const samplePosts: BlogPost[] = [
       {
         id: '1',
-        title: 'The Future of AI Automation in Business',
-        excerpt: 'Discover how AI automation is revolutionizing business processes and what it means for the future of work.',
+        title: t('blog.p1.title'),
+        excerpt: t('blog.p1.excerpt'),
         content: 'Full content here...',
-        author: 'Stepup AI Team',
+        author: t('blog.author'),
         date: '2024-01-15',
         tags: ['AI', 'Automation', 'Business'],
         featured: true,
-        readTime: '8 min read'
+        readTime: t('blog.p1.readtime')
       },
       {
         id: '2',
-        title: 'Building Intelligent Chatbots with Modern AI',
-        excerpt: 'Learn the best practices for creating conversational AI that truly understands and helps your customers.',
+        title: t('blog.p2.title'),
+        excerpt: t('blog.p2.excerpt'),
         content: 'Full content here...',
-        author: 'Stepup AI Team',
+        author: t('blog.author'),
         date: '2024-01-10',
         tags: ['Chatbots', 'AI', 'Customer Service'],
         featured: false,
-        readTime: '6 min read'
+        readTime: t('blog.p2.readtime')
       },
       {
         id: '3',
-        title: 'N8N vs Make.com: Which Automation Tool is Right for You?',
-        excerpt: 'A comprehensive comparison of popular no-code automation platforms to help you make the right choice.',
+        title: t('blog.p3.title'),
+        excerpt: t('blog.p3.excerpt'),
         content: 'Full content here...',
-        author: 'Stepup AI Team',
+        author: t('blog.author'),
         date: '2024-01-05',
         tags: ['n8n', 'Make.com', 'No-code', 'Comparison'],
         featured: false,
-        readTime: '10 min read'
+        readTime: t('blog.p3.readtime')
       },
       {
         id: '4',
-        title: 'Implementing VAPI for Voice AI Solutions',
-        excerpt: 'Step-by-step guide to integrating voice AI capabilities into your business applications using VAPI.',
+        title: t('blog.p4.title'),
+        excerpt: t('blog.p4.excerpt'),
         content: 'Full content here...',
-        author: 'Stepup AI Team',
+        author: t('blog.author'),
         date: '2024-01-01',
         tags: ['VAPI', 'Voice AI', 'Integration'],
         featured: false,
-        readTime: '12 min read'
+        readTime: t('blog.p4.readtime')
       }
     ];
     setPosts(samplePosts);
-  }, []);
+  }, [t]);
 
   const filteredPosts = posts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

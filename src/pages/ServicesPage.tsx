@@ -12,7 +12,7 @@ const ServicesPage: React.FC = () => {
       icon: Bot,
       title: t('services.item.workflow_title'),
       description: t('services.item.workflow_desc'),
-      features: ['n8n Workflow Design', 'Make.com Integration', 'Zapier Automation', 'Custom API Connections'],
+      features: [t('services.feat.workflow1'), t('services.feat.workflow2'), t('services.feat.workflow3'), t('services.feat.workflow4')],
       technologies: ['n8n', 'Make.com', 'Zapier', 'REST APIs'],
       color: 'from-indigo-500 to-purple-500',
       image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg'
@@ -21,7 +21,7 @@ const ServicesPage: React.FC = () => {
       icon: Phone,
       title: t('services.item.calling_title'),
       description: t('services.item.calling_desc'),
-      features: ['VAPI Voice Integration', 'Telnyx Phone Services', 'Airtable CRM Sync', 'Call Analytics'],
+      features: [t('services.feat.calling1'), t('services.feat.calling2'), t('services.feat.calling3'), t('services.feat.calling4')],
       technologies: ['VAPI', 'Telnyx', 'Airtable', 'n8n'],
       color: 'from-purple-500 to-pink-500',
       image: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg'
@@ -30,7 +30,7 @@ const ServicesPage: React.FC = () => {
       icon: Mail,
       title: t('services.item.email_title'),
       description: t('services.item.email_desc'),
-      features: ['Automated Sequences', 'Lead Scoring', 'Personalization', 'Performance Analytics'],
+      features: [t('services.feat.email1'), t('services.feat.email2'), t('services.feat.email3'), t('services.feat.email4')],
       technologies: ['Mailchimp', 'SendGrid', 'HubSpot', 'Custom APIs'],
       color: 'from-pink-500 to-rose-500',
       image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg'
@@ -39,7 +39,7 @@ const ServicesPage: React.FC = () => {
       icon: Code,
       title: t('services.item.web_title'),
       description: t('services.item.web_desc'),
-      features: ['React Applications', 'Supabase Backend', 'Node.js APIs', 'Responsive Design'],
+      features: [t('services.feat.web1'), t('services.feat.web2'), t('services.feat.web3'), t('services.feat.web4')],
       technologies: ['React', 'Supabase', 'Node.js', 'TypeScript'],
       color: 'from-rose-500 to-orange-500',
       image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg'
@@ -48,7 +48,7 @@ const ServicesPage: React.FC = () => {
       icon: MessageSquare,
       title: t('services.item.chatbot_title'),
       description: t('services.item.chatbot_desc'),
-      features: ['Natural Language Processing', 'Multi-platform Integration', 'Learning Capabilities', 'Analytics Dashboard'],
+      features: [t('services.feat.chatbot1'), t('services.feat.chatbot2'), t('services.feat.chatbot3'), t('services.feat.chatbot4')],
       technologies: ['OpenAI', 'Dialogflow', 'Custom NLP', 'Webhooks'],
       color: 'from-orange-500 to-yellow-500',
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg'
@@ -57,7 +57,7 @@ const ServicesPage: React.FC = () => {
       icon: Zap,
       title: t('services.item.agentic_title'),
       description: t('services.item.agentic_desc'),
-      features: ['Task Automation', 'Decision Making', 'Multi-step Workflows', 'Learning & Adaptation'],
+      features: [t('services.feat.agentic1'), t('services.feat.agentic2'), t('services.feat.agentic3'), t('services.feat.agentic4')],
       technologies: ['LangChain', 'AutoGPT', 'Custom Agents', 'Vector Databases'],
       color: 'from-yellow-500 to-green-500',
       image: 'https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg'

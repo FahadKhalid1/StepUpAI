@@ -2,51 +2,53 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Eye, Lock, Database, Mail, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PrivacyPolicyPage: React.FC = () => {
+  const { t } = useLanguage();
   const sections = [
     {
       icon: Eye,
-      title: 'Information We Collect',
+      title: t('privacy.s1.title'),
       content: [
-        'Personal information you provide when contacting us (name, email, phone number)',
-        'Technical information about your device and browser when visiting our website',
-        'Usage data about how you interact with our services',
-        'Communication records when you contact our support team'
+        t('privacy.s1.c1'),
+        t('privacy.s1.c2'),
+        t('privacy.s1.c3'),
+        t('privacy.s1.c4')
       ]
     },
     {
       icon: Database,
-      title: 'How We Use Your Information',
+      title: t('privacy.s2.title'),
       content: [
-        'To provide and improve our AI automation services',
-        'To communicate with you about your projects and inquiries',
-        'To send you relevant updates about our services (with your consent)',
-        'To analyze website usage and improve user experience',
-        'To comply with legal obligations and protect our rights'
+        t('privacy.s2.c1'),
+        t('privacy.s2.c2'),
+        t('privacy.s2.c3'),
+        t('privacy.s2.c4'),
+        t('privacy.s2.c5')
       ]
     },
     {
       icon: Lock,
-      title: 'Data Protection & Security',
+      title: t('privacy.s3.title'),
       content: [
-        'We implement industry-standard security measures to protect your data',
-        'All data transmission is encrypted using SSL/TLS protocols',
-        'Access to personal information is restricted to authorized personnel only',
-        'We regularly audit our security practices and update them as needed',
-        'We do not sell, rent, or share your personal information with third parties'
+        t('privacy.s3.c1'),
+        t('privacy.s3.c2'),
+        t('privacy.s3.c3'),
+        t('privacy.s3.c4'),
+        t('privacy.s3.c5')
       ]
     },
     {
       icon: Shield,
-      title: 'Your Rights',
+      title: t('privacy.s4.title'),
       content: [
-        'Right to access your personal information we hold',
-        'Right to correct or update your information',
-        'Right to delete your personal information (subject to legal requirements)',
-        'Right to restrict processing of your information',
-        'Right to data portability where technically feasible',
-        'Right to withdraw consent for marketing communications'
+        t('privacy.s4.c1'),
+        t('privacy.s4.c2'),
+        t('privacy.s4.c3'),
+        t('privacy.s4.c4'),
+        t('privacy.s4.c5'),
+        t('privacy.s4.c6')
       ]
     }
   ];
@@ -73,16 +75,16 @@ const PrivacyPolicyPage: React.FC = () => {
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Privacy
+                  {t('privacy.title1')}
                 </span>
                 <br />
-                <span className="text-gray-900">Policy</span>
+                <span className="text-gray-900">{t('privacy.title2')}</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.
+                {t('privacy.intro')}
               </p>
               <div className="text-sm text-gray-500">
-                Last updated: January 15, 2024
+                {t('privacy.date')}
               </div>
             </motion.div>
           </div>
@@ -98,15 +100,12 @@ const PrivacyPolicyPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-12"
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Commitment to Privacy</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('privacy.commitment_title')}</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                At Stepup AI, we are committed to protecting your privacy and ensuring the security of your personal information. 
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our 
-                website or use our services.
+                {t('privacy.commitment_p1')}
               </p>
               <p className="text-gray-600 leading-relaxed">
-                By using our website or services, you agree to the collection and use of information in accordance with this policy. 
-                We will not use or share your information with anyone except as described in this Privacy Policy.
+                {t('privacy.commitment_p2')}
               </p>
             </motion.div>
 
@@ -145,19 +144,18 @@ const PrivacyPolicyPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mt-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Cookies and Tracking</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('privacy.cookies_title')}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We use cookies and similar tracking technologies to enhance your browsing experience and analyze website traffic. 
-                Cookies are small data files stored on your device that help us remember your preferences and improve our services.
+                {t('privacy.cookies_desc')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Essential Cookies</h4>
-                  <p className="text-sm text-gray-600">Required for basic website functionality and cannot be disabled.</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{t('privacy.essential_title')}</h4>
+                  <p className="text-sm text-gray-600">{t('privacy.essential_desc')}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Analytics Cookies</h4>
-                  <p className="text-sm text-gray-600">Help us understand how visitors interact with our website.</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{t('privacy.analytics_title')}</h4>
+                  <p className="text-sm text-gray-600">{t('privacy.analytics_desc')}</p>
                 </div>
               </div>
             </motion.div>
@@ -169,23 +167,22 @@ const PrivacyPolicyPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mt-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Third-Party Services</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('privacy.third_party_title')}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We may use third-party services to provide and improve our services. These services may collect information 
-                sent by your browser as part of a web page request, such as cookies or your IP address.
+                {t('privacy.third_party_desc')}
               </p>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Google Analytics for website analytics</span>
+                  <span className="text-gray-600">{t('privacy.tp1')}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Email service providers for communication</span>
+                  <span className="text-gray-600">{t('privacy.tp2')}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Cloud hosting services for data storage</span>
+                  <span className="text-gray-600">{t('privacy.tp3')}</span>
                 </div>
               </div>
             </motion.div>
@@ -197,9 +194,9 @@ const PrivacyPolicyPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-3xl p-8 shadow-lg mt-8"
             >
-              <h3 className="text-2xl font-bold mb-6">Questions About This Policy?</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('privacy.questions_title')}</h3>
               <p className="mb-6 opacity-90">
-                If you have any questions about this Privacy Policy or our data practices, please don't hesitate to contact us.
+                {t('privacy.questions_desc')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-center">
