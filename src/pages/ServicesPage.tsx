@@ -98,6 +98,80 @@ const ServicesPage: React.FC = () => {
         description={t('seo.services.description')}
         keywords={t('seo.services.keywords')}
         canonical="/services"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": t('seo.services.title'),
+          "description": t('seo.services.description'),
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Service",
+                "name": "AI Workflow Automation",
+                "description": "Custom n8n and Make.com workflow automation for business processes",
+                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Service",
+                "name": "AI Cold Calling",
+                "description": "VAPI-powered AI calling systems for sales and outreach",
+                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Service",
+                "name": "AI Email Marketing",
+                "description": "Intelligent email automation and campaign management",
+                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "Service",
+                "name": "Web Development",
+                "description": "Modern React, Supabase, and Node.js web applications",
+                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "Service",
+                "name": "AI Chatbots",
+                "description": "Custom AI chatbots for customer service and engagement",
+                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "Service",
+                "name": "AI Agents",
+                "description": "Autonomous AI agents for complex business task automation",
+                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            }
+          ]
+        }}
       />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pt-20">

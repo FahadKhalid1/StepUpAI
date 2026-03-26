@@ -76,6 +76,35 @@ const AboutPage: React.FC = () => {
         description={t('seo.about.description')}
         keywords={t('seo.about.keywords')}
         canonical="/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": t('seo.about.title'),
+          "description": t('seo.about.description'),
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Stepup AI",
+            "url": "https://step-upai.com",
+            "foundingDate": "2023",
+            "foundingLocation": {
+              "@type": "Place",
+              "name": "Paris, France"
+            },
+            "description": t('seo.about.description'),
+            "knowsAbout": [
+              "Artificial Intelligence",
+              "Workflow Automation",
+              "AI Chatbots",
+              "Web Development",
+              "Email Marketing Automation",
+              "AI Cold Calling Systems"
+            ],
+            "areaServed": {
+              "@type": "Place",
+              "name": "Île-de-France, France"
+            }
+          }
+        }}
       />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pt-20">

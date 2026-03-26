@@ -118,6 +118,55 @@ const HomePage: React.FC = () => {
         description={t('seo.home.description')}
         keywords={t('seo.home.keywords')}
         canonical="/"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Stepup AI",
+            "url": "https://step-upai.com",
+            "description": t('seo.home.description'),
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://step-upai.com/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Stepup AI",
+            "image": "https://step-upai.com/og-image.jpg",
+            "url": "https://step-upai.com",
+            "telephone": "+33698229533",
+            "email": "contact@step-upai.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Paris",
+              "addressRegion": "Île-de-France",
+              "addressCountry": "FR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.8566,
+              "longitude": 2.3522
+            },
+            "areaServed": {
+              "@type": "Place",
+              "name": "Île-de-France, France"
+            },
+            "priceRange": "€€",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "17:00"
+            },
+            "sameAs": [
+              "https://linkedin.com/company/stepup-ai",
+              "https://twitter.com/stepupai"
+            ]
+          }
+        ]}
       />
       <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
   <AnimatedBackground showDots={false} />

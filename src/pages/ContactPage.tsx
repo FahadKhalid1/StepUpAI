@@ -105,6 +105,32 @@ const ContactPage: React.FC = () => {
         description={t('seo.contact.description')}
         keywords={t('seo.contact.keywords')}
         canonical="/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": t('seo.contact.title'),
+          "description": t('seo.contact.description'),
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Stepup AI",
+            "url": "https://step-upai.com",
+            "telephone": "+33698229533",
+            "email": "contact@step-upai.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Paris",
+              "addressRegion": "Île-de-France",
+              "addressCountry": "FR"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+33698229533",
+              "contactType": "customer service",
+              "availableLanguage": ["French", "English"],
+              "areaServed": "FR"
+            }
+          }
+        }}
       />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pt-20">
