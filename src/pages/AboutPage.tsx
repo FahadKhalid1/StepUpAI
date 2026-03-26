@@ -72,8 +72,9 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="About Us - AI Automation Experts | Stepup AI"
-        description="Learn about Stepup AI's mission to transform businesses through intelligent automation. Meet our expert team and discover our journey in AI innovation."
+        title={t('seo.about.title')}
+        description={t('seo.about.description')}
+        keywords={t('seo.about.keywords')}
         canonical="/about"
       />
       

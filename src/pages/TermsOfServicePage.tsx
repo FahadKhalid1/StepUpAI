@@ -81,8 +81,8 @@ const TermsOfServicePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Terms of Service | Stepup AI"
-        description="Read Stepup AI's Terms of Service to understand the terms and conditions for using our AI automation services and website."
+        title={t('seo.terms.title')}
+        description={t('seo.terms.description')}
         canonical="/terms"
       />
       

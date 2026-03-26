@@ -1784,6 +1784,110 @@ const translations: Translations = {
     en: 'Terms of Service',
     fr: 'Conditions d\'Utilisation',
   },
+
+  // SEO Meta Tags - Home
+  'seo.home.title': {
+    en: 'Stepup AI - Transform Your Business with AI Automation | Paris',
+    fr: 'Stepup AI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
+  },
+  'seo.home.description': {
+    en: 'Stepup AI is a Paris-based AI automation agency. We help businesses with workflow automation, AI chatbots, cold calling systems, email marketing, and custom web development.',
+    fr: 'Stepup AI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
+  },
+  'seo.home.keywords': {
+    en: 'AI automation, AI agency Paris, workflow automation, AI chatbots, business automation, n8n, web development',
+    fr: 'automatisation IA, agence IA Paris, automatisation des processus, chatbots IA, automatisation entreprise, n8n, développement web',
+  },
+
+  // SEO Meta Tags - Services
+  'seo.services.title': {
+    en: 'AI Automation Services - Workflow, Chatbots & More | Stepup AI',
+    fr: 'Services d\'Automatisation IA - Workflows, Chatbots & Plus | Stepup AI',
+  },
+  'seo.services.description': {
+    en: 'Comprehensive AI automation services including n8n workflows, AI cold calling, email marketing, web development, chatbots, and custom AI agents for businesses.',
+    fr: 'Services complets d\'automatisation IA : workflows n8n, appels IA, email marketing, développement web, chatbots et agents IA sur mesure pour les entreprises.',
+  },
+  'seo.services.keywords': {
+    en: 'AI services, workflow automation, AI chatbots, cold calling AI, email marketing, web development, AI agents',
+    fr: 'services IA, automatisation workflows, chatbots IA, appels IA, email marketing, développement web, agents IA',
+  },
+
+  // SEO Meta Tags - About
+  'seo.about.title': {
+    en: 'About Us - AI Automation Experts | Stepup AI',
+    fr: 'À Propos - Experts en Automatisation IA | Stepup AI',
+  },
+  'seo.about.description': {
+    en: 'Learn about Stepup AI\'s mission to transform businesses through intelligent automation. Meet our expert team and discover our journey in AI innovation.',
+    fr: 'Découvrez la mission de Stepup AI : transformer les entreprises grâce à l\'automatisation intelligente. Rencontrez notre équipe d\'experts et notre parcours dans l\'innovation IA.',
+  },
+  'seo.about.keywords': {
+    en: 'AI experts, automation team, AI agency, about Stepup AI, AI innovation',
+    fr: 'experts IA, équipe automatisation, agence IA, à propos Stepup AI, innovation IA',
+  },
+
+  // SEO Meta Tags - Contact
+  'seo.contact.title': {
+    en: 'Contact Us - Free AI Consultation | Stepup AI',
+    fr: 'Contactez-Nous - Consultation IA Gratuite | Stepup AI',
+  },
+  'seo.contact.description': {
+    en: 'Ready to transform your business with AI? Contact Stepup AI for a free consultation on automation, chatbots, and intelligent business solutions. Based in Paris.',
+    fr: 'Prêt à transformer votre entreprise avec l\'IA ? Contactez Stepup AI pour une consultation gratuite en automatisation, chatbots et solutions IA. Basé à Paris.',
+  },
+  'seo.contact.keywords': {
+    en: 'contact AI agency, free consultation, AI automation Paris, business automation contact',
+    fr: 'contacter agence IA, consultation gratuite, automatisation IA Paris, contact automatisation entreprise',
+  },
+
+  // SEO Meta Tags - Projects
+  'seo.projects.title': {
+    en: 'AI Automation Projects & Case Studies | Stepup AI',
+    fr: 'Projets d\'Automatisation IA & Études de Cas | Stepup AI',
+  },
+  'seo.projects.description': {
+    en: 'Explore our successful AI automation projects including school administration systems, LinkedIn automation, VAPI cold calling, and enterprise workflows.',
+    fr: 'Découvrez nos projets d\'automatisation IA réussis : systèmes d\'administration scolaire, automatisation LinkedIn, appels VAPI et workflows d\'entreprise.',
+  },
+  'seo.projects.keywords': {
+    en: 'AI projects, case studies, automation portfolio, AI solutions, business automation examples',
+    fr: 'projets IA, études de cas, portfolio automatisation, solutions IA, exemples automatisation entreprise',
+  },
+
+  // SEO Meta Tags - Blog
+  'seo.blog.title': {
+    en: 'Blog - AI Insights and Automation Tips | Stepup AI',
+    fr: 'Blog - Actualités IA et Conseils en Automatisation | Stepup AI',
+  },
+  'seo.blog.description': {
+    en: 'Stay updated with the latest insights on AI automation, chatbots, workflow optimization, and business intelligence from Stepup AI experts.',
+    fr: 'Restez informé des dernières actualités en automatisation IA, chatbots, optimisation de workflows et intelligence artificielle par les experts Stepup AI.',
+  },
+  'seo.blog.keywords': {
+    en: 'AI blog, automation tips, AI insights, chatbot news, workflow optimization, business AI',
+    fr: 'blog IA, conseils automatisation, actualités IA, chatbots, optimisation workflows, IA entreprise',
+  },
+
+  // SEO Meta Tags - Privacy
+  'seo.privacy.title': {
+    en: 'Privacy Policy | Stepup AI',
+    fr: 'Politique de Confidentialité | Stepup AI',
+  },
+  'seo.privacy.description': {
+    en: 'Learn how Stepup AI protects your privacy and handles your personal information. Our commitment to data security and transparency.',
+    fr: 'Découvrez comment Stepup AI protège votre vie privée et traite vos données personnelles. Notre engagement en matière de sécurité et de transparence.',
+  },
+
+  // SEO Meta Tags - Terms
+  'seo.terms.title': {
+    en: 'Terms of Service | Stepup AI',
+    fr: 'Conditions d\'Utilisation | Stepup AI',
+  },
+  'seo.terms.description': {
+    en: 'Read Stepup AI\'s Terms of Service to understand the terms and conditions for using our AI automation services and website.',
+    fr: 'Consultez les Conditions d\'Utilisation de Stepup AI pour comprendre les termes et conditions d\'utilisation de nos services d\'automatisation IA.',
+  },
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

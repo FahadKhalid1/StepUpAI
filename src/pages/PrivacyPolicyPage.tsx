@@ -56,8 +56,8 @@ const PrivacyPolicyPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy | Stepup AI"
-        description="Learn how Stepup AI protects your privacy and handles your personal information. Our commitment to data security and transparency."
+        title={t('seo.privacy.title')}
+        description={t('seo.privacy.description')}
         canonical="/privacy"
       />
       

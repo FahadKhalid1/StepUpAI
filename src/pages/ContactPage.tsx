@@ -101,8 +101,9 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact Us - Get Started with AI Automation | Stepup AI"
-        description="Ready to transform your business with AI? Contact Stepup AI for a free consultation on automation, chatbots, and intelligent business solutions."
+        title={t('seo.contact.title')}
+        description={t('seo.contact.description')}
+        keywords={t('seo.contact.keywords')}
         canonical="/contact"
       />
       

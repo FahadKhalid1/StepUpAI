@@ -113,7 +113,12 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <SEO />
+      <SEO
+        title={t('seo.home.title')}
+        description={t('seo.home.description')}
+        keywords={t('seo.home.keywords')}
+        canonical="/"
+      />
       <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
   <AnimatedBackground showDots={false} />
         

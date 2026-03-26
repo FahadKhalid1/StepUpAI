@@ -94,8 +94,9 @@ const ServicesPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="AI Automation Services - Workflow, Chatbots & More | Stepup AI"
-        description="Comprehensive AI automation services including n8n workflows, VAPI cold calling, email marketing, web development, and custom AI solutions for businesses."
+        title={t('seo.services.title')}
+        description={t('seo.services.description')}
+        keywords={t('seo.services.keywords')}
         canonical="/services"
       />
       

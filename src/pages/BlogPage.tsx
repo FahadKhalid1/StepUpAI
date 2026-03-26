@@ -86,8 +86,9 @@ const BlogPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Blog - AI Insights and Automation Tips | Stepup AI"
-        description="Stay updated with the latest insights on AI automation, chatbots, workflow optimization, and business intelligence from Stepup AI experts."
+        title={t('seo.blog.title')}
+        description={t('seo.blog.description')}
+        keywords={t('seo.blog.keywords')}
         canonical="/blog"
       />
       

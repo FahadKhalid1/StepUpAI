@@ -97,8 +97,9 @@ const ProjectsPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="AI Automation Projects & Case Studies | Stepup AI"
-        description="Explore our successful AI automation projects including school administration systems, LinkedIn automation, VAPI cold calling, and enterprise workflows."
+        title={t('seo.projects.title')}
+        description={t('seo.projects.description')}
+        keywords={t('seo.projects.keywords')}
         canonical="/projects"
       />
       

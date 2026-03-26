@@ -12,9 +12,9 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Stepup AI - Transform Your Business with AI Automation',
-  description = 'Professional AI automation services including n8n workflows, VAPI integration, cold calling systems, email marketing, and custom AI solutions for businesses.',
-  keywords = 'AI automation, n8n, VAPI, cold calling, email marketing, React development, Supabase, Node.js, AI chatbots, business automation',
+  title = 'Stepup AI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
+  description = 'Stepup AI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
+  keywords = 'automatisation IA, agence IA Paris, automatisation des processus, chatbots IA, automatisation entreprise, n8n, développement web',
   ogImage = 'https://step-upai.com/og-image.jpg',
   ogType = 'website',
   canonical,
@@ -67,7 +67,7 @@ const SEO: React.FC<SEOProps> = ({
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer service",
-            "availableLanguage": ["English", "French", "Spanish", "Dutch"]
+            "availableLanguage": ["English", "French"]
           }
         })}
       </script>
