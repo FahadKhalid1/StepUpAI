@@ -38,25 +38,25 @@ const AboutPage: React.FC = () => {
     {
       name: 'Alex Johnson',
       role: t('about.team.role1'),
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
       bio: t('about.team.bio1')
     },
     {
       name: 'Sarah Chen',
       role: t('about.team.role2'),
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg',
+      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400',
       bio: t('about.team.bio2')
     },
     {
       name: 'Marcus Rodriguez',
       role: t('about.team.role3'),
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg',
+      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400',
       bio: t('about.team.bio3')
     },
     {
       name: 'Emma Thompson',
       role: t('about.team.role4'),
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg',
+      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400',
       bio: t('about.team.bio4')
     }
   ];
@@ -147,9 +147,13 @@ const AboutPage: React.FC = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
                 <img
-                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
+                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Team collaboration"
                   className="relative w-full h-96 object-cover rounded-3xl shadow-2xl"
+                  width={800}
+                  height={500}
+                  loading="eager"
+                  decoding="async"
                 />
               </motion.div>
             </div>
@@ -256,6 +260,10 @@ const AboutPage: React.FC = () => {
                     src={member.image}
                     alt={member.name}
                     className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+                    width={400}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{member.name}</h3>
                   <p className="text-indigo-600 text-center font-medium mb-4">{member.role}</p>

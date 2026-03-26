@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
       role: 'CEO',
       content: t('testimonials.1'),
       rating: 5,
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg'
+      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
     {
       name: 'Michael Chen',
@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
       role: 'Operations Director',
       content: t('testimonials.2'),
       rating: 5,
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
     {
       name: 'Emma Rodriguez',
@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
       role: 'Marketing Manager',
       content: t('testimonials.3'),
       rating: 5,
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg'
+      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400'
     }
   ];
 
@@ -242,9 +242,13 @@ const HomePage: React.FC = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
                   <img
-                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg"
+                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="AI Technology and Automation"
                     className="relative w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl"
+                    width={800}
+                    height={500}
+                    loading="eager"
+                    decoding="async"
                   />
                   
                   {/* Floating Cards */}
@@ -441,7 +445,7 @@ const HomePage: React.FC = () => {
                   className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-gray-100 hover:border-indigo-200"
                 >
                   <div className="mb-3 flex items-center justify-center h-12">
-                    <img src={tech.logo} alt={`${tech.name} logo`} className="h-10 object-contain" />
+                    <img src={tech.logo} alt={`${tech.name} logo`} className="h-10 object-contain" loading="lazy" decoding="async" />
                   </div>
                   <div className="text-sm font-semibold text-gray-900">{tech.name}</div>
                 </motion.div>
@@ -489,6 +493,10 @@ const HomePage: React.FC = () => {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover mr-4"
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.name}</div>

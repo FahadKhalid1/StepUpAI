@@ -15,7 +15,7 @@ const ProjectsPage: React.FC = () => {
       id: 1,
       title: t('projects.p1.title'),
       description: t('projects.p1.desc'),
-      image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg',
+      image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: t('projects.p1.category'),
       technologies: ['OpenAI', 'NLP', 'Database Management', 'React'],
       features: [t('projects.p1.feat1'), t('projects.p1.feat2'), t('projects.p1.feat3'), t('projects.p1.feat4')],
@@ -27,7 +27,7 @@ const ProjectsPage: React.FC = () => {
       id: 2,
       title: t('projects.p2.title'),
       description: t('projects.p2.desc'),
-      image: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg',
+      image: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: t('projects.p2.category'),
       technologies: ['n8n', 'LinkedIn API', 'Airtable', 'Webhooks'],
       features: [t('projects.p2.feat1'), t('projects.p2.feat2'), t('projects.p2.feat3'), t('projects.p2.feat4')],
@@ -39,7 +39,7 @@ const ProjectsPage: React.FC = () => {
       id: 3,
       title: t('projects.p3.title'),
       description: t('projects.p3.desc'),
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg',
+      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: t('projects.p3.category'),
       technologies: ['VAPI', 'Telnyx', 'Airtable', 'n8n'],
       features: [t('projects.p3.feat1'), t('projects.p3.feat2'), t('projects.p3.feat3'), t('projects.p3.feat4')],
@@ -51,7 +51,7 @@ const ProjectsPage: React.FC = () => {
       id: 4,
       title: t('projects.p4.title'),
       description: t('projects.p4.desc'),
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg',
+      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: t('projects.p4.category'),
       technologies: ['Make.com', 'Multiple APIs', 'Webhooks', 'Cloud Integration'],
       features: [t('projects.p4.feat1'), t('projects.p4.feat2'), t('projects.p4.feat3'), t('projects.p4.feat4')],
@@ -63,7 +63,7 @@ const ProjectsPage: React.FC = () => {
       id: 5,
       title: t('projects.p5.title'),
       description: t('projects.p5.desc'),
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: t('projects.p5.category'),
       technologies: ['Dialogflow', 'React', 'Supabase', 'Stripe API'],
       features: [t('projects.p5.feat1'), t('projects.p5.feat2'), t('projects.p5.feat3'), t('projects.p5.feat4')],
@@ -75,7 +75,7 @@ const ProjectsPage: React.FC = () => {
       id: 6,
       title: t('projects.p6.title'),
       description: t('projects.p6.desc'),
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg',
+      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: t('projects.p6.category'),
       technologies: ['SendGrid', 'React', 'Node.js', 'Machine Learning'],
       features: [t('projects.p6.feat1'), t('projects.p6.feat2'), t('projects.p6.feat3'), t('projects.p6.feat4')],
@@ -185,6 +185,10 @@ const ProjectsPage: React.FC = () => {
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        width={600}
+                        height={400}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                       <div className="absolute top-4 right-4">
