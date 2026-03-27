@@ -303,22 +303,6 @@ const ContactPage: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Map Placeholder */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg"
-                >
-                  <div className="h-64 bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('contact.location')}</h3>
-                      <p className="text-gray-600">Paris, France</p>
-                      <p className="text-sm text-gray-500 mt-2">{t('contact.map_soon')}</p>
-                    </div>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>

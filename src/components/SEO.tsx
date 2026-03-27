@@ -78,6 +78,7 @@ const SEO: React.FC<SEOProps> = ({
             "addressCountry": "FR"
           },
           "sameAs": [
+            "https://www.instagram.com/step.upparis/",
             "https://linkedin.com/company/stepup-ai",
             "https://twitter.com/stepupai"
           ],
