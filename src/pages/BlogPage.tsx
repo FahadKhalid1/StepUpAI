@@ -90,6 +90,30 @@ const BlogPage: React.FC = () => {
         description={t('seo.blog.description')}
         keywords={t('seo.blog.keywords')}
         canonical="/blog"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": t('seo.blog.title'),
+          "description": t('seo.blog.description'),
+          "url": "https://step-upai.com/blog",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Stepup AI",
+            "url": "https://step-upai.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://step-upai.com/logo.png"
+            }
+          },
+          "blogPost": posts.map(post => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "author": { "@type": "Person", "name": post.author },
+            "datePublished": post.date,
+            "publisher": { "@type": "Organization", "name": "Stepup AI" }
+          }))
+        }}
       />
       
       <div className="min-h-screen bg-gray-50 pt-20">

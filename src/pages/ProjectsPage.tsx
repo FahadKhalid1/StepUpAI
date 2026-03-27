@@ -15,7 +15,7 @@ const ProjectsPage: React.FC = () => {
       id: 1,
       title: t('projects.p1.title'),
       description: t('projects.p1.desc'),
-      image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/images/project-school.jpg',
       category: t('projects.p1.category'),
       technologies: ['OpenAI', 'NLP', 'Database Management', 'React'],
       features: [t('projects.p1.feat1'), t('projects.p1.feat2'), t('projects.p1.feat3'), t('projects.p1.feat4')],
@@ -27,7 +27,7 @@ const ProjectsPage: React.FC = () => {
       id: 2,
       title: t('projects.p2.title'),
       description: t('projects.p2.desc'),
-      image: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/images/service-calling.jpg',
       category: t('projects.p2.category'),
       technologies: ['n8n', 'LinkedIn API', 'Airtable', 'Webhooks'],
       features: [t('projects.p2.feat1'), t('projects.p2.feat2'), t('projects.p2.feat3'), t('projects.p2.feat4')],
@@ -39,7 +39,7 @@ const ProjectsPage: React.FC = () => {
       id: 3,
       title: t('projects.p3.title'),
       description: t('projects.p3.desc'),
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/images/service-email.jpg',
       category: t('projects.p3.category'),
       technologies: ['VAPI', 'Telnyx', 'Airtable', 'n8n'],
       features: [t('projects.p3.feat1'), t('projects.p3.feat2'), t('projects.p3.feat3'), t('projects.p3.feat4')],
@@ -51,7 +51,7 @@ const ProjectsPage: React.FC = () => {
       id: 4,
       title: t('projects.p4.title'),
       description: t('projects.p4.desc'),
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/images/service-automation.jpg',
       category: t('projects.p4.category'),
       technologies: ['Make.com', 'Multiple APIs', 'Webhooks', 'Cloud Integration'],
       features: [t('projects.p4.feat1'), t('projects.p4.feat2'), t('projects.p4.feat3'), t('projects.p4.feat4')],
@@ -63,7 +63,7 @@ const ProjectsPage: React.FC = () => {
       id: 5,
       title: t('projects.p5.title'),
       description: t('projects.p5.desc'),
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/images/service-chatbot.jpg',
       category: t('projects.p5.category'),
       technologies: ['Dialogflow', 'React', 'Supabase', 'Stripe API'],
       features: [t('projects.p5.feat1'), t('projects.p5.feat2'), t('projects.p5.feat3'), t('projects.p5.feat4')],
@@ -75,7 +75,7 @@ const ProjectsPage: React.FC = () => {
       id: 6,
       title: t('projects.p6.title'),
       description: t('projects.p6.desc'),
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/images/service-email.jpg',
       category: t('projects.p6.category'),
       technologies: ['SendGrid', 'React', 'Node.js', 'Machine Learning'],
       features: [t('projects.p6.feat1'), t('projects.p6.feat2'), t('projects.p6.feat3'), t('projects.p6.feat4')],
@@ -101,6 +101,27 @@ const ProjectsPage: React.FC = () => {
         description={t('seo.projects.description')}
         keywords={t('seo.projects.keywords')}
         canonical="/projects"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": t('seo.projects.title'),
+          "description": t('seo.projects.description'),
+          "url": "https://step-upai.com/projects",
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": projects.map((project, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "CreativeWork",
+                "name": project.title,
+                "description": project.description,
+                "image": project.image,
+                "creator": { "@type": "Organization", "name": "Stepup AI" }
+              }
+            }))
+          }
+        }}
       />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pt-20">

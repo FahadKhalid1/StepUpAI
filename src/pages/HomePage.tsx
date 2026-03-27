@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
       role: 'CEO',
       content: t('testimonials.1'),
       rating: 5,
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/images/team-2.jpg'
     },
     {
       name: 'Michael Chen',
@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
       role: 'Operations Director',
       content: t('testimonials.2'),
       rating: 5,
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/images/team-1.jpg'
     },
     {
       name: 'Emma Rodriguez',
@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
       role: 'Marketing Manager',
       content: t('testimonials.3'),
       rating: 5,
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: '/images/team-3.jpg'
     }
   ];
 
@@ -242,7 +242,7 @@ const HomePage: React.FC = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
                   <img
-                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src="/images/service-automation.jpg"
                     alt="AI Technology and Automation"
                     className="relative w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl"
                     width={800}

@@ -15,7 +15,7 @@ const ServicesPage: React.FC = () => {
       features: [t('services.feat.workflow1'), t('services.feat.workflow2'), t('services.feat.workflow3'), t('services.feat.workflow4')],
       technologies: ['n8n', 'Make.com', 'Zapier', 'REST APIs'],
       color: 'from-indigo-500 to-purple-500',
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: '/images/service-automation.jpg'
     },
     {
       icon: Phone,
@@ -24,7 +24,7 @@ const ServicesPage: React.FC = () => {
       features: [t('services.feat.calling1'), t('services.feat.calling2'), t('services.feat.calling3'), t('services.feat.calling4')],
       technologies: ['VAPI', 'Telnyx', 'Airtable', 'n8n'],
       color: 'from-purple-500 to-pink-500',
-      image: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: '/images/service-calling.jpg'
     },
     {
       icon: Mail,
@@ -33,7 +33,7 @@ const ServicesPage: React.FC = () => {
       features: [t('services.feat.email1'), t('services.feat.email2'), t('services.feat.email3'), t('services.feat.email4')],
       technologies: ['Mailchimp', 'SendGrid', 'HubSpot', 'Custom APIs'],
       color: 'from-pink-500 to-rose-500',
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: '/images/service-email.jpg'
     },
     {
       icon: Code,
@@ -42,7 +42,7 @@ const ServicesPage: React.FC = () => {
       features: [t('services.feat.web1'), t('services.feat.web2'), t('services.feat.web3'), t('services.feat.web4')],
       technologies: ['React', 'Supabase', 'Node.js', 'TypeScript'],
       color: 'from-rose-500 to-orange-500',
-      image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: '/images/service-web.jpg'
     },
     {
       icon: MessageSquare,
@@ -51,7 +51,7 @@ const ServicesPage: React.FC = () => {
       features: [t('services.feat.chatbot1'), t('services.feat.chatbot2'), t('services.feat.chatbot3'), t('services.feat.chatbot4')],
       technologies: ['OpenAI', 'Dialogflow', 'Custom NLP', 'Webhooks'],
       color: 'from-orange-500 to-yellow-500',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: '/images/service-chatbot.jpg'
     },
     {
       icon: Zap,
@@ -60,7 +60,7 @@ const ServicesPage: React.FC = () => {
       features: [t('services.feat.agentic1'), t('services.feat.agentic2'), t('services.feat.agentic3'), t('services.feat.agentic4')],
       technologies: ['LangChain', 'AutoGPT', 'Custom Agents', 'Vector Databases'],
       color: 'from-yellow-500 to-green-500',
-      image: 'https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: '/images/service-agents.jpg'
     }
   ];
 
