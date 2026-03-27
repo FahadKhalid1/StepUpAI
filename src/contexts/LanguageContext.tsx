@@ -1271,52 +1271,100 @@ const translations: Translations = {
     fr: 'Équipe Stepup AI',
   },
   'blog.p1.title': {
-    en: 'The Future of AI Automation in Business',
-    fr: 'L\'Avenir de l\'Automatisation IA en Entreprise',
+    en: 'AI Automation for SMEs in Paris: 5 Use Cases That Save 20+ Hours Per Week',
+    fr: 'Automatisation IA pour les PME à Paris : 5 Cas d\'Usage qui Font Gagner 20h par Semaine',
   },
   'blog.p1.excerpt': {
-    en: 'Discover how AI automation is revolutionizing business processes and what it means for the future of work.',
-    fr: 'Découvrez comment l\'automatisation IA révolutionne les processus métier et ce que cela signifie pour l\'avenir du travail.',
+    en: 'Paris-based SMEs are adopting AI workflow automation to eliminate repetitive tasks. From invoice processing to customer follow-ups, discover 5 proven use cases with n8n and Make.com that save businesses over 20 hours weekly and reduce operational costs by up to 40%.',
+    fr: 'Les PME parisiennes adoptent l\'automatisation IA pour supprimer les tâches répétitives. Du traitement des factures au suivi client, découvrez 5 cas d\'usage éprouvés avec n8n et Make.com qui font gagner plus de 20 heures par semaine et réduisent les coûts opérationnels de 40%.',
   },
   'blog.p1.readtime': {
     en: '8 min read',
     fr: '8 min de lecture',
   },
   'blog.p2.title': {
-    en: 'Building Intelligent Chatbots with Modern AI',
-    fr: 'Construire des Chatbots Intelligents avec l\'IA Moderne',
+    en: 'How to Deploy an AI Chatbot for Your Business in 2025',
+    fr: 'Comment Déployer un Chatbot IA pour Votre Entreprise en 2025',
   },
   'blog.p2.excerpt': {
-    en: 'Learn the best practices for creating conversational AI that truly understands and helps your customers.',
-    fr: 'Apprenez les meilleures pratiques pour créer une IA conversationnelle qui comprend vraiment et aide vos clients.',
+    en: 'AI chatbots are no longer optional for competitive businesses. Learn how to deploy a custom chatbot powered by OpenAI that handles customer support 24/7, qualifies leads automatically, and integrates with your existing CRM and tools.',
+    fr: 'Les chatbots IA ne sont plus optionnels pour les entreprises compétitives. Apprenez à déployer un chatbot sur mesure propulsé par OpenAI qui gère le support client 24h/24, qualifie les leads automatiquement et s\'intègre à votre CRM et outils existants.',
   },
   'blog.p2.readtime': {
     en: '6 min read',
     fr: '6 min de lecture',
   },
   'blog.p3.title': {
-    en: 'N8N vs Make.com: Which Automation Tool is Right for You?',
-    fr: 'N8N vs Make.com : Quel Outil d\'Automatisation Vous Convient ?',
+    en: 'N8N vs Make.com: Complete 2025 Comparison for Business Automation',
+    fr: 'N8N vs Make.com : Comparatif Complet 2025 pour l\'Automatisation d\'Entreprise',
   },
   'blog.p3.excerpt': {
-    en: 'A comprehensive comparison of popular no-code automation platforms to help you make the right choice.',
-    fr: 'Une comparaison complète des plateformes d\'automatisation no-code populaires pour vous aider à faire le bon choix.',
+    en: 'Choosing between n8n and Make.com for your automation needs? We compare pricing, features, scalability, and self-hosting options. Based on 50+ projects delivered, we share which tool works best for different business scenarios.',
+    fr: 'Vous hésitez entre n8n et Make.com pour vos besoins d\'automatisation ? Nous comparons les tarifs, fonctionnalités, la scalabilité et les options d\'auto-hébergement. Fort de 50+ projets livrés, nous partageons quel outil convient le mieux selon votre contexte.',
   },
   'blog.p3.readtime': {
     en: '10 min read',
     fr: '10 min de lecture',
   },
   'blog.p4.title': {
-    en: 'Implementing VAPI for Voice AI Solutions',
-    fr: 'Implémenter VAPI pour des Solutions d\'IA Vocale',
+    en: 'AI Cold Calling with VAPI: Automate Your Sales Prospecting',
+    fr: 'Appels IA avec VAPI : Automatisez Votre Prospection Commerciale',
   },
   'blog.p4.excerpt': {
-    en: 'Step-by-step guide to integrating voice AI capabilities into your business applications using VAPI.',
-    fr: 'Guide étape par étape pour intégrer les capacités d\'IA vocale dans vos applications métier avec VAPI.',
+    en: 'VAPI-powered AI calling systems can handle hundreds of outbound calls daily, qualify prospects, and book meetings automatically. Discover how French companies are using voice AI to scale their sales without hiring additional SDRs.',
+    fr: 'Les systèmes d\'appels IA propulsés par VAPI peuvent gérer des centaines d\'appels sortants par jour, qualifier les prospects et prendre des rendez-vous automatiquement. Découvrez comment les entreprises françaises utilisent l\'IA vocale pour développer leurs ventes.',
   },
   'blog.p4.readtime': {
     en: '12 min read',
     fr: '12 min de lecture',
+  },
+  'blog.p5.title': {
+    en: 'Email Marketing Automation: How AI Increases Open Rates by 35%',
+    fr: 'Email Marketing Automatisé : Comment l\'IA Augmente les Taux d\'Ouverture de 35%',
+  },
+  'blog.p5.excerpt': {
+    en: 'AI-powered email marketing goes beyond simple scheduling. Learn how intelligent segmentation, predictive send times, and AI-generated subject lines can boost your open rates by 35% and conversions by 25%.',
+    fr: 'L\'email marketing propulsé par l\'IA va au-delà de la simple programmation. Découvrez comment la segmentation intelligente, les heures d\'envoi prédictives et les objets générés par l\'IA peuvent augmenter vos taux d\'ouverture de 35% et vos conversions de 25%.',
+  },
+  'blog.p5.readtime': {
+    en: '7 min read',
+    fr: '7 min de lecture',
+  },
+  'blog.p6.title': {
+    en: 'Why Île-de-France Businesses Are Investing in AI Agents in 2025',
+    fr: 'Pourquoi les Entreprises d\'Île-de-France Investissent dans les Agents IA en 2025',
+  },
+  'blog.p6.excerpt': {
+    en: 'Autonomous AI agents are the next frontier of business automation. From La Défense to Versailles, companies across the Paris region are deploying AI agents that handle complex multi-step workflows, make decisions, and learn from outcomes.',
+    fr: 'Les agents IA autonomes sont la prochaine frontière de l\'automatisation. De La Défense à Versailles, les entreprises de toute la région parisienne déploient des agents IA capables de gérer des workflows complexes, prendre des décisions et apprendre de leurs résultats.',
+  },
+  'blog.p6.readtime': {
+    en: '9 min read',
+    fr: '9 min de lecture',
+  },
+  'blog.p7.title': {
+    en: 'Web Development Trends 2025: React, Supabase, and AI-First Architecture',
+    fr: 'Tendances Développement Web 2025 : React, Supabase et Architecture IA-First',
+  },
+  'blog.p7.excerpt': {
+    en: 'Modern web development is evolving rapidly. We explore how React Server Components, Supabase as a backend, and AI-first design patterns are reshaping how businesses build performant, scalable web applications.',
+    fr: 'Le développement web moderne évolue rapidement. Nous explorons comment les React Server Components, Supabase en tant que backend et les patterns de conception IA-first transforment la création d\'applications web performantes et évolutives.',
+  },
+  'blog.p7.readtime': {
+    en: '11 min read',
+    fr: '11 min de lecture',
+  },
+  'blog.p8.title': {
+    en: 'ROI of AI Automation: Real Numbers from 50+ Client Projects',
+    fr: 'ROI de l\'Automatisation IA : Chiffres Réels de 50+ Projets Clients',
+  },
+  'blog.p8.excerpt': {
+    en: 'What is the real return on investment of AI automation? Based on data from over 50 projects, we share average time savings, cost reductions, and revenue increases our clients have achieved across different industries.',
+    fr: 'Quel est le véritable retour sur investissement de l\'automatisation IA ? À partir des données de plus de 50 projets, nous partageons les gains de temps, réductions de coûts et augmentations de chiffre d\'affaires obtenus par nos clients dans différents secteurs.',
+  },
+  'blog.p8.readtime': {
+    en: '8 min read',
+    fr: '8 min de lecture',
   },
 
   // Privacy Policy

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, User, ArrowRight, Search, Tag, Edit, Plus } from 'lucide-react';
+import { Calendar, User, ArrowRight, Search, Tag, Edit, Plus, Bot, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
 
@@ -18,22 +18,21 @@ interface BlogPost {
 }
 
 const BlogPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
 
-  // Sample blog posts - in a real app, these would come from a CMS or API
   useEffect(() => {
     const samplePosts: BlogPost[] = [
       {
         id: '1',
         title: t('blog.p1.title'),
         excerpt: t('blog.p1.excerpt'),
-        content: 'Full content here...',
+        content: '',
         author: t('blog.author'),
-        date: '2024-01-15',
-        tags: ['AI', 'Automation', 'Business'],
+        date: '2025-03-15',
+        tags: ['Automatisation', 'PME', 'Paris', 'n8n'],
         featured: true,
         readTime: t('blog.p1.readtime')
       },
@@ -41,10 +40,10 @@ const BlogPage: React.FC = () => {
         id: '2',
         title: t('blog.p2.title'),
         excerpt: t('blog.p2.excerpt'),
-        content: 'Full content here...',
+        content: '',
         author: t('blog.author'),
-        date: '2024-01-10',
-        tags: ['Chatbots', 'AI', 'Customer Service'],
+        date: '2025-03-10',
+        tags: ['Chatbot', 'IA', 'OpenAI', 'Support Client'],
         featured: false,
         readTime: t('blog.p2.readtime')
       },
@@ -52,10 +51,10 @@ const BlogPage: React.FC = () => {
         id: '3',
         title: t('blog.p3.title'),
         excerpt: t('blog.p3.excerpt'),
-        content: 'Full content here...',
+        content: '',
         author: t('blog.author'),
-        date: '2024-01-05',
-        tags: ['n8n', 'Make.com', 'No-code', 'Comparison'],
+        date: '2025-03-05',
+        tags: ['n8n', 'Make.com', 'No-code', 'Comparatif'],
         featured: false,
         readTime: t('blog.p3.readtime')
       },
@@ -63,12 +62,56 @@ const BlogPage: React.FC = () => {
         id: '4',
         title: t('blog.p4.title'),
         excerpt: t('blog.p4.excerpt'),
-        content: 'Full content here...',
+        content: '',
         author: t('blog.author'),
-        date: '2024-01-01',
-        tags: ['VAPI', 'Voice AI', 'Integration'],
+        date: '2025-02-28',
+        tags: ['VAPI', 'IA Vocale', 'Prospection'],
         featured: false,
         readTime: t('blog.p4.readtime')
+      },
+      {
+        id: '5',
+        title: t('blog.p5.title'),
+        excerpt: t('blog.p5.excerpt'),
+        content: '',
+        author: t('blog.author'),
+        date: '2025-02-20',
+        tags: ['Email Marketing', 'IA', 'Automatisation'],
+        featured: false,
+        readTime: t('blog.p5.readtime')
+      },
+      {
+        id: '6',
+        title: t('blog.p6.title'),
+        excerpt: t('blog.p6.excerpt'),
+        content: '',
+        author: t('blog.author'),
+        date: '2025-02-15',
+        tags: ['Agents IA', 'Île-de-France', 'Entreprise'],
+        featured: false,
+        readTime: t('blog.p6.readtime')
+      },
+      {
+        id: '7',
+        title: t('blog.p7.title'),
+        excerpt: t('blog.p7.excerpt'),
+        content: '',
+        author: t('blog.author'),
+        date: '2025-02-10',
+        tags: ['React', 'Supabase', 'Développement Web'],
+        featured: false,
+        readTime: t('blog.p7.readtime')
+      },
+      {
+        id: '8',
+        title: t('blog.p8.title'),
+        excerpt: t('blog.p8.excerpt'),
+        content: '',
+        author: t('blog.author'),
+        date: '2025-02-01',
+        tags: ['ROI', 'Automatisation', 'Données'],
+        featured: false,
+        readTime: t('blog.p8.readtime')
       }
     ];
     setPosts(samplePosts);
@@ -256,6 +299,67 @@ const BlogPage: React.FC = () => {
                 ))}
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Related Services & Internal Links */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              {language === 'fr' ? 'Nos Services d\'Automatisation IA' : 'Our AI Automation Services'}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <Link to="/services" className="group p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl hover:shadow-lg transition-all duration-300">
+                <Bot className="w-10 h-10 text-indigo-600 mb-4" />
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                  {language === 'fr' ? 'Automatisation des Workflows' : 'Workflow Automation'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'fr' ? 'n8n, Make.com, Zapier — automatisez vos processus métier' : 'n8n, Make.com, Zapier — automate your business processes'}
+                </p>
+              </Link>
+              <Link to="/services" className="group p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl hover:shadow-lg transition-all duration-300">
+                <MessageSquare className="w-10 h-10 text-purple-600 mb-4" />
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  {language === 'fr' ? 'Chatbots IA Sur Mesure' : 'Custom AI Chatbots'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'fr' ? 'Support client 24/7, qualification de leads automatique' : '24/7 customer support, automatic lead qualification'}
+                </p>
+              </Link>
+              <Link to="/contact" className="group p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl hover:shadow-lg transition-all duration-300">
+                <ArrowRight className="w-10 h-10 text-pink-600 mb-4" />
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors">
+                  {language === 'fr' ? 'Consultation Gratuite' : 'Free Consultation'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'fr' ? 'Discutons de votre projet d\'automatisation IA' : 'Let\'s discuss your AI automation project'}
+                </p>
+              </Link>
+            </div>
+
+            {/* Geo links for SEO */}
+            <div className="border-t pt-8">
+              <h3 className="text-lg font-semibold text-gray-700 mb-4 text-center">
+                {language === 'fr' ? 'Automatisation IA en Île-de-France' : 'AI Automation in Île-de-France'}
+              </h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {[
+                  { to: '/automatisation-ia-paris', label: 'Paris' },
+                  { to: '/automatisation-ia-boulogne-billancourt', label: 'Boulogne-Billancourt' },
+                  { to: '/automatisation-ia-neuilly-sur-seine', label: 'Neuilly-sur-Seine' },
+                  { to: '/automatisation-ia-versailles', label: 'Versailles' },
+                  { to: '/automatisation-ia-nanterre', label: 'La Défense' },
+                  { to: '/chatbot-ia-paris', label: 'Chatbot Paris' },
+                  { to: '/developpement-web-paris', label: 'Dev Web Paris' },
+                  { to: '/agents-ia-paris', label: 'Agents IA Paris' },
+                ].map(link => (
+                  <Link key={link.to} to={link.to} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-indigo-100 hover:text-indigo-700 transition-colors">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
