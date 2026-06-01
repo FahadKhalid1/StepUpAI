@@ -83,7 +83,7 @@ const AboutPage: React.FC = () => {
           "description": t('seo.about.description'),
           "mainEntity": {
             "@type": "Organization",
-            "name": "Stepup AI",
+            "name": "Step UpAI",
             "url": "https://step-upai.com",
             "foundingDate": "2023",
             "foundingLocation": {

@@ -111,7 +111,7 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "AI Workflow Automation",
                 "description": "Custom n8n and Make.com workflow automation for business processes",
-                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
             },
@@ -122,7 +122,7 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "AI Cold Calling",
                 "description": "VAPI-powered AI calling systems for sales and outreach",
-                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
             },
@@ -133,7 +133,7 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "AI Email Marketing",
                 "description": "Intelligent email automation and campaign management",
-                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
             },
@@ -144,7 +144,7 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "Web Development",
                 "description": "Modern React, Supabase, and Node.js web applications",
-                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
             },
@@ -155,7 +155,7 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "AI Chatbots",
                 "description": "Custom AI chatbots for customer service and engagement",
-                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
             },
@@ -166,7 +166,7 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "AI Agents",
                 "description": "Autonomous AI agents for complex business task automation",
-                "provider": { "@type": "Organization", "name": "Stepup AI" },
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
             }

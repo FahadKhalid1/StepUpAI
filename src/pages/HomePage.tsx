@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Stepup AI",
+            "name": "Step UpAI",
             "url": "https://step-upai.com",
             "description": t('seo.home.description'),
             "potentialAction": {
@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Stepup AI",
+            "name": "Step UpAI",
             "image": "https://step-upai.com/og-image.jpg",
             "url": "https://step-upai.com",
             "telephone": "+33698229533",

@@ -1,5 +1,5 @@
 // =============================================================================
-// Geo Data Layer for SEO Geo Pages - Stepup AI
+// Geo Data Layer for SEO Geo Pages - Step UpAI
 // Covers 20 cities in Ile-de-France x 6 services = 120 geo landing pages
 // =============================================================================
 
@@ -291,7 +291,7 @@ export const services: GeoService[] = [
     icon: "Bot",
     color: "from-blue-600 to-cyan-500",
     metaTitleTemplate:
-      "Automatisation IA a {city} | Expert en Automatisation | Stepup AI",
+      "Automatisation IA a {city} | Expert en Automatisation | Step UpAI",
     metaDescTemplate:
       "Experts en automatisation IA a {city} ({departmentName}). Automatisez vos processus metier, gagnez du temps et boostez votre productivite avec nos solutions sur mesure.",
     heroSubtitleTemplate:
@@ -362,7 +362,7 @@ export const services: GeoService[] = [
     icon: "Phone",
     color: "from-green-600 to-emerald-500",
     metaTitleTemplate:
-      "Systemes d'Appels IA a {city} | Telephonie Intelligente | Stepup AI",
+      "Systemes d'Appels IA a {city} | Telephonie Intelligente | Step UpAI",
     metaDescTemplate:
       "Solutions d'appels IA a {city} ({departmentName}). Qualifiez vos leads, gerez vos appels entrants et sortants 24h/24 avec notre telephonie intelligente.",
     heroSubtitleTemplate:
@@ -433,7 +433,7 @@ export const services: GeoService[] = [
     icon: "Mail",
     color: "from-purple-600 to-pink-500",
     metaTitleTemplate:
-      "Email Marketing IA a {city} | Campagnes Intelligentes | Stepup AI",
+      "Email Marketing IA a {city} | Campagnes Intelligentes | Step UpAI",
     metaDescTemplate:
       "Email marketing propulse par l'IA a {city} ({departmentName}). Personnalisez vos campagnes, augmentez vos taux d'ouverture et convertissez plus avec l'IA.",
     heroSubtitleTemplate:
@@ -504,7 +504,7 @@ export const services: GeoService[] = [
     icon: "Code",
     color: "from-orange-600 to-amber-500",
     metaTitleTemplate:
-      "Developpement Web a {city} | Sites & Applications | Stepup AI",
+      "Developpement Web a {city} | Sites & Applications | Step UpAI",
     metaDescTemplate:
       "Developpement web professionnel a {city} ({departmentName}). Sites vitrine, e-commerce et applications web sur mesure, optimises SEO et propulses par l'IA.",
     heroSubtitleTemplate:
@@ -540,9 +540,9 @@ export const services: GeoService[] = [
     faqTemplates: [
       {
         question:
-          "Pourquoi choisir Stepup AI pour le developpement web a {city} ?",
+          "Pourquoi choisir Step UpAI pour le developpement web a {city} ?",
         answer:
-          "En choisissant Stepup AI pour votre developpement web a {city}, vous beneficiez d'une expertise unique combinant developpement de pointe et intelligence artificielle. Nos equipes maitrisent les frameworks modernes (React, Next.js) et integrent nativement des fonctionnalites IA dans vos sites. Nous connaissons les specificites du marche de {city} et optimisons votre site pour le referencement local.",
+          "En choisissant Step UpAI pour votre developpement web a {city}, vous beneficiez d'une expertise unique combinant developpement de pointe et intelligence artificielle. Nos equipes maitrisent les frameworks modernes (React, Next.js) et integrent nativement des fonctionnalites IA dans vos sites. Nous connaissons les specificites du marche de {city} et optimisons votre site pour le referencement local.",
       },
       {
         question:
@@ -575,7 +575,7 @@ export const services: GeoService[] = [
     icon: "MessageSquare",
     color: "from-indigo-600 to-violet-500",
     metaTitleTemplate:
-      "Chatbot IA a {city} | Assistant Virtuel Intelligent | Stepup AI",
+      "Chatbot IA a {city} | Assistant Virtuel Intelligent | Step UpAI",
     metaDescTemplate:
       "Deploiement de chatbot IA a {city} ({departmentName}). Offrez un support client 24h/24, qualifiez vos leads et automatisez vos interactions avec un chatbot intelligent.",
     heroSubtitleTemplate:
@@ -646,7 +646,7 @@ export const services: GeoService[] = [
     icon: "Zap",
     color: "from-rose-600 to-red-500",
     metaTitleTemplate:
-      "Agents IA Autonomes a {city} | IA de Nouvelle Generation | Stepup AI",
+      "Agents IA Autonomes a {city} | IA de Nouvelle Generation | Step UpAI",
     metaDescTemplate:
       "Agents IA autonomes a {city} ({departmentName}). Deployez des agents intelligents qui executent des taches complexes, prennent des decisions et optimisent vos operations.",
     heroSubtitleTemplate:

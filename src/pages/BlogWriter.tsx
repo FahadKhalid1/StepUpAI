@@ -49,7 +49,7 @@ const BlogWriter: React.FC = () => {
   return (
     <>
       <SEO
-        title="Write New Blog Post | Stepup AI"
+        title="Write New Blog Post | Step UpAI"
         description="Create and publish new blog posts about AI automation and business intelligence."
         canonical="/blog/write"
       />

@@ -113,7 +113,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
     {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      name: 'Stepup AI',
+      name: 'Step UpAI',
       url: 'https://step-upai.com',
       telephone: '+33 6 98 22 95 33',
       address: {
@@ -136,7 +136,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
       name: service.name,
       provider: {
         '@type': 'Organization',
-        name: 'Stepup AI',
+        name: 'Step UpAI',
         url: 'https://step-upai.com',
       },
       areaServed: {
@@ -291,14 +291,14 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Vous recherchez un expert en {service.name.toLowerCase()} a {city.name} ?
-                Stepup AI accompagne les entreprises de {city.name} et du departement {city.departmentName} dans leur transformation numerique grace a des solutions d'intelligence artificielle sur mesure.
+                Step UpAI accompagne les entreprises de {city.name} et du departement {city.departmentName} dans leur transformation numerique grace a des solutions d'intelligence artificielle sur mesure.
                 Que vous soyez une startup, une PME ou un grand groupe implante a {city.name}, nous concevons et deployons des solutions de {service.name.toLowerCase()} adaptees a vos enjeux specifiques, a votre secteur d'activite et a vos objectifs de croissance.
                 Notre approche combine expertise technique de pointe et connaissance approfondie du tissu economique local pour vous offrir un accompagnement personnalise et des resultats concrets.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {city.description}{' '}
                 Nos experts en {service.name.toLowerCase()} travaillent en etroite collaboration avec les entreprises locales pour identifier les opportunites d'optimisation, automatiser les processus cles et maximiser le retour sur investissement de chaque projet.
-                Faites confiance a Stepup AI pour faire de {city.name} le terrain de votre reussite numerique.
+                Faites confiance a Step UpAI pour faire de {city.name} le terrain de votre reussite numerique.
               </p>
             </motion.div>
           </div>

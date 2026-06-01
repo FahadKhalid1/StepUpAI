@@ -13,8 +13,8 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Stepup AI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
-  description = 'Stepup AI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
+  title = 'Step UpAI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
+  description = 'Step UpAI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
   keywords = 'automatisation IA, agence IA Paris, automatisation des processus, chatbots IA, automatisation entreprise, n8n, développement web',
   ogImage = 'https://step-upai.com/og-image.jpg',
   ogType = 'website',
@@ -34,7 +34,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="robots" content="index, follow" />
-      <meta name="author" content="Stepup AI" />
+      <meta name="author" content="Step UpAI" />
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
@@ -44,7 +44,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={fullCanonical} />
-      <meta property="og:site_name" content="Stepup AI" />
+      <meta property="og:site_name" content="Step UpAI" />
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={altLocale} />
 
@@ -65,7 +65,7 @@ const SEO: React.FC<SEOProps> = ({
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "Stepup AI",
+          "name": "Step UpAI",
           "url": "https://step-upai.com",
           "logo": "https://step-upai.com/logo.png",
           "description": "Agence d'automatisation IA basée à Paris, spécialisée en workflows, chatbots, appels IA et développement web.",

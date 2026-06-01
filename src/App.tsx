@@ -9,6 +9,7 @@ import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import { getAllGeoRoutes } from './data/geoData';
@@ -30,7 +31,7 @@ const Footer: React.FC = () => {
               <div className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg">
                 <Bot className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">Stepup AI</span>
+              <span className="text-xl font-bold">Step UpAI</span>
             </div>
             <p className="text-gray-300 mb-4">
               {t('footer.description')}
@@ -101,6 +102,7 @@ function App() {
                   <Route path="/projects" element={<ProjectsPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/blog" element={<BlogPage />} />
+                  <Route path="/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/privacy" element={<PrivacyPolicyPage />} />
                   <Route path="/terms" element={<TermsOfServicePage />} />
                   {geoRoutes.map(({ path, serviceId, citySlug }) => (

@@ -112,7 +112,7 @@ const ContactPage: React.FC = () => {
           "description": t('seo.contact.description'),
           "mainEntity": {
             "@type": "Organization",
-            "name": "Stepup AI",
+            "name": "Step UpAI",
             "url": "https://step-upai.com",
             "telephone": "+33698229533",
             "email": "contact@step-upai.com",

@@ -179,8 +179,8 @@ const translations: Translations = {
     fr: 'Ne nous croyez pas sur parole. Voici ce que nos clients satisfaits disent de nos solutions IA.',
   },
   'testimonials.1': {
-    en: 'Stepup AI transformed our operations with their intelligent automation. We saw 60% efficiency gains within the first month.',
-    fr: 'Stepup AI a transformé nos opérations grâce à leur automatisation intelligente. Nous avons constaté des gains d\'efficacité de 60% dès le premier mois.',
+    en: 'Step UpAI transformed our operations with their intelligent automation. We saw 60% efficiency gains within the first month.',
+    fr: 'Step UpAI a transformé nos opérations grâce à leur automatisation intelligente. Nous avons constaté des gains d\'efficacité de 60% dès le premier mois.',
   },
   'testimonials.2': {
     en: 'Their AI assistant for school administration has revolutionized how we manage student data and scheduling.',
@@ -663,8 +663,8 @@ const translations: Translations = {
 
   // About
   'about.title': {
-    en: 'About Stepup AI',
-    fr: 'À Propos de Stepup AI',
+    en: 'About Step UpAI',
+    fr: 'À Propos de Step UpAI',
   },
   'about.subtitle': {
     en: 'We\'re a team of AI enthusiasts, developers, and business strategists dedicated to transforming how companies operate through intelligent automation.',
@@ -1267,8 +1267,8 @@ const translations: Translations = {
 
   // Blog Posts
   'blog.author': {
-    en: 'Stepup AI Team',
-    fr: 'Équipe Stepup AI',
+    en: 'Step UpAI Team',
+    fr: 'Équipe Step UpAI',
   },
   'blog.p1.title': {
     en: 'AI Automation for SMEs in Paris: 5 Use Cases That Save 20+ Hours Per Week',
@@ -1389,8 +1389,8 @@ const translations: Translations = {
     fr: 'Notre Engagement envers la Confidentialité',
   },
   'privacy.commitment_p1': {
-    en: 'At Stepup AI, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.',
-    fr: 'Chez Stepup AI, nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos informations personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou utilisez nos services.',
+    en: 'At Step UpAI, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.',
+    fr: 'Chez Step UpAI, nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos informations personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou utilisez nos services.',
   },
   'privacy.commitment_p2': {
     en: 'By using our website or services, you agree to the collection and use of information in accordance with this policy. We will not use or share your information with anyone except as described in this Privacy Policy.',
@@ -1567,8 +1567,8 @@ const translations: Translations = {
     fr: 'Aperçu de l\'Accord',
   },
   'terms.overview_p1': {
-    en: 'These Terms of Service ("Terms") constitute a legally binding agreement between you and Stepup AI regarding your use of our website, services, and any related applications or tools we provide.',
-    fr: 'Ces Conditions de Service (« Conditions ») constituent un accord juridiquement contraignant entre vous et Stepup AI concernant votre utilisation de notre site web, de nos services et de toute application ou outil connexe que nous fournissons.',
+    en: 'These Terms of Service ("Terms") constitute a legally binding agreement between you and Step UpAI regarding your use of our website, services, and any related applications or tools we provide.',
+    fr: 'Ces Conditions de Service (« Conditions ») constituent un accord juridiquement contraignant entre vous et Step UpAI concernant votre utilisation de notre site web, de nos services et de toute application ou outil connexe que nous fournissons.',
   },
   'terms.overview_p2': {
     en: 'By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you are using our services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.',
@@ -1599,8 +1599,8 @@ const translations: Translations = {
     fr: 'Description des Services',
   },
   'terms.s2.c1': {
-    en: 'Stepup AI provides AI automation services including workflow automation, chatbot development, and system integration',
-    fr: 'Stepup AI fournit des services d\'automatisation IA incluant l\'automatisation des workflows, le développement de chatbots et l\'intégration de systèmes',
+    en: 'Step UpAI provides AI automation services including workflow automation, chatbot development, and system integration',
+    fr: 'Step UpAI fournit des services d\'automatisation IA incluant l\'automatisation des workflows, le développement de chatbots et l\'intégration de systèmes',
   },
   'terms.s2.c2': {
     en: 'We offer consulting, development, implementation, and support services',
@@ -1821,8 +1821,8 @@ const translations: Translations = {
     fr: 'À Propos',
   },
   'footer.copyright': {
-    en: '© 2025 Stepup AI. All rights reserved.',
-    fr: '© 2025 Stepup AI. Tous droits réservés.',
+    en: '© 2025 Step UpAI. All rights reserved.',
+    fr: '© 2025 Step UpAI. Tous droits réservés.',
   },
   'footer.privacy': {
     en: 'Privacy Policy',
@@ -1835,12 +1835,12 @@ const translations: Translations = {
 
   // SEO Meta Tags - Home
   'seo.home.title': {
-    en: 'Stepup AI - Transform Your Business with AI Automation | Paris',
-    fr: 'Stepup AI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
+    en: 'Step UpAI - Transform Your Business with AI Automation | Paris',
+    fr: 'Step UpAI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
   },
   'seo.home.description': {
-    en: 'Stepup AI is a Paris-based AI automation agency. We help businesses with workflow automation, AI chatbots, cold calling systems, email marketing, and custom web development.',
-    fr: 'Stepup AI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
+    en: 'Step UpAI is a Paris-based AI automation agency. We help businesses with workflow automation, AI chatbots, cold calling systems, email marketing, and custom web development.',
+    fr: 'Step UpAI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
   },
   'seo.home.keywords': {
     en: 'AI automation, AI agency Paris, workflow automation, AI chatbots, business automation, n8n, web development',
@@ -1849,8 +1849,8 @@ const translations: Translations = {
 
   // SEO Meta Tags - Services
   'seo.services.title': {
-    en: 'AI Automation Services - Workflow, Chatbots & More | Stepup AI',
-    fr: 'Services d\'Automatisation IA - Workflows, Chatbots & Plus | Stepup AI',
+    en: 'AI Automation Services - Workflow, Chatbots & More | Step UpAI',
+    fr: 'Services d\'Automatisation IA - Workflows, Chatbots & Plus | Step UpAI',
   },
   'seo.services.description': {
     en: 'Comprehensive AI automation services including n8n workflows, AI cold calling, email marketing, web development, chatbots, and custom AI agents for businesses.',
@@ -1863,26 +1863,26 @@ const translations: Translations = {
 
   // SEO Meta Tags - About
   'seo.about.title': {
-    en: 'About Us - AI Automation Experts | Stepup AI',
-    fr: 'À Propos - Experts en Automatisation IA | Stepup AI',
+    en: 'About Us - AI Automation Experts | Step UpAI',
+    fr: 'À Propos - Experts en Automatisation IA | Step UpAI',
   },
   'seo.about.description': {
-    en: 'Learn about Stepup AI\'s mission to transform businesses through intelligent automation. Meet our expert team and discover our journey in AI innovation.',
-    fr: 'Découvrez la mission de Stepup AI : transformer les entreprises grâce à l\'automatisation intelligente. Rencontrez notre équipe d\'experts et notre parcours dans l\'innovation IA.',
+    en: 'Learn about Step UpAI\'s mission to transform businesses through intelligent automation. Meet our expert team and discover our journey in AI innovation.',
+    fr: 'Découvrez la mission de Step UpAI : transformer les entreprises grâce à l\'automatisation intelligente. Rencontrez notre équipe d\'experts et notre parcours dans l\'innovation IA.',
   },
   'seo.about.keywords': {
-    en: 'AI experts, automation team, AI agency, about Stepup AI, AI innovation',
-    fr: 'experts IA, équipe automatisation, agence IA, à propos Stepup AI, innovation IA',
+    en: 'AI experts, automation team, AI agency, about Step UpAI, AI innovation',
+    fr: 'experts IA, équipe automatisation, agence IA, à propos Step UpAI, innovation IA',
   },
 
   // SEO Meta Tags - Contact
   'seo.contact.title': {
-    en: 'Contact Us - Free AI Consultation | Stepup AI',
-    fr: 'Contactez-Nous - Consultation IA Gratuite | Stepup AI',
+    en: 'Contact Us - Free AI Consultation | Step UpAI',
+    fr: 'Contactez-Nous - Consultation IA Gratuite | Step UpAI',
   },
   'seo.contact.description': {
-    en: 'Ready to transform your business with AI? Contact Stepup AI for a free consultation on automation, chatbots, and intelligent business solutions. Based in Paris.',
-    fr: 'Prêt à transformer votre entreprise avec l\'IA ? Contactez Stepup AI pour une consultation gratuite en automatisation, chatbots et solutions IA. Basé à Paris.',
+    en: 'Ready to transform your business with AI? Contact Step UpAI for a free consultation on automation, chatbots, and intelligent business solutions. Based in Paris.',
+    fr: 'Prêt à transformer votre entreprise avec l\'IA ? Contactez Step UpAI pour une consultation gratuite en automatisation, chatbots et solutions IA. Basé à Paris.',
   },
   'seo.contact.keywords': {
     en: 'contact AI agency, free consultation, AI automation Paris, business automation contact',
@@ -1891,8 +1891,8 @@ const translations: Translations = {
 
   // SEO Meta Tags - Projects
   'seo.projects.title': {
-    en: 'AI Automation Projects & Case Studies | Stepup AI',
-    fr: 'Projets d\'Automatisation IA & Études de Cas | Stepup AI',
+    en: 'AI Automation Projects & Case Studies | Step UpAI',
+    fr: 'Projets d\'Automatisation IA & Études de Cas | Step UpAI',
   },
   'seo.projects.description': {
     en: 'Explore our successful AI automation projects including school administration systems, LinkedIn automation, VAPI cold calling, and enterprise workflows.',
@@ -1905,12 +1905,12 @@ const translations: Translations = {
 
   // SEO Meta Tags - Blog
   'seo.blog.title': {
-    en: 'Blog - AI Insights and Automation Tips | Stepup AI',
-    fr: 'Blog - Actualités IA et Conseils en Automatisation | Stepup AI',
+    en: 'Blog - AI Insights and Automation Tips | Step UpAI',
+    fr: 'Blog - Actualités IA et Conseils en Automatisation | Step UpAI',
   },
   'seo.blog.description': {
-    en: 'Stay updated with the latest insights on AI automation, chatbots, workflow optimization, and business intelligence from Stepup AI experts.',
-    fr: 'Restez informé des dernières actualités en automatisation IA, chatbots, optimisation de workflows et intelligence artificielle par les experts Stepup AI.',
+    en: 'Stay updated with the latest insights on AI automation, chatbots, workflow optimization, and business intelligence from Step UpAI experts.',
+    fr: 'Restez informé des dernières actualités en automatisation IA, chatbots, optimisation de workflows et intelligence artificielle par les experts Step UpAI.',
   },
   'seo.blog.keywords': {
     en: 'AI blog, automation tips, AI insights, chatbot news, workflow optimization, business AI',
@@ -1919,22 +1919,22 @@ const translations: Translations = {
 
   // SEO Meta Tags - Privacy
   'seo.privacy.title': {
-    en: 'Privacy Policy | Stepup AI',
-    fr: 'Politique de Confidentialité | Stepup AI',
+    en: 'Privacy Policy | Step UpAI',
+    fr: 'Politique de Confidentialité | Step UpAI',
   },
   'seo.privacy.description': {
-    en: 'Learn how Stepup AI protects your privacy and handles your personal information. Our commitment to data security and transparency.',
-    fr: 'Découvrez comment Stepup AI protège votre vie privée et traite vos données personnelles. Notre engagement en matière de sécurité et de transparence.',
+    en: 'Learn how Step UpAI protects your privacy and handles your personal information. Our commitment to data security and transparency.',
+    fr: 'Découvrez comment Step UpAI protège votre vie privée et traite vos données personnelles. Notre engagement en matière de sécurité et de transparence.',
   },
 
   // SEO Meta Tags - Terms
   'seo.terms.title': {
-    en: 'Terms of Service | Stepup AI',
-    fr: 'Conditions d\'Utilisation | Stepup AI',
+    en: 'Terms of Service | Step UpAI',
+    fr: 'Conditions d\'Utilisation | Step UpAI',
   },
   'seo.terms.description': {
-    en: 'Read Stepup AI\'s Terms of Service to understand the terms and conditions for using our AI automation services and website.',
-    fr: 'Consultez les Conditions d\'Utilisation de Stepup AI pour comprendre les termes et conditions d\'utilisation de nos services d\'automatisation IA.',
+    en: 'Read Step UpAI\'s Terms of Service to understand the terms and conditions for using our AI automation services and website.',
+    fr: 'Consultez les Conditions d\'Utilisation de Step UpAI pour comprendre les termes et conditions d\'utilisation de nos services d\'automatisation IA.',
   },
 };
 

@@ -117,7 +117,7 @@ const ProjectsPage: React.FC = () => {
                 "name": project.title,
                 "description": project.description,
                 "image": project.image,
-                "creator": { "@type": "Organization", "name": "Stepup AI" }
+                "creator": { "@type": "Organization", "name": "Step UpAI" }
               }
             }))
           }
