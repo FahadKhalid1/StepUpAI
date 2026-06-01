@@ -59,6 +59,27 @@ const BlogPostPage: React.FC = () => {
   const renderContent = (text: string) =>
     text.split('\n\n').map((block, i) => {
       const key = `block-${i}`;
+      // Raw HTML / inline SVG passthrough (diagrams, figures from the pipeline)
+      if (block.trimStart().startsWith('<')) {
+        return <div key={key} className="my-8" dangerouslySetInnerHTML={{ __html: block }} />;
+      }
+      // Inline image: ![alt](src)
+      const imgMatch = block.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
+      if (imgMatch) {
+        return (
+          <figure key={key} className="my-8">
+            <img
+              src={imgMatch[2]}
+              alt={imgMatch[1]}
+              loading="lazy"
+              className="w-full rounded-xl shadow-sm"
+            />
+            {imgMatch[1] && (
+              <figcaption className="text-center text-sm text-gray-500 mt-3">{imgMatch[1]}</figcaption>
+            )}
+          </figure>
+        );
+      }
       if (block.startsWith('### ')) {
         return (
           <h3 key={key} className="text-xl font-bold text-gray-900 mt-8 mb-3">
@@ -173,6 +194,17 @@ const BlogPostPage: React.FC = () => {
             </motion.div>
           </div>
         </header>
+
+        {post.image && (
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
+            <img
+              src={post.image}
+              alt={post.title[language]}
+              loading="lazy"
+              className="w-full aspect-video object-cover rounded-2xl shadow-xl"
+            />
+          </div>
+        )}
 
         {/* Body */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

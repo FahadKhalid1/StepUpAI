@@ -26,6 +26,7 @@ const BlogPage: React.FC = () => {
         featured: p.featured,
         readTime: p.readTime[language],
         gradient: p.coverGradient,
+        image: p.image,
       })),
     [language],
   );
@@ -152,17 +153,23 @@ const BlogPage: React.FC = () => {
                       to={`/blog/${post.slug}`}
                       className="group block h-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                     >
-                      <div className="relative">
-                        <div className={`bg-gradient-to-r ${post.gradient} ${post.featured ? 'h-64' : 'h-48'}`}>
-                          <div className="absolute inset-0 bg-black/20" />
-                          {post.featured && (
-                            <div className="absolute top-4 left-4">
-                              <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                                {t('blog.featured')}
-                              </span>
-                            </div>
-                          )}
-                        </div>
+                      <div className={`relative bg-gradient-to-r ${post.gradient} ${post.featured ? 'h-64' : 'h-48'}`}>
+                        {post.image && (
+                          <img
+                            src={post.image}
+                            alt=""
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-black/20" />
+                        {post.featured && (
+                          <div className="absolute top-4 left-4">
+                            <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                              {t('blog.featured')}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="p-6">

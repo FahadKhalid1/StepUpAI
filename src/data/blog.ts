@@ -61,6 +61,7 @@ export const posts: BlogPost[] = [
     category: 'ai',
     date: '2026-05-30',
     coverGradient: 'from-indigo-600 to-purple-700',
+    image: '/images/blog/automatisation-ia-pme-paris-5-cas-usage/hero.jpg',
     tags: ['Automatisation', 'PME', 'Paris', 'n8n'],
     author: { en: 'Step UpAI Team', fr: 'Équipe Step UpAI' },
     readTime: { en: '8 min read', fr: '8 min de lecture' },
@@ -76,6 +77,8 @@ export const posts: BlogPost[] = [
       fr: `Pour une PME en Île-de-France, le temps est la ressource la plus rare. Chaque heure passée à copier des données d'un outil à un autre, à relancer un client ou à compiler un rapport est une heure qui ne sert pas à développer l'activité. La bonne nouvelle : la majorité de ces tâches sont aujourd'hui automatisables avec des outils comme n8n et Make.com — sans refondre tout votre système d'information.
 
 D'après les plus de 50 projets que nous avons livrés chez Step UpAI, voici les cinq automatisations qui offrent le meilleur retour pour une PME parisienne.
+
+![Un workflow automatisé qui relie vos outils métier](/images/blog/automatisation-ia-pme-paris-5-cas-usage/workflow.jpg)
 
 ## 1. Traitement automatisé des factures
 
@@ -93,6 +96,8 @@ Tous les prospects ne se valent pas. Un agent IA analyse chaque nouveau lead (fo
 
 Compiler un rapport hebdomadaire à la main mobilise des heures. En connectant vos sources (ventes, support, marketing) à un tableau de bord automatisé, vos indicateurs se mettent à jour en continu. Vous prenez vos décisions sur des chiffres frais, pas sur un export de la semaine dernière.
 
+![Un tableau de bord qui met à jour vos indicateurs en temps réel](/images/blog/automatisation-ia-pme-paris-5-cas-usage/dashboard.jpg)
+
 ## 5. Marketing par email personnalisé
 
 Les séquences d'emails génériques convertissent mal. Un workflow IA segmente vos contacts, personnalise le message selon leur comportement et déclenche le bon email au bon moment. Le résultat : plus d'ouvertures, plus de réponses, et zéro envoi manuel.
@@ -106,6 +111,18 @@ Sur nos projets PME en région parisienne, ces automatisations produisent géné
 - Une baisse nette des erreurs de saisie
 - Des délais de réponse client plus courts
 
+<figure style="margin:32px 0;">
+<svg viewBox="0 0 700 250" role="img" aria-label="Impact moyen d'une automatisation IA : -70 % de temps sur les tâches ciblées, -40 % de coûts opérationnels, -90 % d'erreurs de saisie" style="width:100%;height:auto;font-family:Inter,system-ui,sans-serif;">
+<defs><linearGradient id="bgFR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>
+<text x="0" y="26" font-size="18" font-weight="700" fill="#111827">Impact moyen d'une automatisation IA</text>
+<text x="0" y="48" font-size="13" fill="#6B7280">Réductions observées sur nos projets PME en Île-de-France</text>
+<g transform="translate(0,74)"><text x="0" y="0" font-size="13" fill="#374151">Temps sur les tâches ciblées</text><rect x="0" y="8" width="520" height="18" rx="9" fill="#EEF2FF"/><rect x="0" y="8" width="364" height="18" rx="9" fill="url(#bgFR)"/><text x="374" y="22" font-size="13" font-weight="700" fill="#4F46E5">-70 %</text></g>
+<g transform="translate(0,134)"><text x="0" y="0" font-size="13" fill="#374151">Coûts opérationnels</text><rect x="0" y="8" width="520" height="18" rx="9" fill="#EEF2FF"/><rect x="0" y="8" width="208" height="18" rx="9" fill="url(#bgFR)"/><text x="218" y="22" font-size="13" font-weight="700" fill="#4F46E5">-40 %</text></g>
+<g transform="translate(0,194)"><text x="0" y="0" font-size="13" fill="#374151">Erreurs de saisie</text><rect x="0" y="8" width="520" height="18" rx="9" fill="#EEF2FF"/><rect x="0" y="8" width="468" height="18" rx="9" fill="url(#bgFR)"/><text x="478" y="22" font-size="13" font-weight="700" fill="#4F46E5">-90 %</text></g>
+</svg>
+<figcaption style="text-align:center;font-size:.85em;color:#6B7280;margin-top:8px;">Réductions types après automatisation, d'après les projets Step UpAI.</figcaption>
+</figure>
+
 ## Par où commencer ?
 
 Inutile de tout automatiser d'un coup. La meilleure approche consiste à identifier la tâche la plus chronophage et la plus répétitive, puis à l'automatiser en premier. Une fois ce premier workflow en place et fiable, on élargit progressivement.
@@ -114,6 +131,8 @@ C'est exactement la démarche que nous accompagnons chez Step UpAI : un audit de
       en: `For an SME in the Paris region, time is the scarcest resource. Every hour spent copying data between tools, chasing a client, or compiling a report is an hour not spent growing the business. The good news: most of these tasks can now be automated with tools like n8n and Make.com — without rebuilding your entire IT stack.
 
 Based on the 50+ projects we've delivered at Step UpAI, here are the five automations that deliver the best return for a Paris SME.
+
+![An automated workflow connecting your business tools](/images/blog/automatisation-ia-pme-paris-5-cas-usage/workflow.jpg)
 
 ## 1. Automated invoice processing
 
@@ -131,6 +150,8 @@ Not all prospects are equal. An AI agent analyzes each new lead (form, email, Li
 
 Compiling a weekly report by hand eats up hours. By connecting your sources (sales, support, marketing) to an automated dashboard, your metrics update continuously. You decide on fresh numbers, not last week's export.
 
+![A dashboard that updates your metrics in real time](/images/blog/automatisation-ia-pme-paris-5-cas-usage/dashboard.jpg)
+
 ## 5. Personalized email marketing
 
 Generic email sequences convert poorly. An AI workflow segments your contacts, personalizes the message based on behavior, and triggers the right email at the right moment. The result: more opens, more replies, and no manual sending.
@@ -143,6 +164,18 @@ Across our SME projects in the Paris region, these automations typically deliver
 - Up to 40% lower operational costs on the processes involved
 - A clear drop in data-entry errors
 - Shorter customer response times
+
+<figure style="margin:32px 0;">
+<svg viewBox="0 0 700 250" role="img" aria-label="Typical impact of AI automation: 70% less time on targeted tasks, 40% lower operational costs, 90% fewer data-entry errors" style="width:100%;height:auto;font-family:Inter,system-ui,sans-serif;">
+<defs><linearGradient id="bgEN" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>
+<text x="0" y="26" font-size="18" font-weight="700" fill="#111827">Typical impact of AI automation</text>
+<text x="0" y="48" font-size="13" fill="#6B7280">Reductions observed across our SME projects in the Paris region</text>
+<g transform="translate(0,74)"><text x="0" y="0" font-size="13" fill="#374151">Time on targeted tasks</text><rect x="0" y="8" width="520" height="18" rx="9" fill="#EEF2FF"/><rect x="0" y="8" width="364" height="18" rx="9" fill="url(#bgEN)"/><text x="374" y="22" font-size="13" font-weight="700" fill="#4F46E5">-70%</text></g>
+<g transform="translate(0,134)"><text x="0" y="0" font-size="13" fill="#374151">Operational costs</text><rect x="0" y="8" width="520" height="18" rx="9" fill="#EEF2FF"/><rect x="0" y="8" width="208" height="18" rx="9" fill="url(#bgEN)"/><text x="218" y="22" font-size="13" font-weight="700" fill="#4F46E5">-40%</text></g>
+<g transform="translate(0,194)"><text x="0" y="0" font-size="13" fill="#374151">Data-entry errors</text><rect x="0" y="8" width="520" height="18" rx="9" fill="#EEF2FF"/><rect x="0" y="8" width="468" height="18" rx="9" fill="url(#bgEN)"/><text x="478" y="22" font-size="13" font-weight="700" fill="#4F46E5">-90%</text></g>
+</svg>
+<figcaption style="text-align:center;font-size:.85em;color:#6B7280;margin-top:8px;">Typical reductions after automation, based on Step UpAI projects.</figcaption>
+</figure>
 
 ## Where to start
 
