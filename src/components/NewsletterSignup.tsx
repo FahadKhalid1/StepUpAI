@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Loader2, AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 // n8n "Blog Subscribe" webhook (same n8n instance as the contact form).
@@ -12,16 +13,18 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 interface NewsletterSignupProps {
   /** Where the signup happened — passed to n8n for segmentation (e.g. 'blog', 'footer'). */
   source?: string;
+  /** 'panel' = large (blog section, on gradient); 'compact' = small (footer, on dark). */
+  variant?: 'panel' | 'compact';
 }
 
-const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog' }) => {
+const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog', variant = 'panel' }) => {
   const { language } = useLanguage();
   const [email, setEmail] = useState('');
-  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
 
   const fr = language === 'fr';
+  const compact = variant === 'compact';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,15 +32,6 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog' }) 
 
     if (!EMAIL_RE.test(email)) {
       setError(fr ? 'Veuillez entrer une adresse e-mail valide.' : 'Please enter a valid email address.');
-      setStatus('error');
-      return;
-    }
-    if (!consent) {
-      setError(
-        fr
-          ? 'Veuillez accepter de recevoir nos e-mails.'
-          : 'Please agree to receive our emails.',
-      );
       setStatus('error');
       return;
     }
@@ -58,13 +52,10 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog' }) 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       setStatus('success');
       setEmail('');
-      setConsent(false);
     } catch (err) {
       console.error('Newsletter subscribe failed:', err);
       setError(
-        fr
-          ? "Une erreur s'est produite. Veuillez réessayer."
-          : 'Something went wrong. Please try again.',
+        fr ? "Une erreur s'est produite. Veuillez réessayer." : 'Something went wrong. Please try again.',
       );
       setStatus('error');
     }
@@ -73,31 +64,27 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog' }) 
   if (status === 'success') {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="max-w-md mx-auto bg-white/15 backdrop-blur-sm rounded-xl p-6 flex items-center gap-3 justify-center"
+        className={`flex items-center gap-2 justify-center ${compact ? 'text-sm text-white' : 'max-w-md mx-auto bg-white/15 backdrop-blur-sm rounded-xl p-5 text-white'}`}
         role="status"
       >
-        <span className="flex-shrink-0 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
-          <Check className="w-6 h-6 text-indigo-600" />
+        <Check className={compact ? 'w-5 h-5 text-green-400 flex-shrink-0' : 'w-6 h-6 text-green-300 flex-shrink-0'} />
+        <span className="font-medium">
+          {fr ? 'Merci, vous êtes abonné ! 🎉' : "Thanks, you're subscribed! 🎉"}
         </span>
-        <p className="text-white text-left font-medium">
-          {fr
-            ? 'Merci, vous êtes abonné ! Un e-mail de bienvenue arrive dans votre boîte. 🎉'
-            : "Thanks, you're subscribed! A welcome email is on its way. 🎉"}
-        </p>
       </motion.div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto" noValidate>
-      <div className="flex flex-col sm:flex-row gap-4">
-        <label htmlFor="newsletter-email" className="sr-only">
+    <form onSubmit={handleSubmit} className={compact ? 'w-full max-w-md mx-auto' : 'max-w-md mx-auto'} noValidate>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <label htmlFor={`nl-email-${source}`} className="sr-only">
           {fr ? 'Adresse e-mail' : 'Email address'}
         </label>
         <input
-          id="newsletter-email"
+          id={`nl-email-${source}`}
           type="email"
           required
           value={email}
@@ -107,12 +94,18 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog' }) 
           }}
           placeholder={fr ? 'Votre adresse e-mail' : 'Your email address'}
           disabled={status === 'submitting'}
-          className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none disabled:opacity-60"
+          className={`flex-1 rounded-lg text-gray-900 focus:outline-none disabled:opacity-60 ${
+            compact ? 'px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-400' : 'px-4 py-3 focus:ring-2 focus:ring-white'
+          }`}
         />
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 disabled:opacity-70 inline-flex items-center justify-center gap-2 whitespace-nowrap"
+          className={`rounded-lg font-semibold transition-colors duration-300 disabled:opacity-70 inline-flex items-center justify-center gap-2 whitespace-nowrap ${
+            compact
+              ? 'px-5 py-2.5 text-sm bg-indigo-600 text-white hover:bg-indigo-500'
+              : 'px-6 py-3 bg-white text-indigo-600 hover:bg-gray-100'
+          }`}
         >
           {status === 'submitting' ? (
             <>
@@ -125,25 +118,22 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog' }) 
         </button>
       </div>
 
-      <label className="flex items-start gap-2 mt-4 text-left text-sm text-white/90 cursor-pointer">
-        <input
-          type="checkbox"
-          checked={consent}
-          onChange={(e) => {
-            setConsent(e.target.checked);
-            if (status === 'error') setStatus('idle');
-          }}
-          className="mt-1 w-4 h-4 rounded border-white/50 accent-white flex-shrink-0"
-        />
-        <span>
-          {fr
-            ? "J'accepte de recevoir les articles et actualités de Step UpAI par e-mail. Désinscription en un clic à tout moment."
-            : 'I agree to receive Step UpAI articles and updates by email. Unsubscribe anytime in one click.'}
-        </span>
-      </label>
+      <p className={`mt-2.5 ${compact ? 'text-xs text-gray-400 text-center' : 'text-sm text-white/80 text-center'}`}>
+        {fr
+          ? 'En vous inscrivant, vous acceptez de recevoir nos e-mails. Désinscription en un clic.'
+          : 'By subscribing you agree to receive our emails. Unsubscribe in one click.'}{' '}
+        <Link to="/privacy" className="underline hover:opacity-100 opacity-90">
+          {fr ? 'Confidentialité' : 'Privacy'}
+        </Link>
+      </p>
 
       {status === 'error' && error && (
-        <p className="mt-3 flex items-center justify-center gap-2 text-sm text-white bg-red-500/30 rounded-lg py-2 px-3" role="alert">
+        <p
+          className={`mt-3 flex items-center justify-center gap-2 rounded-lg py-2 px-3 ${
+            compact ? 'text-xs text-white bg-red-500/40' : 'text-sm text-white bg-red-500/30'
+          }`}
+          role="alert"
+        >
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
           {error}
         </p>

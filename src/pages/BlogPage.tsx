@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, Search, Bot, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
-import NewsletterSignup from '../components/NewsletterSignup';
 import { getAllPosts, getFeaturedPost, blogCategories } from '../data/blog';
 
 const SITE_URL = 'https://www.step-upai.com';
@@ -289,16 +288,6 @@ const BlogPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Newsletter Signup */}
-        <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('common.newsletter_title')}</h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto">{t('common.newsletter_subtitle')}</p>
-              <NewsletterSignup source="blog" />
-            </motion.div>
-          </div>
-        </section>
       </div>
     </>
   );

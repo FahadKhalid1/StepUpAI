@@ -82,11 +82,13 @@ try {
     const dm = /(?:"date"|date)\s*:\s*['"`]([^'"`]+)['"`]/.exec(entry);
     const lastmod = dm ? dm[1] : today;
     blogPages.push({ path: `/blog/${marks[i].slug}`, priority: '0.7', changefreq: 'monthly', lastmod });
+    const im = /(?:"image"|image)\s*:\s*['"`]([^'"`]+)['"`]/.exec(entry);
     blogPosts.push({
       slug: marks[i].slug,
       title: fieldFr(entry, 'title') || marks[i].slug,
       excerpt: fieldFr(entry, 'excerpt'),
       date: lastmod,
+      image: im ? im[1] : '',
     });
   }
 } catch (e) {
@@ -147,13 +149,16 @@ const rssEscape = (s = '') =>
 
 const rssItems = [...blogPosts]
   .sort((a, b) => new Date(b.date) - new Date(a.date))
-  .map((p) => `    <item>
+  .map((p) => {
+    const enclosure = p.image ? `\n      <enclosure url="${siteUrl}${p.image}" type="image/jpeg"/>` : '';
+    return `    <item>
       <title>${rssEscape(p.title)}</title>
       <link>${siteUrl}/blog/${p.slug}</link>
       <guid isPermaLink="true">${siteUrl}/blog/${p.slug}</guid>
       <pubDate>${new Date(p.date).toUTCString()}</pubDate>
-      <description>${rssEscape(p.excerpt)}</description>
-    </item>`)
+      <description>${rssEscape(p.excerpt)}</description>${enclosure}
+    </item>`;
+  })
   .join('\n');
 
 const rss = `<?xml version="1.0" encoding="UTF-8"?>

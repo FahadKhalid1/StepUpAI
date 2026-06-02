@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Navigation from './components/Navigation';
+import NewsletterSignup from './components/NewsletterSignup';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
@@ -20,10 +21,23 @@ const GeoServicePage = React.lazy(() => import('./pages/GeoServicePage'));
 const geoRoutes = getAllGeoRoutes();
 
 const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Blog subscribe banner — visible site-wide */}
+        <div className="border-b border-gray-700 pb-10 mb-10 text-center">
+          <h3 className="text-xl md:text-2xl font-bold mb-2">
+            📬 {language === 'fr' ? 'Recevez nos articles par e-mail' : 'Get our blog posts by email'}
+          </h3>
+          <p className="text-gray-300 mb-5 max-w-xl mx-auto">
+            {language === 'fr'
+              ? 'Envie d’alertes pour nos nouveaux articles de blog ? Laissez votre e-mail — on s’occupe du reste.'
+              : 'Want alerts for our new blog posts? Just drop your email — we’ll handle the rest.'}
+          </p>
+          <NewsletterSignup source="footer" variant="compact" />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
