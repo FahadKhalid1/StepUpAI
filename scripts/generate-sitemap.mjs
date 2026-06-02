@@ -19,13 +19,13 @@ const staticPages = [
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
 ];
 
-// City slugs (must match geoData.ts)
+// City slugs — ONLY primary/indexed cities belong in the sitemap.
+// Secondary cities render noindex,follow (see PRIMARY_CITY_SLUGS in geoData.ts)
+// so they must be kept OUT of the sitemap to avoid mixed indexing signals.
+// Keep this list in sync with PRIMARY_CITY_SLUGS in src/data/geoData.ts.
 const citySlugs = [
   'paris', 'boulogne-billancourt', 'neuilly-sur-seine', 'levallois-perret',
-  'nanterre', 'saint-denis', 'montreuil', 'versailles', 'saint-germain-en-laye',
-  'creteil', 'vincennes', 'argenteuil', 'cergy', 'issy-les-moulineaux',
-  'courbevoie', 'rueil-malmaison', 'colombes', 'asnieres-sur-seine',
-  'vitry-sur-seine', 'evry-courcouronnes'
+  'nanterre', 'issy-les-moulineaux', 'courbevoie', 'saint-germain-en-laye'
 ];
 
 // Service slugs (must match geoData.ts)

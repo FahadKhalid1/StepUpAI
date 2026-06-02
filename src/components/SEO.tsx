@@ -9,6 +9,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   canonical?: string;
+  noindex?: boolean;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
@@ -19,6 +20,7 @@ const SEO: React.FC<SEOProps> = ({
   ogImage = 'https://www.step-upai.com/og-image.jpg',
   ogType = 'website',
   canonical,
+  noindex = false,
   structuredData
 }) => {
   const { language } = useLanguage();
@@ -33,7 +35,7 @@ const SEO: React.FC<SEOProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
       <meta name="author" content="Step UpAI" />
 
       {/* Open Graph */}

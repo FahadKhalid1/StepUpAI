@@ -263,6 +263,29 @@ export const cities: City[] = [
 ];
 
 // -----------------------------------------------------------------------------
+// City tiering — index control
+// -----------------------------------------------------------------------------
+// Only "primary" business-hub cities are indexed + carry enriched, genuinely
+// unique per-(city x service) content. Secondary cities render noindex,follow
+// (still live for users + internal linking, but kept out of Google's index)
+// until they too have unique content — this removes the thin/doorway-page risk
+// flagged by the content audit. Edit this set to promote/demote a city.
+export const PRIMARY_CITY_SLUGS: ReadonlySet<string> = new Set([
+  "paris",
+  "boulogne-billancourt",
+  "neuilly-sur-seine",
+  "levallois-perret",
+  "nanterre",
+  "issy-les-moulineaux",
+  "courbevoie",
+  "saint-germain-en-laye",
+]);
+
+export function isPrimaryCity(slug: string): boolean {
+  return PRIMARY_CITY_SLUGS.has(slug);
+}
+
+// -----------------------------------------------------------------------------
 // GeoService Interface & Data
 // -----------------------------------------------------------------------------
 

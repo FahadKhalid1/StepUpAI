@@ -15,7 +15,8 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import { getCity, getService, getNearbyCities, getOtherServices, getGeoUrl } from '../data/geoData';
+import { getCity, getService, getNearbyCities, getOtherServices, getGeoUrl, isPrimaryCity } from '../data/geoData';
+import { getLocalContent } from '../data/geoLocalContent';
 import type { City, GeoService } from '../data/geoData';
 import { getPostsForService } from '../data/blog';
 
@@ -103,10 +104,31 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
   const metaDesc = replacePlaceholders(service.metaDescTemplate, city, service);
   const heroSubtitle = replacePlaceholders(service.heroSubtitleTemplate, city, service);
 
-  const faqItems = service.faqTemplates.map((faq) => ({
-    question: replacePlaceholders(faq.question, city, service),
-    answer: replacePlaceholders(faq.answer, city, service),
-  }));
+  // Unique, sector-grounded content for primary/indexed cities (undefined for secondary).
+  const local = getLocalContent(service.id, city.slug);
+
+  const faqItems = [
+    ...service.faqTemplates.map((faq) => ({
+      question: replacePlaceholders(faq.question, city, service),
+      answer: replacePlaceholders(faq.answer, city, service),
+    })),
+    // City-specific FAQ (only present for enriched primary cities) — flows into
+    // both the rendered accordion and the FAQPage structured data below.
+    ...(local?.extraFaq ?? []),
+  ];
+
+  // Index control: secondary cities are noindex,follow until enriched (see geoData.ts).
+  const noindex = !isPrimaryCity(city.slug);
+
+  // Department phrasing — avoid the redundant "et du departement Paris" when the
+  // commune and the department share a name (Paris = department 75).
+  const sameCityDept = city.name === city.departmentName;
+  const deptIntro = sameCityDept
+    ? `de ${city.name}`
+    : `de ${city.name} et du departement ${city.departmentName}`;
+  const deptCta = sameCityDept
+    ? `a ${city.name}`
+    : `a ${city.name} et dans tout le ${city.departmentName}`;
 
   // --------------------------------------------------
   // Structured data
@@ -198,6 +220,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
         description={metaDesc}
         keywords={`automatisation IA ${city.name}, ${service.name} ${city.departmentName}, intelligence artificielle ${city.name}, ${service.name} ${city.name}, IA entreprise ${city.departmentName}`}
         canonical={geoUrl}
+        noindex={noindex}
         structuredData={structuredData}
       />
 
@@ -293,7 +316,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Vous recherchez un expert en {service.name.toLowerCase()} a {city.name} ?
-                Step UpAI accompagne les entreprises de {city.name} et du departement {city.departmentName} dans leur transformation numerique grace a des solutions d'intelligence artificielle sur mesure.
+                Step UpAI accompagne les entreprises {deptIntro} dans leur transformation numerique grace a des solutions d'intelligence artificielle sur mesure.
                 Que vous soyez une startup, une PME ou un grand groupe implante a {city.name}, nous concevons et deployons des solutions de {service.name.toLowerCase()} adaptees a vos enjeux specifiques, a votre secteur d'activite et a vos objectifs de croissance.
                 Notre approche combine expertise technique de pointe et connaissance approfondie du tissu economique local pour vous offrir un accompagnement personnalise et des resultats concrets.
               </p>
@@ -302,6 +325,11 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
                 Nos experts en {service.name.toLowerCase()} travaillent en etroite collaboration avec les entreprises locales pour identifier les opportunites d'optimisation, automatiser les processus cles et maximiser le retour sur investissement de chaque projet.
                 Faites confiance a Step UpAI pour faire de {city.name} le terrain de votre reussite numerique.
               </p>
+              {local?.localAngle && (
+                <p className="text-lg text-gray-600 leading-relaxed mt-6">
+                  {local.localAngle}
+                </p>
+              )}
             </motion.div>
           </div>
         </section>
@@ -322,7 +350,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
                 Nos solutions de {service.name} a {city.name}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Des services concus pour repondre aux besoins des entreprises de {city.name} et du {city.departmentName}.
+                Des services concus pour repondre aux besoins des entreprises {deptIntro}.
               </p>
             </motion.div>
 
@@ -574,7 +602,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
               </h2>
               <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
                 Contactez nos experts en {service.name.toLowerCase()} et decouvrez comment l'intelligence artificielle
-                peut accelerer la croissance de votre entreprise a {city.name} et dans tout le {city.departmentName}.
+                peut accelerer la croissance de votre entreprise {deptCta}.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
