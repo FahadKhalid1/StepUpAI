@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const siteUrl = 'https://step-upai.com';
+const siteUrl = 'https://www.step-upai.com';
 const today = new Date().toISOString().split('T')[0];
 
 // Static pages

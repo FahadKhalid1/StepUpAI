@@ -84,7 +84,7 @@ const AboutPage: React.FC = () => {
           "mainEntity": {
             "@type": "Organization",
             "name": "Step UpAI",
-            "url": "https://step-upai.com",
+            "url": "https://www.step-upai.com",
             "foundingDate": "2023",
             "foundingLocation": {
               "@type": "Place",

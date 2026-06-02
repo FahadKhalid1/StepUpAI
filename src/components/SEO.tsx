@@ -16,13 +16,13 @@ const SEO: React.FC<SEOProps> = ({
   title = 'Step UpAI - Transformez Votre Entreprise avec l\'Automatisation IA | Paris',
   description = 'Step UpAI est une agence d\'automatisation IA basée à Paris. Nous aidons les entreprises avec l\'automatisation des processus, les chatbots IA, les systèmes d\'appels, l\'email marketing et le développement web sur mesure.',
   keywords = 'automatisation IA, agence IA Paris, automatisation des processus, chatbots IA, automatisation entreprise, n8n, développement web',
-  ogImage = 'https://step-upai.com/og-image.jpg',
+  ogImage = 'https://www.step-upai.com/og-image.jpg',
   ogType = 'website',
   canonical,
   structuredData
 }) => {
   const { language } = useLanguage();
-  const siteUrl = 'https://step-upai.com';
+  const siteUrl = 'https://www.step-upai.com';
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const locale = language === 'fr' ? 'fr_FR' : 'en_US';
   const altLocale = language === 'fr' ? 'en_US' : 'fr_FR';
@@ -66,8 +66,8 @@ const SEO: React.FC<SEOProps> = ({
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Step UpAI",
-          "url": "https://step-upai.com",
-          "logo": "https://step-upai.com/logo.svg",
+          "url": "https://www.step-upai.com",
+          "logo": "https://www.step-upai.com/logo.svg",
           "description": "Agence d'automatisation IA basée à Paris, spécialisée en workflows, chatbots, appels IA et développement web.",
           "telephone": "+33698229533",
           "email": "contact@step-upai.com",

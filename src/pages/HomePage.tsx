@@ -123,11 +123,11 @@ const HomePage: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Step UpAI",
-            "url": "https://step-upai.com",
+            "url": "https://www.step-upai.com",
             "description": t('seo.home.description'),
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://step-upai.com/?q={search_term_string}",
+              "target": "https://www.step-upai.com/?q={search_term_string}",
               "query-input": "required name=search_term_string"
             }
           },
@@ -135,8 +135,8 @@ const HomePage: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Step UpAI",
-            "image": "https://step-upai.com/og-image.jpg",
-            "url": "https://step-upai.com",
+            "image": "https://www.step-upai.com/og-image.jpg",
+            "url": "https://www.step-upai.com",
             "telephone": "+33698229533",
             "email": "contact@step-upai.com",
             "address": {

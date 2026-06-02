@@ -6,7 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
 import { getPostBySlug, getRelatedPosts, blogCategories, categoryToService } from '../data/blog';
 
-const SITE_URL = 'https://step-upai.com';
+const SITE_URL = 'https://www.step-upai.com';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();

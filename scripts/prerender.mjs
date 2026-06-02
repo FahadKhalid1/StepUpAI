@@ -56,14 +56,6 @@ async function main() {
     console.warn('⚠️  prerender skipped: dist/index.html not found');
     return;
   }
-  let puppeteer;
-  try {
-    puppeteer = (await import('puppeteer')).default;
-  } catch (e) {
-    console.warn('⚠️  prerender skipped: puppeteer not available —', e.message);
-    return;
-  }
-
   // Clean SPA shell kept in memory so it stays the fallback even as we write route files.
   const shell = readFileSync(join(DIST, 'index.html'), 'utf-8');
 
@@ -80,7 +72,28 @@ async function main() {
   });
   await new Promise((r) => server.listen(PORT, r));
 
-  const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  // Launch a browser. Vercel/CI build containers can't run Puppeteer's bundled Chromium
+  // (missing shared libs), so use @sparticuz/chromium there; full Puppeteer locally.
+  let browser;
+  try {
+    const onServer = !!(process.env.VERCEL || process.env.CI || process.env.AWS_REGION || process.env.NOW_REGION);
+    if (onServer) {
+      const chromium = (await import('@sparticuz/chromium')).default;
+      const core = (await import('puppeteer-core')).default;
+      browser = await core.launch({
+        args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless ?? true,
+      });
+    } else {
+      const puppeteer = (await import('puppeteer')).default;
+      browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    }
+  } catch (e) {
+    console.warn('⚠️  prerender skipped: could not launch browser —', e.message);
+    await new Promise((r) => server.close(r));
+    return;
+  }
   const routes = buildRoutes();
   let ok = 0, fail = 0;
 

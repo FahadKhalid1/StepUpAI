@@ -113,7 +113,7 @@ const ContactPage: React.FC = () => {
           "mainEntity": {
             "@type": "Organization",
             "name": "Step UpAI",
-            "url": "https://step-upai.com",
+            "url": "https://www.step-upai.com",
             "telephone": "+33698229533",
             "email": "contact@step-upai.com",
             "address": {
