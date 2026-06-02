@@ -86,6 +86,7 @@ try {
       slug: marks[i].slug,
       title: fieldFr(entry, 'title') || marks[i].slug,
       excerpt: fieldFr(entry, 'excerpt'),
+      date: lastmod,
     });
   }
 } catch (e) {
@@ -139,3 +140,33 @@ ${blogPosts.map(p => `- [${p.title}](${siteUrl}/blog/${p.slug})${p.excerpt ? `: 
 `;
 writeFileSync(resolve(__dirname, '..', 'dist', 'llms.txt'), llms, 'utf-8');
 console.log(`✅ llms.txt generated (${blogPosts.length} articles, ${serviceSlugs.length} services)`);
+
+// ── RSS feed (powers the "subscribe to daily blogs" email digest + feed readers) ──
+const rssEscape = (s = '') =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const rssItems = [...blogPosts]
+  .sort((a, b) => new Date(b.date) - new Date(a.date))
+  .map((p) => `    <item>
+      <title>${rssEscape(p.title)}</title>
+      <link>${siteUrl}/blog/${p.slug}</link>
+      <guid isPermaLink="true">${siteUrl}/blog/${p.slug}</guid>
+      <pubDate>${new Date(p.date).toUTCString()}</pubDate>
+      <description>${rssEscape(p.excerpt)}</description>
+    </item>`)
+  .join('\n');
+
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Step UpAI — Blog</title>
+    <link>${siteUrl}/blog</link>
+    <description>Automatisation IA, workflows, chatbots et conseils pratiques pour les entreprises — par Step UpAI.</description>
+    <language>fr-FR</language>
+    <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${rssItems}
+  </channel>
+</rss>`;
+writeFileSync(resolve(__dirname, '..', 'dist', 'rss.xml'), rss, 'utf-8');
+console.log(`✅ RSS feed generated (${blogPosts.length} posts) at /rss.xml`);

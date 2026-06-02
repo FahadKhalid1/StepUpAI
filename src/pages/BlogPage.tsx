@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, Search, Bot, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
+import NewsletterSignup from '../components/NewsletterSignup';
 import { getAllPosts, getFeaturedPost, blogCategories } from '../data/blog';
 
 const SITE_URL = 'https://www.step-upai.com';
@@ -294,16 +295,7 @@ const BlogPage: React.FC = () => {
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('common.newsletter_title')}</h2>
               <p className="text-xl mb-8 max-w-2xl mx-auto">{t('common.newsletter_subtitle')}</p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder={t('blog.email_placeholder')}
-                  className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
-                />
-                <button className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-                  {t('common.subscribe')}
-                </button>
-              </div>
+              <NewsletterSignup source="blog" />
             </motion.div>
           </div>
         </section>
