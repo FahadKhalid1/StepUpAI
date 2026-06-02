@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, User, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
-import { getPostBySlug, getRelatedPosts, blogCategories } from '../data/blog';
+import { getPostBySlug, getRelatedPosts, blogCategories, categoryToService } from '../data/blog';
 
 const SITE_URL = 'https://step-upai.com';
 
@@ -35,6 +35,7 @@ const BlogPostPage: React.FC = () => {
 
   const related = getRelatedPosts(post.slug, 2);
   const category = blogCategories[post.category];
+  const service = categoryToService[post.category];
 
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString(language === 'fr' ? 'fr-FR' : 'en-US', {
@@ -237,6 +238,24 @@ const BlogPostPage: React.FC = () => {
             </p>
 
             <div className="text-base">{renderContent(post.content[language])}</div>
+
+            {/* Related service (topical cluster: blog → service landing page) */}
+            {service && (
+              <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-indigo-100 bg-indigo-50/60 p-5">
+                <p className="text-gray-700">
+                  {language === 'fr'
+                    ? `Step UpAI déploie ${service.label.fr} pour les PME à Paris et en Île-de-France.`
+                    : `Step UpAI delivers ${service.label.en} for SMBs in Paris and the Île-de-France region.`}
+                </p>
+                <Link
+                  to={`/${service.slug}-paris`}
+                  className="inline-flex items-center gap-1 whitespace-nowrap text-indigo-600 font-semibold hover:text-indigo-700"
+                >
+                  {language === 'fr' ? 'Découvrir le service' : 'Explore the service'}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
 
             {/* FAQ */}
             {post.faq && post.faq.length > 0 && (

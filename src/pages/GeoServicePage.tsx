@@ -17,6 +17,7 @@ import {
 import SEO from '../components/SEO';
 import { getCity, getService, getNearbyCities, getOtherServices, getGeoUrl } from '../data/geoData';
 import type { City, GeoService } from '../data/geoData';
+import { getPostsForService } from '../data/blog';
 
 // ---------------------------------------------------------------------------
 // Props
@@ -95,6 +96,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
   const geoUrl = getGeoUrl(service.slug, city.slug);
   const nearbyCities = getNearbyCities(city.slug, 6);
   const otherServices = getOtherServices(service.id);
+  const relatedPosts = getPostsForService(service.id, 3);
   const ServiceIcon = iconMap[service.icon] ?? Bot;
 
   const metaTitle = replacePlaceholders(service.metaTitleTemplate, city, service);
@@ -518,6 +520,41 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
                 ))}
               </div>
             </motion.div>
+
+            {/* Related blog articles (topical cluster: service ↔ blog) */}
+            {relatedPosts.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mt-16"
+              >
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+                  À lire sur le blog
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {relatedPosts.map((p) => (
+                    <Link
+                      key={p.slug}
+                      to={`/blog/${p.slug}`}
+                      className="group bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+                    >
+                      <div className={`h-2 bg-gradient-to-r ${p.coverGradient}`} />
+                      <div className="p-5">
+                        <h3 className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-2">
+                          {p.title.fr}
+                        </h3>
+                        <p className="text-sm text-gray-500 mt-2 line-clamp-2">{p.excerpt.fr}</p>
+                        <span className="inline-flex items-center gap-1 text-indigo-600 text-sm font-medium mt-3">
+                          Lire l'article <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
         </section>
 

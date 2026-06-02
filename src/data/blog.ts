@@ -323,3 +323,32 @@ export function getRelatedPosts(slug: string, limit = 2): BlogPost[] {
 export function getAllTags(): string[] {
   return Array.from(new Set(posts.flatMap((p) => p.tags)));
 }
+
+// ─── Topical clusters: blog category ↔ service landing page ──────────────────
+
+/** Map a post category to the matching service landing page (e.g. /chatbot-ia-paris). */
+export const categoryToService: Record<string, { slug: string; label: Localized }> = {
+  ai: { slug: 'automatisation-ia', label: { fr: "l'automatisation IA", en: 'AI automation' } },
+  chatbots: { slug: 'chatbot-ia', label: { fr: 'les chatbots IA', en: 'AI chatbots' } },
+  voice: { slug: 'appels-ia', label: { fr: "les agents d'appels IA", en: 'AI voice agents' } },
+  data: { slug: 'automatisation-ia', label: { fr: "l'automatisation IA", en: 'AI automation' } },
+  industry: { slug: 'automatisation-ia', label: { fr: "l'automatisation IA", en: 'AI automation' } },
+  web: { slug: 'developpement-web', label: { fr: 'le développement web', en: 'web development' } },
+};
+
+const serviceToCategories: Record<string, string[]> = {
+  'automatisation-ia': ['ai', 'data', 'industry'],
+  'appels-ia': ['voice'],
+  'chatbot-ia': ['chatbots'],
+  'developpement-web': ['web'],
+  'agents-ia': ['ai'],
+  'email-marketing-ia': [],
+};
+
+/** Posts relevant to a service landing page, for service↔blog topical clustering. */
+export function getPostsForService(serviceId: string, limit = 3): BlogPost[] {
+  const cats = serviceToCategories[serviceId] ?? [];
+  return getAllPosts()
+    .filter((p) => cats.includes(p.category))
+    .slice(0, limit);
+}
