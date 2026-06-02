@@ -68,7 +68,11 @@ function fieldFr(entry, key) {
 let blogPages = [];
 let blogPosts = [];
 try {
-  const src = readFileSync(resolve(__dirname, '..', 'src', 'data', 'blog.ts'), 'utf-8');
+  const file = readFileSync(resolve(__dirname, '..', 'src', 'data', 'blog.ts'), 'utf-8');
+  // Bound parsing to the `posts` array so helper maps (categoryToService etc.) aren't matched.
+  const startIdx = file.indexOf('export const posts');
+  const arrEnd = file.indexOf('\n];', startIdx);
+  const src = file.slice(startIdx, arrEnd > 0 ? arrEnd : file.length);
   const slugRe = /(?:"slug"|slug)\s*:\s*['"`]([^'"`]+)['"`]/g;
   const marks = [];
   let m;
