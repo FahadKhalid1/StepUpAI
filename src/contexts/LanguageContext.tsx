@@ -350,6 +350,22 @@ const translations: Translations = {
     en: 'Autonomous AI agents that can perform complex tasks and make decisions independently.',
     fr: 'Agents IA autonomes capables d\'effectuer des tâches complexes et de prendre des décisions de manière indépendante.',
   },
+  'services.item.ecommerce_title': {
+    en: 'E-commerce Store Management',
+    fr: 'Gestion de Boutique E-commerce',
+  },
+  'services.item.ecommerce_desc': {
+    en: 'End-to-end management of your online store, from Shopify and WooCommerce setup to product catalogs, payments, and fully automated order fulfillment.',
+    fr: 'Gestion de bout en bout de votre boutique en ligne, de la configuration Shopify et WooCommerce aux catalogues produits, paiements et traitement automatisé des commandes.',
+  },
+  'services.item.seo_title': {
+    en: 'SEO / AEO / GEO Optimization',
+    fr: 'Optimisation SEO / AEO / GEO',
+  },
+  'services.item.seo_desc': {
+    en: 'Get found on Google and AI answer engines. We optimize for traditional search (SEO), answer engines (AEO), and generative AI (GEO) so customers discover you first.',
+    fr: 'Soyez trouvé sur Google et les moteurs de réponse IA. Nous optimisons pour la recherche traditionnelle (SEO), les moteurs de réponse (AEO) et l\'IA générative (GEO) afin que vos clients vous trouvent en premier.',
+  },
 
   // Process steps
   'services.process.step1_title': {
@@ -989,6 +1005,38 @@ const translations: Translations = {
   'services.feat.agentic4': {
     en: 'Learning & Adaptation',
     fr: 'Apprentissage et adaptation',
+  },
+  'services.feat.ecommerce1': {
+    en: 'Shopify & WooCommerce Setup',
+    fr: 'Configuration Shopify & WooCommerce',
+  },
+  'services.feat.ecommerce2': {
+    en: 'Product & Catalog Management',
+    fr: 'Gestion des produits et catalogues',
+  },
+  'services.feat.ecommerce3': {
+    en: 'Payment & Checkout Integration',
+    fr: 'Intégration paiement et commande',
+  },
+  'services.feat.ecommerce4': {
+    en: 'Order & Inventory Automation',
+    fr: 'Automatisation des commandes et stocks',
+  },
+  'services.feat.seo1': {
+    en: 'Technical & On-Page SEO',
+    fr: 'SEO technique et on-page',
+  },
+  'services.feat.seo2': {
+    en: 'Answer Engine Optimization (AEO)',
+    fr: 'Optimisation pour moteurs de réponse (AEO)',
+  },
+  'services.feat.seo3': {
+    en: 'Generative Engine Optimization (GEO)',
+    fr: 'Optimisation pour IA générative (GEO)',
+  },
+  'services.feat.seo4': {
+    en: 'Schema Markup & Local SEO',
+    fr: 'Balisage Schema et SEO local',
   },
 
   // Project Categories
@@ -1853,12 +1901,12 @@ const translations: Translations = {
     fr: 'Services d\'Automatisation IA - Workflows, Chatbots & Plus | Step UpAI',
   },
   'seo.services.description': {
-    en: 'Comprehensive AI automation services including n8n workflows, AI cold calling, email marketing, web development, chatbots, and custom AI agents for businesses.',
-    fr: 'Services complets d\'automatisation IA : workflows n8n, appels IA, email marketing, développement web, chatbots et agents IA sur mesure pour les entreprises.',
+    en: 'Comprehensive AI automation services including n8n workflows, AI cold calling, email marketing, web development, chatbots, custom AI agents, e-commerce store management, and SEO/AEO/GEO optimization for businesses.',
+    fr: 'Services complets d\'automatisation IA : workflows n8n, appels IA, email marketing, développement web, chatbots, agents IA sur mesure, gestion de boutique e-commerce et optimisation SEO/AEO/GEO pour les entreprises.',
   },
   'seo.services.keywords': {
-    en: 'AI services, workflow automation, AI chatbots, cold calling AI, email marketing, web development, AI agents',
-    fr: 'services IA, automatisation workflows, chatbots IA, appels IA, email marketing, développement web, agents IA',
+    en: 'AI services, workflow automation, AI chatbots, cold calling AI, email marketing, web development, AI agents, e-commerce management, Shopify, WooCommerce, SEO, AEO, GEO, answer engine optimization, generative engine optimization',
+    fr: 'services IA, automatisation workflows, chatbots IA, appels IA, email marketing, développement web, agents IA, gestion e-commerce, Shopify, WooCommerce, SEO, AEO, GEO, optimisation moteurs de réponse, optimisation IA générative',
   },
 
   // SEO Meta Tags - About

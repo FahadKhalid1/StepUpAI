@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check } from 'lucide-react';
+import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -61,6 +61,24 @@ const ServicesPage: React.FC = () => {
       technologies: ['LangChain', 'AutoGPT', 'Custom Agents', 'Vector Databases'],
       color: 'from-yellow-500 to-green-500',
       image: '/images/service-agents.jpg'
+    },
+    {
+      icon: ShoppingBag,
+      title: t('services.item.ecommerce_title'),
+      description: t('services.item.ecommerce_desc'),
+      features: [t('services.feat.ecommerce1'), t('services.feat.ecommerce2'), t('services.feat.ecommerce3'), t('services.feat.ecommerce4')],
+      technologies: ['Shopify', 'WooCommerce', 'Stripe', 'Klaviyo'],
+      color: 'from-green-500 to-teal-500',
+      image: '/images/service-ecommerce.jpg'
+    },
+    {
+      icon: Search,
+      title: t('services.item.seo_title'),
+      description: t('services.item.seo_desc'),
+      features: [t('services.feat.seo1'), t('services.feat.seo2'), t('services.feat.seo3'), t('services.feat.seo4')],
+      technologies: ['Schema.org', 'Search Console', 'Structured Data', 'Ahrefs'],
+      color: 'from-teal-500 to-cyan-500',
+      image: '/images/service-seo.jpg'
     }
   ];
 
@@ -166,6 +184,28 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "AI Agents",
                 "description": "Autonomous AI agents for complex business task automation",
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "Service",
+                "name": "E-commerce Store Management",
+                "description": "End-to-end Shopify and WooCommerce store setup, management, and order fulfillment automation",
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "Service",
+                "name": "SEO, AEO & GEO Optimization",
+                "description": "Search engine, answer engine, and generative AI optimization to maximize online and AI-driven visibility",
                 "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }

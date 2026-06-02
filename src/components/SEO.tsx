@@ -67,7 +67,7 @@ const SEO: React.FC<SEOProps> = ({
           "@type": "Organization",
           "name": "Step UpAI",
           "url": "https://step-upai.com",
-          "logo": "https://step-upai.com/logo.png",
+          "logo": "https://step-upai.com/logo.svg",
           "description": "Agence d'automatisation IA basée à Paris, spécialisée en workflows, chatbots, appels IA et développement web.",
           "telephone": "+33698229533",
           "email": "contact@step-upai.com",

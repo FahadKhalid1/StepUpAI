@@ -13,7 +13,6 @@ import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import { getAllGeoRoutes } from './data/geoData';
-import { Bot } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
 
 const GeoServicePage = React.lazy(() => import('./pages/GeoServicePage'));
@@ -28,9 +27,13 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg">
-                <Bot className="w-6 h-6 text-white" />
-              </div>
+              <img
+                src="/logo-mark.svg"
+                alt="Step UpAI logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-lg"
+              />
               <span className="text-xl font-bold">Step UpAI</span>
             </div>
             <p className="text-gray-300 mb-4">

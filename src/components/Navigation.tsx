@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Globe, Bot } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -29,13 +29,15 @@ const Navigation: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg"
-            >
-              <Bot className="h-6 w-6 text-white" />
-            </motion.div>
+            <motion.img
+              src="/logo-mark.svg"
+              alt="Step UpAI logo"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-lg"
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.3 }}
+            />
             <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Step UpAI
             </span>

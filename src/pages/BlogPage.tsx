@@ -51,7 +51,7 @@ const BlogPage: React.FC = () => {
       '@type': 'Organization',
       name: 'Step UpAI',
       url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
     },
     blogPost: getAllPosts().map((p) => ({
       '@type': 'BlogPosting',
