@@ -58,7 +58,7 @@ const SEO: React.FC<SEOProps> = ({
       <link rel="canonical" href={fullCanonical} />
 
       {/* Favicon */}
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
 
       {/* Structured Data - Organization (global) */}
       <script type="application/ld+json">
