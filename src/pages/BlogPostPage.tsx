@@ -44,16 +44,34 @@ const BlogPostPage: React.FC = () => {
     });
 
   // ── Light-markdown renderer ─────────────────────────────────────────────────
+  const linkClass =
+    'text-indigo-600 font-medium underline decoration-indigo-300 underline-offset-2 hover:text-indigo-700 transition-colors';
+
   const renderInline = (text: string, keyPrefix: string) =>
-    text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
+    // Split on **bold** and [label](url) so both can appear mid-sentence.
+    text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+      const k = `${keyPrefix}-${i}`;
       if (part.startsWith('**') && part.endsWith('**')) {
         return (
-          <strong key={`${keyPrefix}-${i}`} className="font-semibold text-gray-900">
+          <strong key={k} className="font-semibold text-gray-900">
             {part.slice(2, -2)}
           </strong>
         );
       }
-      return <React.Fragment key={`${keyPrefix}-${i}`}>{part}</React.Fragment>;
+      const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (link) {
+        const [, label, href] = link;
+        return href.startsWith('/') ? (
+          <Link key={k} to={href} className={linkClass}>
+            {label}
+          </Link>
+        ) : (
+          <a key={k} href={href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+            {label}
+          </a>
+        );
+      }
+      return <React.Fragment key={k}>{part}</React.Fragment>;
     });
 
   const renderContent = (text: string) =>
@@ -127,7 +145,7 @@ const BlogPostPage: React.FC = () => {
         '@type': 'Organization',
         name: 'Step UpAI',
         url: SITE_URL,
-        logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
       inLanguage: language === 'fr' ? 'fr-FR' : 'en-US',
