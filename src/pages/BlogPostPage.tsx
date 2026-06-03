@@ -138,6 +138,7 @@ const BlogPostPage: React.FC = () => {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title[language],
+      image: post.image ? `${SITE_URL}${post.image}` : `${SITE_URL}/og-image.jpg`,
       description: post.excerpt[language],
       datePublished: post.date,
       dateModified: post.date,
@@ -173,6 +174,7 @@ const BlogPostPage: React.FC = () => {
         description={post.excerpt[language]}
         keywords={post.tags.join(', ')}
         ogType="article"
+        ogImage={post.image ? `${SITE_URL}${post.image}` : undefined}
         canonical={`/blog/${post.slug}`}
         structuredData={structuredData}
       />
