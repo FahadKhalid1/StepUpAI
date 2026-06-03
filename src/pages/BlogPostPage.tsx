@@ -50,7 +50,7 @@ const BlogPostPage: React.FC = () => {
 
   const renderInline = (text: string, keyPrefix: string) =>
     // Split on **bold** and [label](url) so both can appear mid-sentence.
-    text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+    text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
       const k = `${keyPrefix}-${i}`;
       if (part.startsWith('**') && part.endsWith('**')) {
         return (
@@ -58,6 +58,9 @@ const BlogPostPage: React.FC = () => {
             {part.slice(2, -2)}
           </strong>
         );
+      }
+      if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+        return <em key={k}>{part.slice(1, -1)}</em>;
       }
       const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
       if (link) {
