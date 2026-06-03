@@ -92,6 +92,13 @@ for (const slug of posts) {
   }
   const noAlt = (art.match(/<img(?![^>]*\balt=)[^>]*>/g) || []).length;
   if (noAlt > 0) warn(slug, `${noAlt} <img> without alt text`);
+
+  // --- editor-level content-quality checks (advisory warnings, do not block) ---
+  const words = art.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean).length;
+  if (words < 400) warn(slug, `thin content (~${words} words)`);
+  if ((art.match(/<h[23]\b/g) || []).length < 2) warn(slug, 'fewer than 2 section headings (structure/AEO)');
+  if (!ld.find((d) => d && d['@type'] === 'FAQPage')) warn(slug, 'no FAQPage JSON-LD (consider an FAQ for AEO)');
+  if ((art.match(/<a[^>]*href="\/[^"]/g) || []).length < 1) warn(slug, 'no internal links (add a related-post/CTA link)');
 }
 
 console.log(`🔎 validate-publish: inspected ${posts.length} blog post(s)`);
