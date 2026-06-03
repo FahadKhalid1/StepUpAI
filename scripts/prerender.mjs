@@ -51,11 +51,38 @@ const MIME = {
   '.xml': 'application/xml', '.woff2': 'font/woff2', '.woff': 'font/woff',
 };
 
+function validateImages() {
+  // Guardrail so the og:image problem can't silently come back.
+  // 1) The universal fallback social card MUST exist (fail the build if not).
+  if (!existsSync(join(DIST, 'og-image.jpg'))) {
+    console.error('❌ dist/og-image.jpg missing — the default og:image / social-card fallback. Regenerate: node scripts/make-og-image.mjs');
+    process.exitCode = 1;
+  }
+  // 2) Every blog post that references a hero image must have the file (else og:image 404s).
+  const missing = [];
+  try {
+    const file = readFileSync(resolve(__dirname, '..', 'src', 'data', 'blog.ts'), 'utf-8');
+    const sIdx = file.indexOf('export const posts');
+    const eIdx = file.indexOf('\n];', sIdx);
+    const src = file.slice(sIdx, eIdx > 0 ? eIdx : file.length);
+    const re = /(?:"image"|image)\s*:\s*['"`](\/images\/blog\/[^'"`]+)['"`]/g;
+    let m;
+    while ((m = re.exec(src)) !== null) if (!existsSync(join(DIST, m[1]))) missing.push(m[1]);
+  } catch { /* ignore */ }
+  if (missing.length) {
+    console.warn(`⚠️  ${missing.length} blog hero image(s) referenced but MISSING (og:image would 404):`);
+    missing.forEach((p) => console.warn('   - ' + p));
+  } else {
+    console.log('✅ image check: og-image.jpg + all blog hero images present');
+  }
+}
+
 async function main() {
   if (!existsSync(join(DIST, 'index.html'))) {
     console.warn('⚠️  prerender skipped: dist/index.html not found');
     return;
   }
+  validateImages();
   // Clean SPA shell kept in memory so it stays the fallback even as we write route files.
   const shell = readFileSync(join(DIST, 'index.html'), 'utf-8');
 
