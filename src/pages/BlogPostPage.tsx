@@ -93,9 +93,6 @@ const BlogPostPage: React.FC = () => {
               loading="lazy"
               className="w-full rounded-xl shadow-sm"
             />
-            {imgMatch[1] && (
-              <figcaption className="text-center text-sm text-gray-500 mt-3">{imgMatch[1]}</figcaption>
-            )}
           </figure>
         );
       }
