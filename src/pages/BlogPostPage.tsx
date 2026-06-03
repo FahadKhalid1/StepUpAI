@@ -5,6 +5,7 @@ import { Calendar, Clock, User, ArrowLeft, ArrowRight, Tag } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
 import { getPostBySlug, getRelatedPosts, blogCategories, categoryToService } from '../data/blog';
+import { shortTitle, trimDesc } from '../utils/seo';
 
 const SITE_URL = 'https://www.step-upai.com';
 
@@ -170,8 +171,8 @@ const BlogPostPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${post.title[language]} | Step UpAI`}
-        description={post.excerpt[language]}
+        title={`${shortTitle(post.title[language])} | Step UpAI`}
+        description={trimDesc(post.excerpt[language])}
         keywords={post.tags.join(', ')}
         ogType="article"
         ogImage={post.image ? `${SITE_URL}${post.image}` : undefined}
