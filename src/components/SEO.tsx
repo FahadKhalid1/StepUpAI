@@ -62,11 +62,25 @@ const SEO: React.FC<SEOProps> = ({
       {/* Favicon */}
       <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
 
+      {/* Structured Data - WebSite (global) */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://www.step-upai.com/#website",
+          "name": "Step UpAI",
+          "alternateName": "Step Up AI",
+          "url": "https://www.step-upai.com",
+          "inLanguage": ["fr-FR", "en-US"],
+          "publisher": { "@id": "https://www.step-upai.com/#organization" }
+        })}
+      </script>
       {/* Structured Data - Organization (global) */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
+          "@id": "https://www.step-upai.com/#organization",
           "name": "Step UpAI",
           "url": "https://www.step-upai.com",
           "logo": "https://www.step-upai.com/logo.svg",

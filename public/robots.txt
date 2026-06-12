@@ -1,3 +1,36 @@
+# Step UpAI — robots.txt
+# All crawlers welcome, including AI answer engines (AEO/GEO):
+# content may be indexed and cited with attribution.
+
 User-agent: *
 Allow: /
+
+# AI / answer-engine crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.step-upai.com/sitemap.xml
+
+# Machine-readable site summary for LLMs: https://www.step-upai.com/llms.txt
+# Blog feed: https://www.step-upai.com/rss.xml

@@ -119,12 +119,32 @@ const serviceLabels = {
   'chatbot-ia': 'Chatbots IA',
   'agents-ia': 'Agents IA autonomes',
 };
+const cityLabels = {
+  'paris': 'Paris', 'boulogne-billancourt': 'Boulogne-Billancourt',
+  'neuilly-sur-seine': 'Neuilly-sur-Seine', 'levallois-perret': 'Levallois-Perret',
+  'nanterre': 'Nanterre / La Défense', 'issy-les-moulineaux': 'Issy-les-Moulineaux',
+  'courbevoie': 'Courbevoie', 'saint-germain-en-laye': 'Saint-Germain-en-Laye',
+};
 const llms = `# Step UpAI
 
-> Agence d'automatisation IA basée à Paris (Île-de-France). Nous aidons les PME à automatiser leurs processus avec des workflows, des chatbots IA, des agents d'appels et du développement web sur mesure. Premier audit gratuit.
+> Agence d'automatisation IA basée à Paris (Île-de-France). Nous aidons les PME à automatiser leurs processus avec des workflows (n8n, Make), des chatbots IA, des agents d'appels vocaux, de l'email marketing IA, du développement web sur mesure (React/Supabase), la gestion de boutiques e-commerce (Shopify/WooCommerce) et l'optimisation SEO/AEO/GEO. Premier audit gratuit.
+
+## Faits clés
+- Nom: Step UpAI (Step Up AI)
+- Activité: agence d'automatisation et d'intelligence artificielle pour PME et ETI
+- Zone d'intervention: Paris et toute l'Île-de-France (interventions sur site et à distance dans toute la France)
+- Langues: français et anglais
+- Contact: contact@step-upai.com · +33 6 98 22 95 33
+- Offre d'entrée: audit d'automatisation gratuit
+- Technologies: n8n, Make.com, OpenAI, Anthropic Claude, VAPI, Telnyx, React, Supabase, Shopify
 
 ## Services
 ${serviceSlugs.map(s => `- [${serviceLabels[s] || s}](${siteUrl}/${s}-paris)`).join('\n')}
+- [Gestion de boutique e-commerce](${siteUrl}/services)
+- [Optimisation SEO / AEO / GEO](${siteUrl}/services)
+
+## Services par ville (Île-de-France)
+${citySlugs.map(c => `- ${cityLabels[c] || c}: ${serviceSlugs.map(s => `[${serviceLabels[s] || s}](${siteUrl}/${s}-${c})`).join(' · ')}`).join('\n')}
 
 ## Articles
 ${blogPosts.map(p => `- [${p.title}](${siteUrl}/blog/${p.slug})${p.excerpt ? `: ${p.excerpt}` : ''}`).join('\n')}
@@ -136,9 +156,15 @@ ${blogPosts.map(p => `- [${p.title}](${siteUrl}/blog/${p.slug})${p.excerpt ? `: 
 - [Blog](${siteUrl}/blog)
 - [Contact](${siteUrl}/contact)
 
+## Flux
+- [Sitemap XML](${siteUrl}/sitemap.xml)
+- [Flux RSS du blog](${siteUrl}/rss.xml)
+
 ## Contact
 - Email: contact@step-upai.com
+- Téléphone: +33 6 98 22 95 33
 - Zone desservie: Paris et Île-de-France
+- Instagram: https://www.instagram.com/step.upparis/
 `;
 writeFileSync(resolve(__dirname, '..', 'dist', 'llms.txt'), llms, 'utf-8');
 console.log(`✅ llms.txt generated (${blogPosts.length} articles, ${serviceSlugs.length} services)`);
