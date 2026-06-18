@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search } from 'lucide-react';
+import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search, LayoutDashboard, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -79,6 +79,15 @@ const ServicesPage: React.FC = () => {
       technologies: ['Schema.org', 'Search Console', 'Structured Data', 'Ahrefs'],
       color: 'from-teal-500 to-cyan-500',
       image: '/images/service-seo.jpg'
+    },
+    {
+      icon: LayoutDashboard,
+      title: t('services.item.dashboard_title'),
+      description: t('services.item.dashboard_desc'),
+      features: [t('services.feat.dashboard1'), t('services.feat.dashboard2'), t('services.feat.dashboard3'), t('services.feat.dashboard4')],
+      technologies: ['React', 'Supabase', 'Recharts', 'PostgreSQL'],
+      color: 'from-blue-500 to-indigo-500',
+      image: '/images/service-dashboard.svg'
     }
   ];
 
@@ -209,6 +218,17 @@ const ServicesPage: React.FC = () => {
                 "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@type": "Service",
+                "name": "Custom Dashboard Creation",
+                "description": "Custom analytics and admin dashboards that turn business data into real-time KPIs, clear visualizations, and decisions you can act on",
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
             }
           ]
         }}
@@ -240,6 +260,60 @@ const ServicesPage: React.FC = () => {
                 {t('hero.cta')}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Dashboard Creation — featured showcase (new flagship offering) */}
+        <section className="pb-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center bg-white rounded-3xl shadow-xl border border-gray-100 p-8 lg:p-12"
+            >
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-5">
+                  <Sparkles className="w-4 h-4" /> {t('services.dashboard.badge')}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                  {t('services.dashboard.headline')}
+                </h2>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  {t('services.dashboard.sub')}
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {[t('services.dashboard.out1'), t('services.dashboard.out2'), t('services.dashboard.out3')].map((outcome, i) => (
+                    <li key={i} className="flex items-center text-gray-700">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                        <Check className="w-4 h-4 text-green-600" />
+                      </span>
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  {t('services.dashboard.cta')}
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-2xl rounded-3xl" aria-hidden="true"></div>
+                <img
+                  src="/images/dashboard-showcase.svg"
+                  alt={t('services.item.dashboard_title')}
+                  className="relative w-full rounded-2xl shadow-2xl ring-1 ring-gray-200"
+                  width={840}
+                  height={540}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </motion.div>
           </div>
         </section>

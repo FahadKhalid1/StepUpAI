@@ -82,10 +82,22 @@ const ProjectsPage: React.FC = () => {
       results: [t('projects.p6.result1'), t('projects.p6.result2'), t('projects.p6.result3')],
       demoUrl: '#',
       caseStudyUrl: '#'
+    },
+    {
+      id: 7,
+      title: t('projects.p7.title'),
+      description: t('projects.p7.desc'),
+      image: '/images/service-dashboard.svg',
+      category: t('projects.p7.category'),
+      technologies: ['React', 'Firebase', 'Recharts', 'TanStack Query'],
+      features: [t('projects.p7.feat1'), t('projects.p7.feat2'), t('projects.p7.feat3'), t('projects.p7.feat4')],
+      results: [t('projects.p7.result1'), t('projects.p7.result2'), t('projects.p7.result3')],
+      demoUrl: '#',
+      caseStudyUrl: '#'
     }
   ];
 
-  const categories = [t('projects.cat.all'), t('projects.cat.ai_assistant'), t('projects.cat.marketing'), t('projects.cat.voice'), t('projects.cat.workflow')];
+  const categories = [t('projects.cat.all'), t('projects.cat.ai_assistant'), t('projects.cat.marketing'), t('projects.cat.voice'), t('projects.cat.workflow'), t('projects.cat.dashboard')];
 
   const filteredProjects = projects.filter(project => {
     const matchesCategory = selectedCategory === '' || selectedCategory === t('projects.cat.all') || project.category === selectedCategory;

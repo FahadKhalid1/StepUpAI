@@ -366,6 +366,44 @@ const translations: Translations = {
     en: 'Get found on Google and AI answer engines. We optimize for traditional search (SEO), answer engines (AEO), and generative AI (GEO) so customers discover you first.',
     fr: 'Soyez trouvé sur Google et les moteurs de réponse IA. Nous optimisons pour la recherche traditionnelle (SEO), les moteurs de réponse (AEO) et l\'IA générative (GEO) afin que vos clients vous trouvent en premier.',
   },
+  'services.item.dashboard_title': {
+    en: 'Custom Dashboard Creation',
+    fr: 'Tableaux de bord sur mesure',
+  },
+  'services.item.dashboard_desc': {
+    en: 'We design custom analytics and admin dashboards that turn your scattered data into real-time KPIs and clear visuals, so your team makes faster, better-informed decisions.',
+    fr: 'Nous concevons des tableaux de bord analytiques et des panneaux d\'administration sur mesure qui transforment vos données dispersées en KPIs en temps réel et en visuels clairs, pour des décisions plus rapides et mieux informées.',
+  },
+
+  // Dashboard showcase (used on Services + Home)
+  'services.dashboard.badge': {
+    en: 'New service',
+    fr: 'Nouveau service',
+  },
+  'services.dashboard.headline': {
+    en: 'Your data, finally clear and actionable',
+    fr: 'Vos données, enfin claires et actionnables',
+  },
+  'services.dashboard.sub': {
+    en: 'We build the dashboards and admin panels your business runs on — connecting your real data into a single live view your whole team can act on.',
+    fr: 'Nous construisons les tableaux de bord et panneaux d\'administration qui pilotent votre activité, en reliant vos données réelles dans une vue unique et en direct, accessible à toute votre équipe.',
+  },
+  'services.dashboard.out1': {
+    en: 'Faster decisions powered by live KPIs',
+    fr: 'Des décisions plus rapides grâce à des KPIs en direct',
+  },
+  'services.dashboard.out2': {
+    en: 'One source of truth for every team',
+    fr: 'Une source unique de vérité pour chaque équipe',
+  },
+  'services.dashboard.out3': {
+    en: 'Hours saved on manual reporting',
+    fr: 'Des heures gagnées sur le reporting manuel',
+  },
+  'services.dashboard.cta': {
+    en: 'Discuss your dashboard',
+    fr: 'Discuter de votre tableau de bord',
+  },
 
   // Process steps
   'services.process.step1_title': {
@@ -671,6 +709,10 @@ const translations: Translations = {
   'contact.service.agentic': {
     en: 'AI Agentic Systems',
     fr: 'Systèmes d\'Agents IA',
+  },
+  'contact.service.dashboard': {
+    en: 'Dashboard Creation',
+    fr: 'Création de tableaux de bord',
   },
   'contact.service.consultation': {
     en: 'Consultation & Strategy',
@@ -1038,6 +1080,22 @@ const translations: Translations = {
     en: 'Schema Markup & Local SEO',
     fr: 'Balisage Schema et SEO local',
   },
+  'services.feat.dashboard1': {
+    en: 'Real-time KPIs',
+    fr: 'KPIs en temps réel',
+  },
+  'services.feat.dashboard2': {
+    en: 'Data visualization',
+    fr: 'Visualisation de données',
+  },
+  'services.feat.dashboard3': {
+    en: 'Admin panels',
+    fr: 'Panneaux d\'administration',
+  },
+  'services.feat.dashboard4': {
+    en: 'Connected to your data',
+    fr: 'Connecté à vos données',
+  },
 
   // Project Categories
   'projects.cat.all': {
@@ -1059,6 +1117,10 @@ const translations: Translations = {
   'projects.cat.workflow': {
     en: 'Workflow Automation',
     fr: 'Automatisation Workflow',
+  },
+  'projects.cat.dashboard': {
+    en: 'Dashboards',
+    fr: 'Tableaux de bord',
   },
 
   // Project 1
@@ -1311,6 +1373,48 @@ const translations: Translations = {
   'projects.p6.result3': {
     en: '100+ campaigns managed',
     fr: '100+ campagnes gérées',
+  },
+
+  // Project 7 — Beelingue Academy admin dashboard (real case study)
+  'projects.p7.title': {
+    en: 'Beelingue Academy — Admin Dashboard',
+    fr: 'Beelingue Academy — Tableau de bord d\'administration',
+  },
+  'projects.p7.desc': {
+    en: 'A complete admin dashboard for a Paris language academy: real-time revenue KPIs, student & attendance management, billing, planning and unified form intake — all in one live view.',
+    fr: 'Un tableau de bord d\'administration complet pour une académie de langues parisienne : KPIs de revenus en temps réel, gestion des élèves et des présences, facturation, planning et réception unifiée des formulaires — le tout dans une vue unique en direct.',
+  },
+  'projects.p7.category': {
+    en: 'Dashboards',
+    fr: 'Tableaux de bord',
+  },
+  'projects.p7.feat1': {
+    en: 'Real-time revenue & KPI dashboard',
+    fr: 'Tableau de bord revenus & KPIs en temps réel',
+  },
+  'projects.p7.feat2': {
+    en: 'Student, attendance & billing management',
+    fr: 'Gestion élèves, présences & facturation',
+  },
+  'projects.p7.feat3': {
+    en: 'Planning synced from Google Sheets',
+    fr: 'Planning synchronisé depuis Google Sheets',
+  },
+  'projects.p7.feat4': {
+    en: 'Unified form intake & automations',
+    fr: 'Réception de formulaires unifiée & automatisations',
+  },
+  'projects.p7.result1': {
+    en: '40+ students managed in one place',
+    fr: '40+ élèves gérés au même endroit',
+  },
+  'projects.p7.result2': {
+    en: '3 revenue streams reconciled automatically',
+    fr: '3 sources de revenus réconciliées automatiquement',
+  },
+  'projects.p7.result3': {
+    en: 'Hours saved on weekly planning',
+    fr: 'Des heures gagnées sur le planning hebdomadaire',
   },
 
   // Blog Posts
@@ -1852,6 +1956,10 @@ const translations: Translations = {
     en: 'Web Development',
     fr: 'Développement Web',
   },
+  'footer.service5': {
+    en: 'Custom Dashboards',
+    fr: 'Tableaux de bord',
+  },
   'footer.idf_title': {
     en: 'Île-de-France',
     fr: 'Île-de-France',
@@ -1901,12 +2009,12 @@ const translations: Translations = {
     fr: 'Services d\'Automatisation IA - Workflows, Chatbots & Plus | Step UpAI',
   },
   'seo.services.description': {
-    en: 'Comprehensive AI automation services including n8n workflows, AI cold calling, email marketing, web development, chatbots, custom AI agents, e-commerce store management, and SEO/AEO/GEO optimization for businesses.',
-    fr: 'Services complets d\'automatisation IA : workflows n8n, appels IA, email marketing, développement web, chatbots, agents IA sur mesure, gestion de boutique e-commerce et optimisation SEO/AEO/GEO pour les entreprises.',
+    en: 'Comprehensive AI automation services including n8n workflows, AI cold calling, email marketing, web development, chatbots, custom AI agents, e-commerce store management, custom analytics dashboards, and SEO/AEO/GEO optimization for businesses.',
+    fr: 'Services complets d\'automatisation IA : workflows n8n, appels IA, email marketing, développement web, chatbots, agents IA sur mesure, gestion de boutique e-commerce, tableaux de bord analytiques sur mesure et optimisation SEO/AEO/GEO pour les entreprises.',
   },
   'seo.services.keywords': {
-    en: 'AI services, workflow automation, AI chatbots, cold calling AI, email marketing, web development, AI agents, e-commerce management, Shopify, WooCommerce, SEO, AEO, GEO, answer engine optimization, generative engine optimization',
-    fr: 'services IA, automatisation workflows, chatbots IA, appels IA, email marketing, développement web, agents IA, gestion e-commerce, Shopify, WooCommerce, SEO, AEO, GEO, optimisation moteurs de réponse, optimisation IA générative',
+    en: 'AI services, workflow automation, AI chatbots, cold calling AI, email marketing, web development, AI agents, e-commerce management, Shopify, WooCommerce, dashboard creation, custom dashboard, business intelligence, data visualization, admin panel, SEO, AEO, GEO, answer engine optimization, generative engine optimization',
+    fr: 'services IA, automatisation workflows, chatbots IA, appels IA, email marketing, développement web, agents IA, gestion e-commerce, Shopify, WooCommerce, création de tableau de bord, dashboard sur mesure, business intelligence, visualisation de données, panneau d\'administration, SEO, AEO, GEO, optimisation moteurs de réponse, optimisation IA générative',
   },
 
   // SEO Meta Tags - About

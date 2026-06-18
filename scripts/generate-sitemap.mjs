@@ -142,6 +142,7 @@ const llms = `# Step UpAI
 ${serviceSlugs.map(s => `- [${serviceLabels[s] || s}](${siteUrl}/${s}-paris)`).join('\n')}
 - [Gestion de boutique e-commerce](${siteUrl}/services)
 - [Optimisation SEO / AEO / GEO](${siteUrl}/services)
+- [Création de tableaux de bord sur mesure](${siteUrl}/services)
 
 ## Services par ville (Île-de-France)
 ${citySlugs.map(c => `- ${cityLabels[c] || c}: ${serviceSlugs.map(s => `[${serviceLabels[s] || s}](${siteUrl}/${s}-${c})`).join(' · ')}`).join('\n')}
