@@ -331,6 +331,58 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
+        {/* Dashboard Creation — prominent product reveal (chameleon-style) */}
+        <section className="py-20 bg-gradient-to-b from-indigo-50/50 via-white to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+            >
+              <div className="order-1 lg:order-1">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-5">
+                  <Sparkles className="w-4 h-4" /> {t('services.dashboard.badge')}
+                </span>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                  {t('services.dashboard.headline')}
+                </h2>
+                <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+                  {t('services.dashboard.sub')}
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {[t('services.dashboard.out1'), t('services.dashboard.out2'), t('services.dashboard.out3')].map((outcome, i) => (
+                    <li key={i} className="flex items-center text-gray-700">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  {t('services.dashboard.cta')}
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </div>
+              <div className="relative order-2 lg:order-2">
+                <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/25 to-purple-500/25 blur-3xl rounded-3xl" aria-hidden="true"></div>
+                <img
+                  src="/images/dashboard-showcase.svg"
+                  alt={t('services.item.dashboard_title')}
+                  className="relative w-full rounded-2xl shadow-2xl ring-1 ring-gray-200"
+                  width={840}
+                  height={540}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Benefits Section */}
         <section className="py-20 bg-gradient-to-b from-white to-indigo-50/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -427,58 +479,6 @@ const HomePage: React.FC = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </div>
-          </div>
-        </section>
-
-        {/* Dashboard Creation — showcase band */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
-            >
-              <div className="relative order-2 lg:order-1">
-                <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-2xl rounded-3xl" aria-hidden="true"></div>
-                <img
-                  src="/images/dashboard-showcase.svg"
-                  alt={t('services.item.dashboard_title')}
-                  className="relative w-full rounded-2xl shadow-2xl ring-1 ring-gray-200"
-                  width={840}
-                  height={540}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="order-1 lg:order-2">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-5">
-                  <Sparkles className="w-4 h-4" /> {t('services.dashboard.badge')}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                  {t('services.dashboard.headline')}
-                </h2>
-                <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                  {t('services.dashboard.sub')}
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {[t('services.dashboard.out1'), t('services.dashboard.out2'), t('services.dashboard.out3')].map((outcome, i) => (
-                    <li key={i} className="flex items-center text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                      {outcome}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/services"
-                  className="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                >
-                  {t('services.dashboard.cta')}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </div>
-            </motion.div>
           </div>
         </section>
 
