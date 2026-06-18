@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Bot, Globe, MessageSquare, Mail, Code, Users, Trophy, Target, ChevronRight, Star, CheckCircle, Play, Award, TrendingUp, Shield, Sparkles } from 'lucide-react';
+import { ArrowRight, Zap, Bot, Globe, MessageSquare, Mail, Code, Users, Trophy, Target, ChevronRight, Star, CheckCircle, Play, Award, TrendingUp, Shield, Sparkles, Workflow, Phone, LayoutDashboard, Search, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import TypewriterText from '../components/TypewriterText';
 import AnimatedBackground from '../components/AnimatedBackground';
@@ -17,6 +17,7 @@ import SEO from '../components/SEO';
 
 const HomePage: React.FC = () => {
   const { t } = useLanguage();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const stats = [
     { icon: Users, value: '50+', label: t('stats.projects_completed') },
@@ -111,6 +112,30 @@ const HomePage: React.FC = () => {
     }
   ];
 
+  const useCases = [
+    { icon: Workflow, title: 'home.uc1.title', desc: 'home.uc1.desc' },
+    { icon: Phone, title: 'home.uc2.title', desc: 'home.uc2.desc' },
+    { icon: MessageSquare, title: 'home.uc3.title', desc: 'home.uc3.desc' },
+    { icon: Mail, title: 'home.uc4.title', desc: 'home.uc4.desc' },
+    { icon: LayoutDashboard, title: 'home.uc5.title', desc: 'home.uc5.desc' },
+    { icon: Search, title: 'home.uc6.title', desc: 'home.uc6.desc' },
+  ];
+
+  const processSteps = [
+    { num: '01', title: 'services.process.step1_title', desc: 'services.process.step1_desc' },
+    { num: '02', title: 'services.process.step2_title', desc: 'services.process.step2_desc' },
+    { num: '03', title: 'services.process.step3_title', desc: 'services.process.step3_desc' },
+    { num: '04', title: 'services.process.step4_title', desc: 'services.process.step4_desc' },
+  ];
+
+  const caseStudies = [
+    { image: '/images/project-school.jpg', category: 'projects.p1.category', title: 'projects.p1.title', desc: 'projects.p1.desc' },
+    { image: '/images/service-calling.jpg', category: 'projects.p2.category', title: 'projects.p2.title', desc: 'projects.p2.desc' },
+    { image: '/images/service-dashboard.svg', category: 'projects.p7.category', title: 'projects.p7.title', desc: 'projects.p7.desc' },
+  ];
+
+  const faqItems = [1, 2, 3, 4, 5, 6].map((n) => ({ q: `home.faq.q${n}`, a: `home.faq.a${n}` }));
+
   return (
     <>
       <SEO
@@ -166,6 +191,15 @@ const HomePage: React.FC = () => {
               "https://linkedin.com/company/stepup-ai",
               "https://twitter.com/stepupai"
             ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [1, 2, 3, 4, 5, 6].map((n) => ({
+              "@type": "Question",
+              "name": t(`home.faq.q${n}`),
+              "acceptedAnswer": { "@type": "Answer", "text": t(`home.faq.a${n}`) }
+            }))
           }
         ]}
       />
@@ -482,6 +516,74 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
+        {/* Use Cases Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-14"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('home.usecases.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('home.usecases.sub')}</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {useCases.map((uc, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="group p-7 rounded-2xl bg-gradient-to-br from-slate-50 to-indigo-50/40 border border-gray-100 hover:border-indigo-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <uc.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{t(uc.title)}</h3>
+                  <p className="text-gray-600 leading-relaxed">{t(uc.desc)}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-20 bg-gradient-to-b from-white to-indigo-50/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-14"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('services.process_title')}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('services.process_subtitle')}</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {processSteps.map((step, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                    {step.num}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t(step.title)}</h3>
+                  <p className="text-gray-600 leading-relaxed">{t(step.desc)}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Technologies Section */}
         <section className="py-20 bg-gradient-to-b from-white to-indigo-50/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -515,6 +617,58 @@ const HomePage: React.FC = () => {
                   <div className="text-sm font-semibold text-gray-900">{tech.name}</div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-14"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('home.cases.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('home.cases.sub')}</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {caseStudies.map((c, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="h-48 overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50">
+                    <img
+                      src={c.image}
+                      alt={t(c.title)}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <span className="text-indigo-600 text-xs font-semibold uppercase tracking-wide">{t(c.category)}</span>
+                    <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">{t(c.title)}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">{t(c.desc)}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <Link
+                to="/projects"
+                className="inline-flex items-center px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300"
+              >
+                {t('common.view_all')} {t('nav.projects')}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
             </div>
           </div>
         </section>
@@ -569,6 +723,45 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                 </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-gradient-to-b from-white to-indigo-50/30">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('home.faq.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('home.faq.sub')}</p>
+            </motion.div>
+            <div className="space-y-4">
+              {faqItems.map((item, index) => (
+                <div key={index} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    aria-expanded={openFaq === index}
+                    className="w-full flex items-center justify-between gap-4 p-6 text-left"
+                  >
+                    <span className="text-lg font-semibold text-gray-900">{t(item.q)}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-indigo-600 flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {/* Answer stays in the DOM (collapsed via CSS) so crawlers + AI answer engines can read it */}
+                  <div
+                    className={`px-6 text-gray-600 leading-relaxed overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-[40rem] pb-6' : 'max-h-0'}`}
+                  >
+                    {t(item.a)}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

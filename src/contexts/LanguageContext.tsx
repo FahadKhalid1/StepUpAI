@@ -405,6 +405,96 @@ const translations: Translations = {
     fr: 'Discuter de votre tableau de bord',
   },
 
+  // Home — Use cases grid
+  'home.usecases.title': {
+    en: 'What we automate for you',
+    fr: 'Ce que nous automatisons pour vous',
+  },
+  'home.usecases.sub': {
+    en: 'Six everyday bottlenecks where AI and automation give your team back their time — and your business room to grow.',
+    fr: 'Six points de friction du quotidien où l\'IA et l\'automatisation redonnent du temps à vos équipes et de la marge de croissance à votre entreprise.',
+  },
+  'home.uc1.title': { en: 'Stop re-typing the same data', fr: 'Fini la double saisie' },
+  'home.uc1.desc': {
+    en: 'We connect your tools with n8n and Make so orders, invoices and CRM entries sync on their own, error-free.',
+    fr: 'Nous relions vos outils avec n8n et Make pour que commandes, factures et fiches CRM se synchronisent seules, sans erreur.',
+  },
+  'home.uc2.title': { en: 'Never let a lead go cold', fr: 'Ne laissez plus un lead s\'éteindre' },
+  'home.uc2.desc': {
+    en: 'An AI voice agent calls and qualifies every prospect within minutes, then books the meeting straight into your calendar.',
+    fr: 'Un agent vocal IA appelle et qualifie chaque prospect en quelques minutes, puis cale le rendez-vous directement dans votre agenda.',
+  },
+  'home.uc3.title': { en: 'Answer clients around the clock', fr: 'Répondez à vos clients 24h/24' },
+  'home.uc3.desc': {
+    en: 'A chatbot trained on your business handles routine questions day and night, and passes real opportunities to your team.',
+    fr: 'Un chatbot formé sur votre activité traite les questions courantes jour et nuit, et transmet les vraies opportunités à votre équipe.',
+  },
+  'home.uc4.title': { en: 'Email campaigns that write themselves', fr: 'Des campagnes email qui s\'écrivent seules' },
+  'home.uc4.desc': {
+    en: 'AI segments your contacts and sends personalised emails at the right moment, turning your list into recurring revenue.',
+    fr: 'L\'IA segmente vos contacts et envoie des emails personnalisés au bon moment, transformant votre base en revenus récurrents.',
+  },
+  'home.uc5.title': { en: 'See your business at a glance', fr: 'Pilotez votre activité d\'un coup d\'œil' },
+  'home.uc5.desc': {
+    en: 'We build custom dashboards that pull your sales, marketing and operations data into one clear, real-time view.',
+    fr: 'Nous créons des tableaux de bord sur mesure qui réunissent ventes, marketing et opérations dans une vue claire et en temps réel.',
+  },
+  'home.uc6.title': { en: 'Get found on Google and AI', fr: 'Soyez trouvé sur Google et l\'IA' },
+  'home.uc6.desc': {
+    en: 'Our SEO and AEO work puts you in front of customers searching on Google and asking ChatGPT alike.',
+    fr: 'Notre travail SEO et AEO vous place devant les clients qui cherchent sur Google comme ceux qui interrogent ChatGPT.',
+  },
+
+  // Home — Case studies preview
+  'home.cases.title': {
+    en: 'Recent work we have shipped',
+    fr: 'Nos réalisations récentes',
+  },
+  'home.cases.sub': {
+    en: 'Real projects delivered for businesses like yours — from AI administration to custom dashboards.',
+    fr: 'Des projets concrets livrés pour des entreprises comme la vôtre — de l\'administration IA aux tableaux de bord sur mesure.',
+  },
+
+  // Home — FAQ
+  'home.faq.title': {
+    en: 'Frequently Asked Questions',
+    fr: 'Questions fréquentes',
+  },
+  'home.faq.sub': {
+    en: 'Everything you need to know before automating your business with Step Up AI.',
+    fr: 'Tout ce qu\'il faut savoir avant d\'automatiser votre activité avec Step Up AI.',
+  },
+  'home.faq.q1': { en: 'Do we need any technical skills on our side?', fr: 'Faut-il des compétences techniques de notre côté ?' },
+  'home.faq.a1': {
+    en: 'No technical skills are required on your end. We design, deploy and configure every automation and tool for you, then train your team on what they\'ll use day to day. You stay focused on your business while we handle the technical side.',
+    fr: 'Non, aucune compétence technique n\'est nécessaire. Nous concevons, déployons et configurons l\'ensemble des automatisations et des outils à votre place, puis nous vous formons sur ce que vous utiliserez au quotidien. Vous restez concentré sur votre métier, nous gérons toute la partie technique.',
+  },
+  'home.faq.q2': { en: 'How long does it take to launch a project?', fr: 'Combien de temps faut-il pour lancer un projet ?' },
+  'home.faq.a2': {
+    en: 'Timelines depend on project scope: a focused automation can go live in one to two weeks, while custom development or a full AI agent typically takes a few weeks more. After the free audit, we give you a clear schedule with defined milestones and early wins delivered fast.',
+    fr: 'Le délai dépend de la complexité du projet : une automatisation ciblée peut être opérationnelle en une à deux semaines, tandis qu\'un développement sur mesure ou un agent IA complet demande généralement quelques semaines de plus. Après l\'audit gratuit, nous vous communiquons un planning clair avec des étapes précises et des premiers résultats rapides.',
+  },
+  'home.faq.q3': { en: 'How does your pricing work?', fr: 'Comment fonctionne votre tarification ?' },
+  'home.faq.a3': {
+    en: 'We work on a per-project basis, with a tailored quote built after the free audit. Pricing reflects the scope, the tools involved and the targeted impact, and is presented transparently before any commitment. No hidden fees: you know exactly what you pay and what it brings you.',
+    fr: 'Nous fonctionnons au projet, avec un devis établi sur mesure après l\'audit gratuit. Le tarif dépend du périmètre, des outils mobilisés et de l\'impact visé, et vous est présenté de façon transparente avant tout engagement. Aucun frais caché : vous savez exactement ce que vous payez et ce que cela vous rapporte.',
+  },
+  'home.faq.q4': { en: 'Is my data secure and GDPR-compliant?', fr: 'Mes données sont-elles sécurisées et conformes au RGPD ?' },
+  'home.faq.a4': {
+    en: 'Your data security and GDPR compliance are central to how we work. We favour hosting and tools that respect European regulations, strictly limit access and never use your data for anything beyond your project. Confidentiality is contractually framed from the very start.',
+    fr: 'La sécurité de vos données et la conformité au RGPD sont au cœur de nos pratiques. Nous privilégions des hébergements et des outils respectant la réglementation européenne, limitons strictement les accès et n\'utilisons jamais vos données à d\'autres fins que votre projet. La confidentialité est encadrée contractuellement dès le départ.',
+  },
+  'home.faq.q5': { en: 'Which tools do you use, and will it integrate with our current stack?', fr: 'Avec quels outils travaillez-vous et est-ce compatible avec nos logiciels actuels ?' },
+  'home.faq.a5': {
+    en: 'We work with proven solutions like n8n, Make, Shopify, WooCommerce, React and Supabase, and we connect AI to your existing tools rather than replacing them. Our automations integrate with your CRM, your email, your e-commerce platforms and most business software. The goal is to strengthen your current stack, not rebuild everything.',
+    fr: 'Nous travaillons avec des solutions éprouvées comme n8n, Make, Shopify, WooCommerce, React et Supabase, et nous connectons l\'IA à vos outils existants plutôt que de les remplacer. Nos automatisations s\'intègrent à votre CRM, votre messagerie, vos plateformes e-commerce et la plupart des logiciels métiers. L\'objectif est de renforcer votre stack actuelle, pas de tout reconstruire.',
+  },
+  'home.faq.q6': { en: 'Do you provide support and maintenance after delivery?', fr: 'Assurez-vous le support et la maintenance après la livraison ?' },
+  'home.faq.a6': {
+    en: 'Yes, we don\'t disappear once the project is delivered. We provide ongoing monitoring, adjustments and maintenance for your automations and dashboards so they stay reliable over time. You get a dedicated point of contact and support plans tailored to your needs.',
+    fr: 'Oui, nous ne disparaissons pas une fois le projet livré. Nous assurons le suivi, les ajustements et la maintenance de vos automatisations et tableaux de bord pour qu\'ils restent fiables dans la durée. Vous bénéficiez d\'un interlocuteur dédié et de formules de support adaptées à vos besoins.',
+  },
+
   // Process steps
   'services.process.step1_title': {
     en: 'Discovery & Analysis',
