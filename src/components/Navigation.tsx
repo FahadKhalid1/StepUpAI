@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,7 +7,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+
+  // iOS-style nav: transparent over the hero at the top, frosted glass on scroll.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -24,7 +33,13 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/70 backdrop-blur-xl backdrop-saturate-150 z-50 border-b border-gray-200/70">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
+        scrolled
+          ? 'bg-white/80 backdrop-blur-xl border-b border-gray-900/[0.07] shadow-[0_1px_12px_rgba(0,0,0,0.04)]'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
