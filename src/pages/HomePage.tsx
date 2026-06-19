@@ -207,9 +207,15 @@ const HomePage: React.FC = () => {
       <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
   <AnimatedBackground showDots={false} />
         
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="max-w-7xl mx-auto">
+        {/* Hero Section — dark, chameleon-style */}
+        <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-[#0b1020] via-[#0f1430] to-[#1a1040]">
+          {/* ambient glows */}
+          <div className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-600/25 blur-3xl" />
+          <div className="pointer-events-none absolute top-8 right-0 w-[30rem] h-[30rem] rounded-full bg-purple-600/20 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-0 left-1/3 w-[26rem] h-[26rem] rounded-full bg-pink-500/10 blur-3xl" />
+          {/* fade into the light content below */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#f5f5f7]" />
+          <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <motion.div
@@ -219,22 +225,22 @@ const HomePage: React.FC = () => {
                 className="text-left"
               >
                 <div className="mb-6">
-                  <span className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
+                  <span className="inline-flex items-center px-4 py-2 bg-white/10 text-indigo-200 ring-1 ring-white/15 backdrop-blur-sm rounded-full text-sm font-medium mb-4">
                     {t('home.badge')}
                   </span>
                 </div>
                 
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {t('hero.title').split(' ')[0]}
                   </span>
                   <br />
-                  <span className="text-gray-900">{t('hero.title').split(' ').slice(1, 3).join(' ')}</span>
+                  <span className="text-white">{t('hero.title').split(' ').slice(1, 3).join(' ')}</span>
                   <br />
-                  <span className="text-gray-700">{t('hero.title').split(' ').slice(3).join(' ')}</span>
+                  <span className="text-white/70">{t('hero.title').split(' ').slice(3).join(' ')}</span>
                 </h1>
                 
-                <div className="text-xl md:text-2xl text-gray-600 mb-8 h-16">
+                <div className="text-xl md:text-2xl text-white/70 mb-8 h-16">
                   <TypewriterText
                     texts={[
                       t('home.typewriter.1'),
@@ -242,21 +248,21 @@ const HomePage: React.FC = () => {
                       t('home.typewriter.3'),
                       t('home.typewriter.4')
                     ]}
-                    className="text-indigo-600 font-semibold"
+                    className="text-indigo-300 font-semibold"
                   />
                 </div>
-                
-                <p className="text-lg text-gray-600 mb-10 max-w-xl leading-relaxed">
+
+                <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
                   {t('hero.subtitle')}
                 </p>
 
                 {/* AI prompt box — "describe what you want to automate" (chameleon-style) */}
-                <AIPromptBox />
+                <AIPromptBox dark />
 
                 <div className="mt-5">
                   <Link
                     to="/projects"
-                    className="group inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200"
+                    className="group inline-flex items-center text-indigo-300 font-semibold hover:text-white transition-colors duration-200"
                   >
                     {t('hero.view_work')}
                     <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform duration-300" />

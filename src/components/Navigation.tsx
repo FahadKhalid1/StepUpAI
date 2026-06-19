@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,6 +9,7 @@ const Navigation: React.FC = () => {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { pathname } = useLocation();
 
   // iOS-style nav: transparent over the hero at the top, frosted glass on scroll.
   useEffect(() => {
@@ -17,6 +18,12 @@ const Navigation: React.FC = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // The home hero is dark, so the transparent (unscrolled) nav needs light text there.
+  const onDarkHero = pathname === '/' && !scrolled;
+  const linkCls = onDarkHero ? 'text-white/85 hover:text-white' : 'text-gray-700 hover:text-indigo-600';
+  const underlineCls = onDarkHero ? 'bg-white' : 'bg-indigo-600';
+  const iconCls = onDarkHero ? 'text-white/85 hover:text-white' : 'text-gray-700 hover:text-indigo-600';
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -53,7 +60,7 @@ const Navigation: React.FC = () => {
               whileHover={{ scale: 1.08 }}
               transition={{ duration: 0.3 }}
             />
-            <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <span className={`text-xl font-bold ${onDarkHero ? 'text-white' : 'bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'}`}>
               Step UpAI
             </span>
           </Link>
@@ -69,10 +76,10 @@ const Navigation: React.FC = () => {
               >
                 <Link
                   to={item.href}
-                  className="text-gray-700 hover:text-indigo-600 transition-colors duration-200 relative group"
+                  className={`${linkCls} transition-colors duration-200 relative group`}
                 >
                   {t(item.key)}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-200 group-hover:w-full"></span>
+                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${underlineCls} transition-all duration-200 group-hover:w-full`}></span>
                 </Link>
               </motion.div>
             ))}
@@ -81,7 +88,7 @@ const Navigation: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center space-x-1 text-gray-700 hover:text-indigo-600 transition-colors duration-200"
+                className={`flex items-center space-x-1 ${iconCls} transition-colors duration-200`}
               >
                 <Globe className="h-4 w-4" />
                 <span className="text-sm font-medium">{languages.find(l => l.code === language)?.flag}</span>
@@ -123,7 +130,7 @@ const Navigation: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="text-gray-700 hover:text-indigo-600 transition-colors duration-200 flex items-center space-x-1 px-2 py-1"
+                className={`${iconCls} transition-colors duration-200 flex items-center space-x-1 px-2 py-1`}
                 aria-label="Change language"
               >
                 <Globe className="h-5 w-5" />
@@ -163,7 +170,7 @@ const Navigation: React.FC = () => {
             <div>
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-700 hover:text-indigo-600 transition-colors duration-200 px-2 py-1"
+                className={`${iconCls} transition-colors duration-200 px-2 py-1`}
                 aria-label="Open menu"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
