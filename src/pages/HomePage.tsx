@@ -5,6 +5,7 @@ import { ArrowRight, Zap, Bot, Globe, MessageSquare, Mail, Code, Users, Trophy, 
 import { useLanguage } from '../contexts/LanguageContext';
 import TypewriterText from '../components/TypewriterText';
 import AnimatedBackground from '../components/AnimatedBackground';
+import AIPromptBox from '../components/AIPromptBox';
 import airtableLogo from '../images/airtable.png';
 import makeLogo from '../images/make.png';
 import n8nLogo from '../images/n8n.png';
@@ -249,20 +250,16 @@ const HomePage: React.FC = () => {
                   {t('hero.subtitle')}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    to="/contact"
-                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-                  >
-                    <span>{t('hero.cta')}</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
+                {/* AI prompt box — "describe what you want to automate" (chameleon-style) */}
+                <AIPromptBox />
+
+                <div className="mt-5">
                   <Link
                     to="/projects"
-                    className="group border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
+                    className="group inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200"
                   >
-                    <span>{t('hero.view_work')}</span>
-                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    {t('hero.view_work')}
+                    <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
 

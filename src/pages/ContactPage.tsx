@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -17,6 +17,24 @@ const ContactPage: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Pre-fill from the homepage AI prompt box: /contact?message=…&service=…
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const msg = params.get('message');
+    const svcKey = params.get('service');
+    if (!msg && !svcKey) return;
+    setFormData((prev) => ({
+      ...prev,
+      message: msg || prev.message,
+      service: svcKey ? t(`contact.service.${svcKey}`) : prev.service,
+    }));
+    const id = window.setTimeout(() => {
+      document.querySelector('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 350);
+    return () => window.clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
