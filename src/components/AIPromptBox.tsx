@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import {
   Sparkles,
   ArrowRight,
-  RefreshCw,
   RotateCcw,
   Loader2,
   MessageSquare,
@@ -63,8 +62,6 @@ const PROMPTS: Prompt[] = [
   { label: { fr: 'Par où commencer avec l’IA ?', en: 'Where do I start with AI?' }, icon: 'Zap', service: 'consultation' },
 ];
 
-const VISIBLE = 4;
-
 interface Turn {
   role: 'user' | 'assistant';
   text: string;
@@ -82,7 +79,6 @@ const AIPromptBox: React.FC<AIPromptBoxProps> = ({ dark = false }) => {
 
   const [value, setValue] = useState('');
   const [service, setService] = useState('');
-  const [offset, setOffset] = useState(0);
 
   const [thread, setThread] = useState<Turn[]>([]);
   const [sending, setSending] = useState(false);
@@ -141,34 +137,31 @@ const AIPromptBox: React.FC<AIPromptBoxProps> = ({ dark = false }) => {
     setSending(false);
   };
 
-  const chips = Array.from({ length: VISIBLE }, (_, i) => PROMPTS[(offset + i) % PROMPTS.length]);
   const hasThread = thread.length > 0;
   const hasReply = thread.some((m) => m.role === 'assistant');
 
   const t = dark
     ? {
-        box: 'bg-white/[0.06] border-white/15 focus-within:border-indigo-400/60',
-        eyebrow: 'text-indigo-300',
-        field: 'text-white placeholder-white/40',
-        helper: 'text-white/50',
-        chip: 'bg-white/[0.06] border-white/15 text-white/80 hover:border-indigo-400/50 hover:text-white hover:bg-white/10',
+        box: 'bg-white/[0.07] border-white/20 focus-within:border-indigo-400/70',
+        eyebrow: 'text-indigo-200',
+        field: 'text-white placeholder-white/60',
+        helper: 'text-white/75',
+        chip: 'bg-white/[0.09] border-white/25 text-white hover:border-indigo-400/70 hover:bg-white/[0.16]',
         chipIcon: 'text-indigo-300',
-        refresh: 'bg-white/[0.06] border-white/15 text-white/60 hover:text-white hover:border-indigo-400/50',
         userBubble: 'bg-indigo-600 text-white',
-        botBubble: 'bg-white/[0.08] border border-white/10 text-white/90',
-        muted: 'text-white/50 hover:text-white',
+        botBubble: 'bg-white/[0.10] border border-white/15 text-white',
+        muted: 'text-white/70 hover:text-white',
       }
     : {
         box: 'bg-white/80 border-gray-200/90 focus-within:border-indigo-300',
         eyebrow: 'text-indigo-600',
-        field: 'text-gray-900 placeholder-gray-400',
-        helper: 'text-gray-500',
-        chip: 'bg-white/70 border-gray-200 text-gray-700 hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/70',
+        field: 'text-gray-900 placeholder-gray-500',
+        helper: 'text-gray-600',
+        chip: 'bg-white/70 border-gray-300 text-gray-800 hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/70',
         chipIcon: 'text-indigo-500',
-        refresh: 'bg-white/70 border-gray-200 text-gray-500 hover:text-indigo-600 hover:border-indigo-300',
         userBubble: 'bg-indigo-600 text-white',
         botBubble: 'bg-gray-50 border border-gray-200 text-gray-800',
-        muted: 'text-gray-500 hover:text-indigo-600',
+        muted: 'text-gray-600 hover:text-indigo-600',
       };
 
   return (
@@ -249,32 +242,24 @@ const AIPromptBox: React.FC<AIPromptBoxProps> = ({ dark = false }) => {
         </div>
       )}
 
-      {/* Example-prompt chips (initial state only) */}
+      {/* Example-prompt chips — full list, like chameleon.io (initial state only) */}
       {!hasThread && (
         <div className="flex flex-wrap items-center gap-2 mt-4">
-          {chips.map((p, i) => {
+          {PROMPTS.map((p, i) => {
             const Icon = ICONS[p.icon] ?? Sparkles;
             const label = fr ? p.label.fr : p.label.en;
             return (
               <button
-                key={`${offset}-${i}`}
+                key={i}
                 type="button"
                 onClick={() => submit(label, p.service)}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-all duration-200 ${t.chip}`}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm font-medium transition-all duration-200 ${t.chip}`}
               >
                 <Icon className={`w-3.5 h-3.5 ${t.chipIcon}`} />
                 {label}
               </button>
             );
           })}
-          <button
-            type="button"
-            onClick={() => setOffset((o) => (o + VISIBLE) % PROMPTS.length)}
-            aria-label={fr ? 'Plus d’idées' : 'More ideas'}
-            className={`inline-flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-200 ${t.refresh}`}
-          >
-            <RefreshCw className="w-3.5 h-3.5" />
-          </button>
         </div>
       )}
 

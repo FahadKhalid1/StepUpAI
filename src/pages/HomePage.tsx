@@ -237,10 +237,10 @@ const HomePage: React.FC = () => {
                   <br />
                   <span className="text-white">{t('hero.title').split(' ').slice(1, 3).join(' ')}</span>
                   <br />
-                  <span className="text-white/70">{t('hero.title').split(' ').slice(3).join(' ')}</span>
+                  <span className="text-white/80">{t('hero.title').split(' ').slice(3).join(' ')}</span>
                 </h1>
                 
-                <div className="text-xl md:text-2xl text-white/70 mb-8 h-16">
+                <div className="text-xl md:text-2xl text-white/80 mb-8 h-16">
                   <TypewriterText
                     texts={[
                       t('home.typewriter.1'),
@@ -252,7 +252,7 @@ const HomePage: React.FC = () => {
                   />
                 </div>
 
-                <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
+                <p className="text-lg text-white/85 mb-10 max-w-xl leading-relaxed">
                   {t('hero.subtitle')}
                 </p>
 
