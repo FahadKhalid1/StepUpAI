@@ -101,7 +101,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog', va
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className={`rounded-lg font-semibold transition-colors duration-300 disabled:opacity-70 inline-flex items-center justify-center gap-2 whitespace-nowrap ${
+          className={`rounded-full font-semibold transition-colors duration-300 disabled:opacity-70 inline-flex items-center justify-center gap-2 whitespace-nowrap ${
             compact
               ? 'px-5 py-2.5 text-sm bg-indigo-600 text-white hover:bg-indigo-500'
               : 'px-6 py-3 bg-white text-indigo-600 hover:bg-gray-100'

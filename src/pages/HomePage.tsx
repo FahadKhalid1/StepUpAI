@@ -252,14 +252,14 @@ const HomePage: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to="/contact"
-                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
                   >
                     <span>{t('hero.cta')}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                   <Link
                     to="/projects"
-                    className="group border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
+                    className="group border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
                   >
                     <span>{t('hero.view_work')}</span>
                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -271,7 +271,7 @@ const HomePage: React.FC = () => {
                     href="https://www.instagram.com/step.upparis/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-pink-500/30 transform hover:scale-105 transition-all duration-300"
+                    className="group flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-pink-500/30 transform hover:scale-105 transition-all duration-300"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     <span className="text-base">@step.upparis</span>
@@ -395,7 +395,7 @@ const HomePage: React.FC = () => {
                 </ul>
                 <Link
                   to="/services"
-                  className="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   {t('services.dashboard.cta')}
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -507,7 +507,7 @@ const HomePage: React.FC = () => {
             <div className="text-center mt-12">
               <Link
                 to="/services"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 {t('common.view_all')} {t('nav.services')}
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -664,7 +664,7 @@ const HomePage: React.FC = () => {
             <div className="text-center mt-12">
               <Link
                 to="/projects"
-                className="inline-flex items-center px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-full font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300"
               >
                 {t('common.view_all')} {t('nav.projects')}
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -843,13 +843,13 @@ const HomePage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                  className="bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
                 >
                   {t('common.start_project')}
                 </Link>
                 <Link
                   to="/about"
-                  className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300"
+                  className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300"
                 >
                   {t('common.learn_more')} {t('common.about_us')}
                 </Link>

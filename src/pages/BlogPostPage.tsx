@@ -314,7 +314,7 @@ const BlogPostPage: React.FC = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
             >
               {t('common.contact_us')}
               <ArrowRight className="w-4 h-4" />

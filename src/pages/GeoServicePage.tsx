@@ -81,7 +81,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
           </p>
           <Link
             to="/"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300"
           >
             Retour a l'accueil
             <ArrowRight className="w-5 h-5 ml-2" />
@@ -279,7 +279,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center px-8 py-4 bg-white text-gray-900 rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   Demander un devis gratuit
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -607,14 +607,14 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
                 >
                   Demander un devis gratuit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300"
+                  className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300"
                 >
                   Decouvrir tous nos services
                 </Link>
