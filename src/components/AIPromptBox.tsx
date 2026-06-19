@@ -14,6 +14,8 @@ import {
   Bot,
   Search,
   Zap,
+  BookOpen,
+  TrendingUp,
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -27,6 +29,8 @@ const ICONS: Record<string, React.FC<{ className?: string }>> = {
   Bot,
   Search,
   Zap,
+  BookOpen,
+  TrendingUp,
 };
 
 const COPY = {
@@ -60,6 +64,8 @@ const PROMPTS: Prompt[] = [
   { label: { fr: 'Un agent IA qui gère mes tâches', en: 'An AI agent to handle my tasks' }, icon: 'Bot', service: 'agentic' },
   { label: { fr: 'Un site qui convertit mes visiteurs', en: 'A site that converts visitors' }, icon: 'Search', service: 'web' },
   { label: { fr: 'Par où commencer avec l’IA ?', en: 'Where do I start with AI?' }, icon: 'Zap', service: 'consultation' },
+  { label: { fr: 'Un assistant IA sur mon contenu', en: 'An AI assistant from my content' }, icon: 'BookOpen', service: 'knowledge' },
+  { label: { fr: 'Optimiser les conversions de mon site', en: 'Optimize my site conversions' }, icon: 'TrendingUp', service: 'cro' },
 ];
 
 interface Turn {

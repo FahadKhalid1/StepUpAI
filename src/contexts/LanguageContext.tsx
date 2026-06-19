@@ -374,6 +374,22 @@ const translations: Translations = {
     en: 'We design custom analytics and admin dashboards that turn your scattered data into real-time KPIs and clear visuals, so your team makes faster, better-informed decisions.',
     fr: 'Nous concevons des tableaux de bord analytiques et des panneaux d\'administration sur mesure qui transforment vos données dispersées en KPIs en temps réel et en visuels clairs, pour des décisions plus rapides et mieux informées.',
   },
+  'services.item.knowledge_title': {
+    en: 'AI Knowledge Assistant',
+    fr: 'Assistant IA de connaissances',
+  },
+  'services.item.knowledge_desc': {
+    en: 'We train an AI assistant on your own resources — website, documentation, FAQs and catalogue — so it answers your customers instantly, day and night. It eases your support load, qualifies requests and captures leads, always drawing on your up-to-date information.',
+    fr: 'Nous entraînons un assistant IA sur vos propres ressources — site web, documentation, FAQ et catalogue — pour qu\'il réponde instantanément à vos clients, jour et nuit. Il soulage votre service client, qualifie les demandes et capte vos prospects, en s\'appuyant toujours sur vos informations à jour.',
+  },
+  'services.item.cro_title': {
+    en: 'A/B Testing & Conversion Optimization (CRO)',
+    fr: 'A/B Testing & optimisation des conversions (CRO)',
+  },
+  'services.item.cro_desc': {
+    en: 'We test and optimize your web pages, landing pages and online stores — layout, copy and calls to action — to turn more visitors into customers. Every test draws on your real data and comes with clear reporting: no more decisions made blindly.',
+    fr: 'Nous testons et optimisons vos pages web, landing pages et boutiques en ligne — mise en page, textes et boutons d\'action — pour transformer davantage de visiteurs en clients. Chaque test s\'appuie sur vos données réelles et fait l\'objet d\'un reporting clair : fini les décisions à l\'aveugle.',
+  },
 
   // Dashboard showcase (used on Services + Home)
   'services.dashboard.badge': {
@@ -804,6 +820,14 @@ const translations: Translations = {
     en: 'Dashboard Creation',
     fr: 'Création de tableaux de bord',
   },
+  'contact.service.knowledge': {
+    en: 'AI Knowledge Assistant',
+    fr: 'Assistant IA de connaissances',
+  },
+  'contact.service.cro': {
+    en: 'A/B Testing & Conversion Optimization',
+    fr: 'A/B Testing & optimisation des conversions',
+  },
   'contact.service.consultation': {
     en: 'Consultation & Strategy',
     fr: 'Consultation et Stratégie',
@@ -1185,6 +1209,38 @@ const translations: Translations = {
   'services.feat.dashboard4': {
     en: 'Connected to your data',
     fr: 'Connecté à vos données',
+  },
+  'services.feat.knowledge1': {
+    en: 'Answers from your own content',
+    fr: 'Réponses tirées de votre contenu',
+  },
+  'services.feat.knowledge2': {
+    en: 'Available 24/7',
+    fr: 'Disponible 24h/24, 7j/7',
+  },
+  'services.feat.knowledge3': {
+    en: 'Fewer support tickets',
+    fr: 'Moins de tickets au support',
+  },
+  'services.feat.knowledge4': {
+    en: 'Captures and qualifies leads',
+    fr: 'Capte et qualifie vos prospects',
+  },
+  'services.feat.cro1': {
+    en: 'More visitors converted',
+    fr: 'Plus de visiteurs convertis',
+  },
+  'services.feat.cro2': {
+    en: 'A/B tests on real data',
+    fr: 'Tests A/B sur données réelles',
+  },
+  'services.feat.cro3': {
+    en: 'Optimized pages, copy and CTAs',
+    fr: 'Pages, textes et CTA optimisés',
+  },
+  'services.feat.cro4': {
+    en: 'Clear, actionable reporting',
+    fr: 'Reporting clair et actionnable',
   },
 
   // Project Categories
@@ -2049,6 +2105,14 @@ const translations: Translations = {
   'footer.service5': {
     en: 'Custom Dashboards',
     fr: 'Tableaux de bord',
+  },
+  'footer.service6': {
+    en: 'Knowledge Assistant',
+    fr: 'Assistant de connaissances',
+  },
+  'footer.service7': {
+    en: 'A/B Testing & CRO',
+    fr: 'A/B Testing & CRO',
   },
   'footer.idf_title': {
     en: 'Île-de-France',

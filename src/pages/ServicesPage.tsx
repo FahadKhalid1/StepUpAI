@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search, LayoutDashboard, Sparkles } from 'lucide-react';
+import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search, LayoutDashboard, Sparkles, BookOpen, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -88,6 +88,24 @@ const ServicesPage: React.FC = () => {
       technologies: ['React', 'Supabase', 'Recharts', 'PostgreSQL'],
       color: 'from-blue-500 to-indigo-500',
       image: '/images/service-dashboard.svg'
+    },
+    {
+      icon: BookOpen,
+      title: t('services.item.knowledge_title'),
+      description: t('services.item.knowledge_desc'),
+      features: [t('services.feat.knowledge1'), t('services.feat.knowledge2'), t('services.feat.knowledge3'), t('services.feat.knowledge4')],
+      technologies: ['OpenAI', 'RAG', 'Vector DB', 'LangChain'],
+      color: 'from-violet-500 to-indigo-500',
+      image: '/images/service-knowledge.svg'
+    },
+    {
+      icon: TrendingUp,
+      title: t('services.item.cro_title'),
+      description: t('services.item.cro_desc'),
+      features: [t('services.feat.cro1'), t('services.feat.cro2'), t('services.feat.cro3'), t('services.feat.cro4')],
+      technologies: ['GA4', 'PostHog', 'Hotjar', 'A/B Tests'],
+      color: 'from-emerald-500 to-teal-500',
+      image: '/images/service-cro.svg'
     }
   ];
 
@@ -226,6 +244,28 @@ const ServicesPage: React.FC = () => {
                 "@type": "Service",
                 "name": "Custom Dashboard Creation",
                 "description": "Custom analytics and admin dashboards that turn business data into real-time KPIs, clear visualizations, and decisions you can act on",
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@type": "Service",
+                "name": "AI Knowledge Assistant",
+                "description": "A custom RAG AI assistant trained on your own content to answer customers 24/7, reduce support load, and capture leads",
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "item": {
+                "@type": "Service",
+                "name": "A/B Testing & Conversion Optimization (CRO)",
+                "description": "A/B testing and conversion rate optimization for websites, landing pages, and online stores to turn more visitors into customers",
                 "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }

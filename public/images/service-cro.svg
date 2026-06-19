@@ -1,0 +1,39 @@
+<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A/B Testing and Conversion Optimization">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecfdf5"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="cacc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <filter id="csh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#064e3b" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="480" height="320" rx="20" fill="url(#cbg)"/>
+  <!-- Variant A -->
+  <g filter="url(#csh)">
+    <rect x="40" y="64" width="160" height="192" rx="14" fill="#ffffff"/>
+  </g>
+  <circle cx="64" cy="90" r="13" fill="#e2e8f0"/>
+  <text x="64" y="95" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#64748b" text-anchor="middle">A</text>
+  <rect x="60" y="120" width="120" height="10" rx="5" fill="#e2e8f0"/>
+  <rect x="60" y="140" width="92" height="10" rx="5" fill="#eef2f7"/>
+  <rect x="60" y="188" width="84" height="28" rx="8" fill="#cbd5e1"/>
+  <!-- Variant B (winner) -->
+  <g filter="url(#csh)">
+    <rect x="232" y="48" width="168" height="208" rx="14" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <circle cx="258" cy="76" r="13" fill="url(#cacc)"/>
+  <text x="258" y="81" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+  <rect x="254" y="108" width="120" height="10" rx="5" fill="#bbf7d0"/>
+  <rect x="254" y="128" width="96" height="10" rx="5" fill="#d1fae5"/>
+  <rect x="254" y="180" width="96" height="30" rx="8" fill="url(#cacc)"/>
+  <!-- uplift badge -->
+  <g filter="url(#csh)">
+    <rect x="300" y="30" width="92" height="34" rx="17" fill="#10b981"/>
+  </g>
+  <text x="346" y="52" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">+38%</text>
+</svg>
