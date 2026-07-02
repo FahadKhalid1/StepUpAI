@@ -1,6 +1,6 @@
 {
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/((?!api|assets|images|sitemap\\.xml|robots\\.txt|rss\\.xml|llms\\.txt|eee914cf8302c48aa3e0af020cbc33c2\\.txt).*)", "destination": "/index.html" }
+    { "source": "/((?!api|assets|images|beautychic|sitemap\\.xml|robots\\.txt|rss\\.xml|llms\\.txt|eee914cf8302c48aa3e0af020cbc33c2\\.txt).*)", "destination": "/index.html" }
   ]
 }
