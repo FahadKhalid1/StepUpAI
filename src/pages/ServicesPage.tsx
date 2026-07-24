@@ -1,13 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search, LayoutDashboard, Sparkles, BookOpen, TrendingUp } from 'lucide-react';
+import { Bot, MessageSquare, Mail, Code, Zap, Database, Phone, Globe, ArrowRight, Check, ShoppingBag, Search, LayoutDashboard, Sparkles, BookOpen, TrendingUp, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ServicesPage: React.FC = () => {
   const { t } = useLanguage();
-  const services = [
+  const services: Array<{
+    icon: React.ElementType;
+    title: string;
+    description: string;
+    features: string[];
+    technologies: string[];
+    color: string;
+    image: string;
+    /** External product site — when set, the card links out instead of to /contact. */
+    href?: string;
+    cta?: string;
+  }> = [
     {
       icon: Bot,
       title: t('services.item.workflow_title'),
@@ -106,6 +117,17 @@ const ServicesPage: React.FC = () => {
       technologies: ['GA4', 'PostHog', 'Hotjar', 'A/B Tests'],
       color: 'from-emerald-500 to-teal-500',
       image: '/images/service-cro.svg'
+    },
+    {
+      icon: Star,
+      title: t('services.item.reviews_title'),
+      description: t('services.item.reviews_desc'),
+      features: [t('services.feat.reviews1'), t('services.feat.reviews2'), t('services.feat.reviews3'), t('services.feat.reviews4')],
+      technologies: ['Google Business Profile', 'Claude', 'n8n', 'Stripe'],
+      color: 'from-amber-500 to-orange-500',
+      image: '/images/service-reviews.svg',
+      href: 'https://reviewshub.step-upai.com',
+      cta: t('services.item.reviews_cta')
     }
   ];
 
@@ -269,6 +291,18 @@ const ServicesPage: React.FC = () => {
                 "provider": { "@type": "Organization", "name": "Step UpAI" },
                 "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
               }
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "item": {
+                "@type": "Service",
+                "name": "Reviews Hub",
+                "description": "AI-drafted replies to Google reviews for local businesses — restaurants, salons and shops — in French or English, with the owner in control before publication",
+                "url": "https://reviewshub.step-upai.com",
+                "provider": { "@type": "Organization", "name": "Step UpAI" },
+                "areaServed": { "@type": "Place", "name": "Île-de-France, France" }
+              }
             }
           ]
         }}
@@ -422,13 +456,25 @@ const ServicesPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200"
-                    >
-                      {t('common.learn_more')}
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Link>
+                    {service.href ? (
+                      <a
+                        href={service.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200"
+                      >
+                        {service.cta || t('common.learn_more')}
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    ) : (
+                      <Link
+                        to="/contact"
+                        className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-200"
+                      >
+                        {t('common.learn_more')}
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
               ))}

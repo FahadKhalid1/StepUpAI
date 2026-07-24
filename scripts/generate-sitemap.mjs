@@ -143,6 +143,7 @@ ${serviceSlugs.map(s => `- [${serviceLabels[s] || s}](${siteUrl}/${s}-paris)`).j
 - [Gestion de boutique e-commerce](${siteUrl}/services)
 - [Optimisation SEO / AEO / GEO](${siteUrl}/services)
 - [Création de tableaux de bord sur mesure](${siteUrl}/services)
+- [Reviews Hub — réponses IA aux avis Google pour les commerces locaux](https://reviewshub.step-upai.com)
 
 ## Services par ville (Île-de-France)
 ${citySlugs.map(c => `- ${cityLabels[c] || c}: ${serviceSlugs.map(s => `[${serviceLabels[s] || s}](${siteUrl}/${s}-${c})`).join(' · ')}`).join('\n')}

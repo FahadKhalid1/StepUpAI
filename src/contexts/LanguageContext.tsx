@@ -390,6 +390,18 @@ const translations: Translations = {
     en: 'We test and optimize your web pages, landing pages and online stores — layout, copy and calls to action — to turn more visitors into customers. Every test draws on your real data and comes with clear reporting: no more decisions made blindly.',
     fr: 'Nous testons et optimisons vos pages web, landing pages et boutiques en ligne — mise en page, textes et boutons d\'action — pour transformer davantage de visiteurs en clients. Chaque test s\'appuie sur vos données réelles et fait l\'objet d\'un reporting clair : fini les décisions à l\'aveugle.',
   },
+  'services.item.reviews_title': {
+    en: 'Reviews Hub',
+    fr: 'Reviews Hub',
+  },
+  'services.item.reviews_desc': {
+    en: 'AI-drafted replies to Google reviews for local businesses. Reviews Hub helps Paris restaurants, salons and shops answer every Google review, in French or English. AI drafts a personalised reply in the business\'s own tone — the owner always stays in control before anything is published. €4.99/month, 7-day free trial.',
+    fr: 'Réponses IA aux avis Google pour les commerces locaux. Reviews Hub aide les restaurants, salons et commerces parisiens à répondre à chaque avis Google, en français comme en anglais. L\'intelligence artificielle rédige une réponse personnalisée dans le ton de l\'établissement — le commerçant garde toujours le contrôle avant publication. 4,99 €/mois, 7 jours d\'essai gratuit.',
+  },
+  'services.item.reviews_cta': {
+    en: 'Discover Reviews Hub',
+    fr: 'Découvrir Reviews Hub',
+  },
 
   // Dashboard showcase (used on Services + Home)
   'services.dashboard.badge': {
@@ -828,6 +840,10 @@ const translations: Translations = {
     en: 'A/B Testing & Conversion Optimization',
     fr: 'A/B Testing & optimisation des conversions',
   },
+  'contact.service.reviews': {
+    en: 'Reviews Hub — Google review replies',
+    fr: 'Reviews Hub — réponses aux avis Google',
+  },
   'contact.service.consultation': {
     en: 'Consultation & Strategy',
     fr: 'Consultation et Stratégie',
@@ -1241,6 +1257,22 @@ const translations: Translations = {
   'services.feat.cro4': {
     en: 'Clear, actionable reporting',
     fr: 'Reporting clair et actionnable',
+  },
+  'services.feat.reviews1': {
+    en: 'AI replies in your business\'s own tone',
+    fr: 'Réponses IA dans le ton de votre établissement',
+  },
+  'services.feat.reviews2': {
+    en: 'French and English',
+    fr: 'Français et anglais',
+  },
+  'services.feat.reviews3': {
+    en: 'You stay in control before publishing',
+    fr: 'Vous gardez le contrôle avant publication',
+  },
+  'services.feat.reviews4': {
+    en: '€4.99/month — 7-day free trial',
+    fr: '4,99 €/mois — 7 jours d\'essai gratuit',
   },
 
   // Project Categories
@@ -2113,6 +2145,10 @@ const translations: Translations = {
   'footer.service7': {
     en: 'A/B Testing & CRO',
     fr: 'A/B Testing & CRO',
+  },
+  'footer.service8': {
+    en: 'Reviews Hub',
+    fr: 'Reviews Hub',
   },
   'footer.idf_title': {
     en: 'Île-de-France',

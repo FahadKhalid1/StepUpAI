@@ -116,6 +116,7 @@ const ContactPage: React.FC = () => {
     t('contact.service.dashboard'),
     t('contact.service.knowledge'),
     t('contact.service.cro'),
+    t('contact.service.reviews'),
     t('contact.service.consultation'),
   ];
 

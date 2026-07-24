@@ -69,6 +69,7 @@ const Footer: React.FC = () => {
               <li><Link to="/services" className="hover:text-white transition-colors duration-200">{t('footer.service5')}</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors duration-200">{t('footer.service6')}</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors duration-200">{t('footer.service7')}</Link></li>
+              <li><a href="https://reviewshub.step-upai.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">{t('footer.service8')}</a></li>
             </ul>
           </div>
 
