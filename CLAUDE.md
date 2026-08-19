@@ -46,8 +46,23 @@ The **Step Up AI** marketing website (an AI‑automation agency, Paris / Île‑
 - **DNS (OVH zone):** apex `A → 76.76.21.21`, `www CNAME → cname.vercel-dns.com.` Vercel project `step-up-ai`; apex 308-redirects to www.
 - **`.fr` renewal risk:** AFNIC allows only **15 days** after a failed renewal charge before the domain is lost — far tighter than .com. Keep the card on file valid.
 
+### Status — completed 2026-08-19
+
+| Piece | State |
+|---|---|
+| Domain | OVHcloud, expires **2029-08-18**, auto-renew ON, DNSSEC on |
+| Website | live at `https://www.stepupai.fr`, build green, 145/145 routes prerendered |
+| Redirects | `step-upai.com` **and** `www.step-upai.com` → **308** → `www.stepupai.fr` — single hop, path-for-path (verified on blog + geo deep paths) |
+| Code | 92 refs swapped, commit `c2b44ac`; `legal@`/`privacy@` swapped, commit `a132530` |
+| Email | `contact@` / `legal@` / `privacy@` aliases live on **both** domains, all delivery-tested. MX `1 smtp.google.com.`, SPF, DKIM (2048-bit, selector `google`), DMARC `p=none` |
+| Search Console | `sc-domain:stepupai.fr` verified via TXT, sitemap submitted (73 URLs), **Change of Address ACTIVE** on the old property — expect 2–8 weeks for the index to move |
+| OVH zone | 10 records, steady state. Two `google-site-verification` TXTs are NOT duplicates: one anchors Workspace, one anchors GSC — deleting either breaks that service |
+| Subdomains | all six re-verified 200 with **0 redirects** after cutover |
+
+⚠️ Do not touch the redirects while Change of Address is running (180 days from 2026-08-19). The whole transfer rests on them.
+
 ### Rules that must not be broken
-1. **`step-upai.com` must 301 to `stepupai.fr` permanently.** Never let it lapse — it carries the existing rankings and backlinks.
+1. **`step-upai.com` already 308-redirects to `stepupai.fr` — keep it that way, permanently.** Never remove the redirect and never let the domain lapse (renewal is at Squarespace): it carries the existing rankings and backlinks.
 2. **NEVER wildcard-redirect `*.step-upai.com`.** Seven live hostnames still depend on it (below). Redirect `www.step-upai.com` and the apex ONLY.
 
 ### Subdomains DELIBERATELY left on step-upai.com
@@ -167,12 +182,12 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 ## 10. Open TODOs / next steps
 
 ### Migration follow-ups (see §3b)
-- **A. Deploy** this branch (`domain-migration-stepupai-fr`) — merge to `main` + push.
-- **B. Vercel:** make `www.stepupai.fr` the **production domain**; set `step-upai.com` + `www.step-upai.com` to **301 redirect** to it. ⚠️ www + apex ONLY — never a wildcard (breaks 6 live subdomains).
-- **C. Google Search Console:** add + verify the `stepupai.fr` property, submit the new sitemap, then run **Change of Address** on the old property (requires the 301s to be live first).
+- ~~**A. Deploy**~~ — ✅ done 2026-08-19 (merged + pushed, `c2b44ac`; deploy landed in ~90s).
+- ~~**B. Vercel** redirects~~ — ✅ done 2026-08-19. Both old hostnames set to **308 Permanent** → `www.stepupai.fr`. NOTE: Vercel refuses to redirect a domain that is itself a redirect target, so `step-upai.com` had to be repointed BEFORE `www.step-upai.com` could be converted. ⚠️ www + apex ONLY — never a wildcard.
+- ~~**C. Search Console**~~ — ✅ done 2026-08-19. Domain property `stepupai.fr` verified (2nd TXT token added alongside the Workspace one), sitemap submitted, Change of Address active. Owned by the personal Google account, not `contact@`.
 - ~~**D. Workspace:** add `legal@`/`privacy@` aliases + swap refs~~ — ✅ done 2026-08-19 (aliases added on both domains; refs now `@stepupai.fr`).
-- **E. Gmail:** set `contact@stepupai.fr` as default "Send mail as" + enable "reply from the same address the message was sent to".
-- **F. OVH:** optional cleanup — delete the unused `ftp.stepupai.fr` CNAME.
+- **E. Gmail — STILL OPEN:** set `contact@stepupai.fr` as default "Send mail as" + enable "reply from the same address the message was sent to". As of 2026-08-19 the alias had not yet propagated into Gmail's Send-mail-as list (can take up to 24h). If it still is not there, use "Add another email address" with **"Treat as an alias" checked** — the verification code lands in the same inbox.
+- ~~**F. OVH** cleanup~~ — ✅ done 2026-08-19 (`ftp` CNAME deleted; zone re-verified, nothing collateral).
 1. **Finish Brevo** → switch sender to `dailydigest@stepupai.fr` (see §8). DNS records go in **OVHcloud**.
 2. **Activate the Daily Digest** (`v9D7wfMrcsfvACdt`) once the sender is finalized and reviewed.
 3. ~~Delete temp test workflow~~ — ✅ done (both temporary workflows removed).
@@ -181,7 +196,7 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 6. **Optional:** one‑click **unsubscribe** flow (GDPR) — small webhook + footer link in emails.
 7. **Optional:** for an animated digest image, set a post's `image` to a GIF in `src/data/blog.ts` (RSS + email use whatever the post image is).
 8. ~~Push commit `e5ea9e3`~~ — ✅ done (already on `origin/main`).
-9. After that deploy: in **Google Search Console → Indexing → Pages**, open the two duplicate reports and click **"Validate fix"**; expect re-crawl over 1–3 weeks.
+9. ~~GSC "Validate fix" on the two duplicate reports~~ — largely **superseded by the domain migration** (§3b). The old property is now under Change of Address, so its duplicate reports will drain as the index moves. Watch the NEW `stepupai.fr` property instead; re-check coverage there once Change of Address settles (2–8 weeks from 2026-08-19).
 
 ---
 
@@ -203,7 +218,7 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 **Host-level duplicate prevention (the GSC "duplicate/alternate canonical" email):**
 - `vercel.json`: `"trailingSlash": false` → `/page/` 308s to `/page` (was: both 200 = every URL duplicated).
 - `vercel.json` rewrite excludes `assets|images|sitemap.xml|robots.txt|rss.xml|llms.txt|<gsc-verification>.txt` — anything else falls through to the SPA. **If you add a root static file, add it to this regex** or it soft-404s as HTML.
-- Non-www → www: Vercel 307 redirect (domain-level). Canonicals always `https://www.stepupai.fr`.
+- Non-www → www: Vercel **308** redirect (domain-level), as are both `step-upai.com` hostnames. Canonicals always `https://www.stepupai.fr`. See §3b.
 - GSC email reasons explained: "Alternate page with proper canonical tag" = benign (canonicals doing their job). "Duplicate without user-selected canonical" = trailing-slash dupes + pre-noindex geo crawls; fixed/expiring. **After deploys, use GSC → Pages report → "Validate fix".**
 
 **AEO/GEO layer:**
