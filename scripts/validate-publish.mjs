@@ -15,7 +15,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '..', 'dist');
-const HOST = 'https://www.step-upai.com';
+const HOST = 'https://www.stepupai.fr';
 const GENERIC_TITLE = 'Step UpAI - Automatisation IA à Paris'; // index.html shell fallback
 const MIN_BYTES = 15000;
 

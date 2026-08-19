@@ -83,7 +83,7 @@ const ContactPage: React.FC = () => {
     {
       icon: Mail,
       title: t('contact.info.email'),
-      details: 'contact@step-upai.com',
+      details: 'contact@stepupai.fr',
       description: t('contact.info.email_desc')
     },
     {
@@ -135,9 +135,9 @@ const ContactPage: React.FC = () => {
           "mainEntity": {
             "@type": "Organization",
             "name": "Step UpAI",
-            "url": "https://www.step-upai.com",
+            "url": "https://www.stepupai.fr",
             "telephone": "+33698229533",
-            "email": "contact@step-upai.com",
+            "email": "contact@stepupai.fr",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Paris",

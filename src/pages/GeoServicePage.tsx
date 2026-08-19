@@ -138,7 +138,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'Step UpAI',
-      url: 'https://www.step-upai.com',
+      url: 'https://www.stepupai.fr',
       telephone: '+33 6 98 22 95 33',
       address: {
         '@type': 'PostalAddress',
@@ -161,7 +161,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
       provider: {
         '@type': 'Organization',
         name: 'Step UpAI',
-        url: 'https://www.step-upai.com',
+        url: 'https://www.stepupai.fr',
       },
       areaServed: {
         '@type': 'City',
@@ -189,19 +189,19 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({ serviceId, citySlug }) 
           '@type': 'ListItem',
           position: 1,
           name: 'Accueil',
-          item: 'https://www.step-upai.com/',
+          item: 'https://www.stepupai.fr/',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Services',
-          item: 'https://www.step-upai.com/services',
+          item: 'https://www.stepupai.fr/services',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: `${service.name} a ${city.name}`,
-          item: `https://www.step-upai.com${geoUrl}`,
+          item: `https://www.stepupai.fr${geoUrl}`,
         },
       ],
     },

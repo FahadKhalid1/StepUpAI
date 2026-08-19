@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 import { getPostBySlug, getRelatedPosts, blogCategories, categoryToService } from '../data/blog';
 import { shortTitle, trimDesc } from '../utils/seo';
 
-const SITE_URL = 'https://www.step-upai.com';
+const SITE_URL = 'https://www.stepupai.fr';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();

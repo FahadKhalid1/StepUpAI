@@ -6,7 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import SEO from '../components/SEO';
 import { getAllPosts, getFeaturedPost, blogCategories } from '../data/blog';
 
-const SITE_URL = 'https://www.step-upai.com';
+const SITE_URL = 'https://www.stepupai.fr';
 
 const BlogPage: React.FC = () => {
   const { t, language } = useLanguage();

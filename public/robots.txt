@@ -30,7 +30,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.step-upai.com/sitemap.xml
+Sitemap: https://www.stepupai.fr/sitemap.xml
 
-# Machine-readable site summary for LLMs: https://www.step-upai.com/llms.txt
-# Blog feed: https://www.step-upai.com/rss.xml
+# Machine-readable site summary for LLMs: https://www.stepupai.fr/llms.txt
+# Blog feed: https://www.stepupai.fr/rss.xml

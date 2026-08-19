@@ -25,7 +25,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   </div>
   <div style="font-size:64px;font-weight:800;line-height:1.08;max-width:940px;letter-spacing:-1.5px">Automatisation IA pour les PME</div>
   <div style="font-size:30px;font-weight:500;opacity:.92;margin-top:26px">Workflows &middot; Chatbots &middot; Applications sur mesure &mdash; Paris &amp; Île-de-France</div>
-  <div style="position:absolute;bottom:66px;right:96px;font-size:26px;font-weight:600;opacity:.9">step-upai.com</div>
+  <div style="position:absolute;bottom:66px;right:96px;font-size:26px;font-weight:600;opacity:.9">stepupai.fr</div>
 </div>
 </body></html>`;
 

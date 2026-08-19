@@ -149,11 +149,11 @@ const HomePage: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Step UpAI",
-            "url": "https://www.step-upai.com",
+            "url": "https://www.stepupai.fr",
             "description": t('seo.home.description'),
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://www.step-upai.com/?q={search_term_string}",
+              "target": "https://www.stepupai.fr/?q={search_term_string}",
               "query-input": "required name=search_term_string"
             }
           },
@@ -161,10 +161,10 @@ const HomePage: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Step UpAI",
-            "image": "https://www.step-upai.com/og-image.jpg",
-            "url": "https://www.step-upai.com",
+            "image": "https://www.stepupai.fr/og-image.jpg",
+            "url": "https://www.stepupai.fr",
             "telephone": "+33698229533",
-            "email": "contact@step-upai.com",
+            "email": "contact@stepupai.fr",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Paris",

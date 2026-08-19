@@ -118,7 +118,7 @@ const ProjectsPage: React.FC = () => {
           "@type": "CollectionPage",
           "name": t('seo.projects.title'),
           "description": t('seo.projects.description'),
-          "url": "https://www.step-upai.com/projects",
+          "url": "https://www.stepupai.fr/projects",
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": projects.map((project, index) => ({

@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex flex-col space-y-1 text-gray-300 text-sm">
               <span>Instagram: <a href="https://instagram.com/step.upparis" target="_blank" rel="noreferrer" className="hover:text-white">@step.upparis</a></span>
-              <span>Email: <a href="mailto:contact@step-upai.com" className="hover:text-white">contact@step-upai.com</a></span>
+              <span>Email: <a href="mailto:contact@stepupai.fr" className="hover:text-white">contact@stepupai.fr</a></span>
             </div>
           </div>
 
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.contact_title')}</h3>
             <ul className="space-y-2 text-gray-300">
-              <li>contact@step-upai.com</li>
+              <li>contact@stepupai.fr</li>
               <li>+33 6 98 22 95 33</li>
               <li><Link to="/contact" className="hover:text-white transition-colors duration-200">{t('footer.contact_us')}</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors duration-200">{t('footer.about_us')}</Link></li>

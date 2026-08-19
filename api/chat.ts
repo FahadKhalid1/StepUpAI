@@ -27,6 +27,8 @@ const MAX_MESSAGE_CHARS = 1000;
 const TIMEOUT_MS = 25_000; // home models can be slow to first token
 
 const ALLOWED_ORIGINS = new Set([
+  'https://www.stepupai.fr',
+  'https://stepupai.fr',
   'https://www.step-upai.com',
   'https://step-upai.com',
   'http://localhost:5173',

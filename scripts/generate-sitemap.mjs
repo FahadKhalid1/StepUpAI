@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const siteUrl = 'https://www.step-upai.com';
+const siteUrl = 'https://www.stepupai.fr';
 const today = new Date().toISOString().split('T')[0];
 
 // Static pages
@@ -134,7 +134,7 @@ const llms = `# Step UpAI
 - Activité: agence d'automatisation et d'intelligence artificielle pour PME et ETI
 - Zone d'intervention: Paris et toute l'Île-de-France (interventions sur site et à distance dans toute la France)
 - Langues: français et anglais
-- Contact: contact@step-upai.com · +33 6 98 22 95 33
+- Contact: contact@stepupai.fr · +33 6 98 22 95 33
 - Offre d'entrée: audit d'automatisation gratuit
 - Technologies: n8n, Make.com, OpenAI, Anthropic Claude, VAPI, Telnyx, React, Supabase, Shopify
 
@@ -163,7 +163,7 @@ ${blogPosts.map(p => `- [${p.title}](${siteUrl}/blog/${p.slug})${p.excerpt ? `: 
 - [Flux RSS du blog](${siteUrl}/rss.xml)
 
 ## Contact
-- Email: contact@step-upai.com
+- Email: contact@stepupai.fr
 - Téléphone: +33 6 98 22 95 33
 - Zone desservie: Paris et Île-de-France
 - Instagram: https://www.instagram.com/step.upparis/

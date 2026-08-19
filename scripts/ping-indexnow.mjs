@@ -18,7 +18,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const HOST = 'www.step-upai.com';
+const HOST = 'www.stepupai.fr';
 const SITE = `https://${HOST}`;
 
 function findKey() {
