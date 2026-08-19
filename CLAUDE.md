@@ -67,7 +67,7 @@ Not a TODO — a decision. Admin panels have no brand value; client-facing apps 
 ### Email
 `contact@stepupai.fr` works — added as an **alternate email (alias)** on the `contact@step-upai.com` Google Workspace user, so both addresses share one mailbox at no extra licence cost. Full auth stack live on stepupai.fr: MX `1 smtp.google.com.`, SPF `include:_spf.google.com`, DKIM (2048-bit, selector `google`), DMARC `p=none`.
 
-⚠️ **`legal@step-upai.com` and `privacy@step-upai.com` are still on the OLD domain** (`src/pages/TermsOfServicePage.tsx:259`, `src/pages/PrivacyPolicyPage.tsx:204`). They were deliberately NOT swapped — no aliases exist for them yet. Add the aliases in Workspace first, then swap.
+✅ `legal@` and `privacy@` exist as Workspace aliases on **both** domains (added 2026-08-19); the site refs were swapped to `stepupai.fr` (`TermsOfServicePage.tsx:259`, `PrivacyPolicyPage.tsx:204`). Note: before this they had **never** existed as aliases despite being published on the live Terms/Privacy pages — mail to them was silently bouncing. The `.com` variants were added too, since cached and archived copies of those pages still show the old addresses.
 
 ### `api/chat.ts` CORS
 `ALLOWED_ORIGINS` intentionally holds **both** domains (new + old). Do not prune the old entries while `step-upai.com` still serves.
@@ -170,7 +170,7 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 - **A. Deploy** this branch (`domain-migration-stepupai-fr`) — merge to `main` + push.
 - **B. Vercel:** make `www.stepupai.fr` the **production domain**; set `step-upai.com` + `www.step-upai.com` to **301 redirect** to it. ⚠️ www + apex ONLY — never a wildcard (breaks 6 live subdomains).
 - **C. Google Search Console:** add + verify the `stepupai.fr` property, submit the new sitemap, then run **Change of Address** on the old property (requires the 301s to be live first).
-- **D. Workspace:** add `legal@` and `privacy@` aliases on `stepupai.fr`, *then* swap those two refs (`TermsOfServicePage.tsx:259`, `PrivacyPolicyPage.tsx:204`).
+- ~~**D. Workspace:** add `legal@`/`privacy@` aliases + swap refs~~ — ✅ done 2026-08-19 (aliases added on both domains; refs now `@stepupai.fr`).
 - **E. Gmail:** set `contact@stepupai.fr` as default "Send mail as" + enable "reply from the same address the message was sent to".
 - **F. OVH:** optional cleanup — delete the unused `ftp.stepupai.fr` CNAME.
 1. **Finish Brevo** → switch sender to `dailydigest@stepupai.fr` (see §8). DNS records go in **OVHcloud**.

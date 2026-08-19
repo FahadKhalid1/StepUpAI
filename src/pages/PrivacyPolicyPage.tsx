@@ -201,7 +201,7 @@ const PrivacyPolicyPage: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 mr-3" />
-                  <span>privacy@step-upai.com</span>
+                  <span>privacy@stepupai.fr</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-3" />
