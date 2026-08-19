@@ -14,9 +14,11 @@ import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import { getAllGeoRoutes } from './data/geoData';
+import { sectorSlugs } from './data/sectorData';
 import { useLanguage } from './contexts/LanguageContext';
 
 const GeoServicePage = React.lazy(() => import('./pages/GeoServicePage'));
+const SectorPage = React.lazy(() => import('./pages/SectorPage'));
 
 const geoRoutes = getAllGeoRoutes();
 
@@ -126,6 +128,13 @@ function App() {
                   <Route path="/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/privacy" element={<PrivacyPolicyPage />} />
                   <Route path="/terms" element={<TermsOfServicePage />} />
+                  {sectorSlugs.map((slug) => (
+                    <Route
+                      key={slug}
+                      path={`/solutions/${slug}`}
+                      element={<SectorPage slug={slug} />}
+                    />
+                  ))}
                   {geoRoutes.map(({ path, serviceId, citySlug }) => (
                     <Route
                       key={path}

@@ -34,6 +34,22 @@ const serviceSlugs = [
   'developpement-web', 'chatbot-ia', 'agents-ia'
 ];
 
+// Sector pages (/solutions/<slug>). Keep in sync with src/data/sectorData.ts.
+// These are the trade-specific pages: SMEs search by their sector, not their
+// postcode. Only sectors with a NAMED client belong here — see sectorData.ts.
+const sectorSlugs = ['restaurants', 'ecoles-formation', 'ecommerce', 'commerce-local'];
+const sectorLabels = {
+  'restaurants': 'Restaurants et restauration',
+  'ecoles-formation': 'Écoles et organismes de formation',
+  'ecommerce': 'E-commerce et boutiques en ligne',
+  'commerce-local': 'Commerce local, beauté et bien-être',
+};
+const sectorPages = sectorSlugs.map((slug) => ({
+  path: `/solutions/${slug}`,
+  priority: '0.9',
+  changefreq: 'monthly',
+}));
+
 // Generate geo page URLs
 const geoPages = [];
 for (const service of serviceSlugs) {
@@ -95,7 +111,7 @@ try {
   console.warn('⚠️  Could not parse blog.ts for sitemap/llms.txt:', e.message);
 }
 
-const allPages = [...staticPages, ...geoPages, ...blogPages];
+const allPages = [...staticPages, ...sectorPages, ...geoPages, ...blogPages];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -145,6 +161,9 @@ ${serviceSlugs.map(s => `- [${serviceLabels[s] || s}](${siteUrl}/${s}-paris)`).j
 - [Création de tableaux de bord sur mesure](${siteUrl}/services)
 - [Reviews Hub — réponses IA aux avis Google pour les commerces locaux](https://reviewshub.step-upai.com)
 
+## Solutions par secteur d'activité
+${sectorSlugs.map(x => `- [${sectorLabels[x] || x}](${siteUrl}/solutions/${x})`).join('\n')}
+
 ## Services par ville (Île-de-France)
 ${citySlugs.map(c => `- ${cityLabels[c] || c}: ${serviceSlugs.map(s => `[${serviceLabels[s] || s}](${siteUrl}/${s}-${c})`).join(' · ')}`).join('\n')}
 
@@ -169,7 +188,7 @@ ${blogPosts.map(p => `- [${p.title}](${siteUrl}/blog/${p.slug})${p.excerpt ? `: 
 - Instagram: https://www.instagram.com/step.upparis/
 `;
 writeFileSync(resolve(__dirname, '..', 'dist', 'llms.txt'), llms, 'utf-8');
-console.log(`✅ llms.txt generated (${blogPosts.length} articles, ${serviceSlugs.length} services)`);
+console.log(`✅ llms.txt generated (${blogPosts.length} articles, ${serviceSlugs.length} services, ${sectorSlugs.length} sectors)`);
 
 // ── RSS feed (powers the "subscribe to daily blogs" email digest + feed readers) ──
 const rssEscape = (s = '') =>

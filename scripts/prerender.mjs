@@ -28,6 +28,8 @@ function buildRoutes() {
     'asnieres-sur-seine', 'vitry-sur-seine', 'evry-courcouronnes',
   ];
   const serviceSlugs = ['automatisation-ia', 'appels-ia', 'email-marketing-ia', 'developpement-web', 'chatbot-ia', 'agents-ia'];
+  // Sector pages — keep in sync with src/data/sectorData.ts
+  const sectors = ['restaurants', 'ecoles-formation', 'ecommerce', 'commerce-local'].map((x) => `/solutions/${x}`);
   const geo = [];
   for (const s of serviceSlugs) for (const c of citySlugs) geo.push(`/${s}-${c}`);
   const blog = [];
@@ -41,7 +43,7 @@ function buildRoutes() {
     let m;
     while ((m = re.exec(src)) !== null) blog.push(`/blog/${m[1]}`);
   } catch { /* ignore */ }
-  return [...staticPages, ...geo, ...blog];
+  return [...staticPages, ...sectors, ...geo, ...blog];
 }
 
 const MIME = {
