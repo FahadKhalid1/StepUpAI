@@ -151,10 +151,10 @@ export const sectors: Sector[] = [
         en: 'Indian street food specialist. Shopify storefront for takeaway ordering, connected to their in-house operation.',
       },
       {
-        client: 'Spicy Chicken',
+        client: 'Spicy Chick',
         url: 'https://spicychicken.fr',
-        fr: "Restauration rapide. Site vitrine et présence en ligne, avec la carte et les informations pratiques tenues à jour depuis une source unique.",
-        en: 'Fast food. Website and online presence, with the menu and practical information kept current from a single source.',
+        fr: "Restauration rapide à Bagnolet — burgers, tacos, wraps et poulet croustillant. Nous avons construit et hébergeons leur site de commande en Click & Collect, avec la carte et les horaires tenus à jour depuis une source unique.",
+        en: 'Fast food in Bagnolet — burgers, tacos, wraps and crispy chicken. We built and host their Click & Collect ordering site, with menu and opening hours maintained from a single source.',
       },
     ],
     faqs: [

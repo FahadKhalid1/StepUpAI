@@ -63,7 +63,7 @@ The **Step Up AI** marketing website (an AI‑automation agency, Paris / Île‑
 
 ### Rules that must not be broken
 1. **`step-upai.com` already 308-redirects to `stepupai.fr` — keep it that way, permanently.** Never remove the redirect and never let the domain lapse (renewal is at Squarespace): it carries the existing rankings and backlinks.
-2. **NEVER wildcard-redirect `*.step-upai.com`.** Seven live hostnames still depend on it (below). Redirect `www.step-upai.com` and the apex ONLY.
+2. **NEVER wildcard-redirect `*.step-upai.com`.** At least eight live hostnames depend on it (below — and the list is not proven exhaustive). Redirect `www.step-upai.com` and the apex ONLY.
 
 ### Subdomains DELIBERATELY left on step-upai.com
 Not a TODO — a decision. Admin panels have no brand value; client-facing apps would break client bookmarks for no gain.
@@ -76,6 +76,9 @@ Not a TODO — a decision. Admin panels have no brand value; client-facing apps 
 | `beautychic.step-upai.com` | Vercel (client app) |
 | `menuboards.step-upai.com` | Fly.io (`stepupai-website.fly.dev`) |
 | `reviewshub.step-upai.com` | Fly.io — **referenced in this repo, do NOT swap** |
+| `spicychicken.step-upai.com` | Fly.io (`spicychicken.fly.dev`) — Spicy Chick, Bagnolet (Click & Collect) |
+
+⚠️ **This table was built by guessing hostnames and has already proved incomplete** — `spicychicken` was missed on the first pass and found only because the user mentioned it. Before ever touching `step-upai.com` DNS, enumerate the real list from the Squarespace DNS zone, the Vercel dashboard and Fly.io. Do not trust this table as exhaustive.
 
 `reviewshub` refs live at `src/App.tsx:72`, `src/pages/ServicesPage.tsx:129` & `:302`, `scripts/generate-sitemap.mjs:146`. `llm.step-upai.com` (`api/chat.ts:13`) is documentation only and has never resolved.
 
