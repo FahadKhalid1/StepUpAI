@@ -1,7 +1,7 @@
 # CLAUDE.md — Step Up AI Website & Automation System
 
 > **Purpose:** This file is the single source of truth for everything built on the Step Up AI website + its email/automation backend. Read it first when resuming work. It covers the React site, the n8n workflows (cloud + local), credentials, storage, key decisions + *why*, and the open TODOs.
-> **Last updated:** 2026-08-19 (domain migration to stepupai.fr).
+> **Last updated:** 2026-08-20 (Workspace primary domain moved to stepupai.fr; sector pages shipped).
 
 ---
 
@@ -82,10 +82,24 @@ Not a TODO — a decision. Admin panels have no brand value; client-facing apps 
 
 `reviewshub` refs live at `src/App.tsx:72`, `src/pages/ServicesPage.tsx:129` & `:302`, `scripts/generate-sitemap.mjs:146`. `llm.step-upai.com` (`api/chat.ts:13`) is documentation only and has never resolved.
 
-### Email
-`contact@stepupai.fr` works — added as an **alternate email (alias)** on the `contact@step-upai.com` Google Workspace user, so both addresses share one mailbox at no extra licence cost. Full auth stack live on stepupai.fr: MX `1 smtp.google.com.`, SPF `include:_spf.google.com`, DKIM (2048-bit, selector `google`), DMARC `p=none`.
+### Email — Google Workspace ⚠️ READ THE TRAPS
 
-✅ `legal@` and `privacy@` exist as Workspace aliases on **both** domains (added 2026-08-19); the site refs were swapped to `stepupai.fr` (`TermsOfServicePage.tsx:259`, `PrivacyPolicyPage.tsx:204`). Note: before this they had **never** existed as aliases despite being published on the live Terms/Privacy pages — mail to them was silently bouncing. The `.com` variants were added too, since cached and archived copies of those pages still show the old addresses.
+**`stepupai.fr` is the PRIMARY Workspace domain** (changed 2026-08-20). `step-upai.com` was automatically demoted to a secondary domain and still receives mail. Both domains carry full auth: MX → Google, SPF, DKIM (2048-bit, selector `google`), DMARC `p=none`.
+
+Working addresses, verified by real delivery: `contact@` · `legal@` · `privacy@` on **both** domains.
+
+⚠️ **TRAP 1 — secondary domain vs domain alias. This cost an afternoon.**
+`stepupai.fr` was first added as a **secondary domain**, not a **domain alias**. On a secondary domain Google implicitly reserves `<primary-username>@<secondary-domain>`, so `contact@stepupai.fr` counted as already taken and **every attempt to add it as an alias was silently discarded** — no error message, the row simply vanished on save. `legal@` and `privacy@` saved fine because those local parts do not collide with the username `contact`. Symptom: mail to `contact@stepupai.fr` hard-bounced "Address not found" while every page on the live site published that address.
+**Fix:** Account → Domains → Manage domains → **Change primary domain** → `stepupai.fr`. The collision dissolves and the alias sticks immediately.
+
+⚠️ **TRAP 2 — the alias editor saves only the rows it has loaded.**
+Adding aliases without first clicking **"Show all alternate emails"** silently DROPS any alias not currently displayed. That is how `contact@stepupai.fr` disappeared moments after `legal@`/`privacy@` were added and tested. Always expand the full list before editing.
+
+⚠️ **TRAP 3 — the per-row Domain dropdown defaults to `step-upai.com` every time.** It produced `contact@stepupai.fr@step-upai.com`, then a duplicate `privacy@step-upai.com`, then a useless `contact@step-upai.com`. Set it deliberately on every row.
+
+⚠️ **Lesson that generalises:** all three failures were SILENT. After touching this form, re-test addresses that already worked — `contact@` broke while `legal@`/`privacy@` were being verified and nobody rechecked it.
+
+**STILL OPEN:** the account's sign-in address is still `contact@step-upai.com`. To finish the move: Directory → Users → Step Up → **UPDATE USER** → Primary email → `contact@stepupai.fr`. Same password, signs you out, old address auto-retained as an alias. The Workspace **billing email** also still points at the old domain.
 
 ### `api/chat.ts` CORS
 `ALLOWED_ORIGINS` intentionally holds **both** domains (new + old). Do not prune the old entries while `step-upai.com` still serves.
@@ -189,7 +203,9 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 - ~~**B. Vercel** redirects~~ — ✅ done 2026-08-19. Both old hostnames set to **308 Permanent** → `www.stepupai.fr`. NOTE: Vercel refuses to redirect a domain that is itself a redirect target, so `step-upai.com` had to be repointed BEFORE `www.step-upai.com` could be converted. ⚠️ www + apex ONLY — never a wildcard.
 - ~~**C. Search Console**~~ — ✅ done 2026-08-19. Domain property `stepupai.fr` verified (2nd TXT token added alongside the Workspace one), sitemap submitted, Change of Address active. Owned by the personal Google account, not `contact@`.
 - ~~**D. Workspace:** add `legal@`/`privacy@` aliases + swap refs~~ — ✅ done 2026-08-19 (aliases added on both domains; refs now `@stepupai.fr`).
-- **E. Gmail — STILL OPEN:** set `contact@stepupai.fr` as default "Send mail as" + enable "reply from the same address the message was sent to". As of 2026-08-19 the alias had not yet propagated into Gmail's Send-mail-as list (can take up to 24h). If it still is not there, use "Add another email address" with **"Treat as an alias" checked** — the verification code lands in the same inbox.
+- **E. Gmail — STILL OPEN:** set `contact@stepupai.fr` as default "Send mail as" + enable "reply from the same address the message was sent to". If it is not listed, use "Add another email address" with **"Treat as an alias" checked** — the verification code lands in the same inbox.
+- **G. Workspace — STILL OPEN:** change the account's primary email / sign-in from `contact@step-upai.com` to `contact@stepupai.fr` (Directory → Users → Step Up → **UPDATE USER**, NOT the "Contact information" panel, which only accepts addresses outside the managed domains). Same password; signs you out; old address auto-retained as an alias. See §3b.
+- **H. Workspace — STILL OPEN:** update the **billing email**, still on the old domain.
 - ~~**F. OVH** cleanup~~ — ✅ done 2026-08-19 (`ftp` CNAME deleted; zone re-verified, nothing collateral).
 1. **Finish Brevo** → switch sender to `dailydigest@stepupai.fr` (see §8). DNS records go in **OVHcloud**.
 2. **Activate the Daily Digest** (`v9D7wfMrcsfvACdt`) once the sender is finalized and reviewed.
@@ -233,6 +249,37 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 **Performance:** `vite.config.ts` `manualChunks` splits `react-vendor` / `motion` / `icons` from the main bundle (Core Web Vitals). Don't remove without reason.
 
 **Bilingual note:** FR/EN toggle on the SAME URL (client-side) → **hreflang is intentionally absent** (no separate language URLs). `<html lang>` + `og:locale` switch with the toggle; prerendered HTML is French-first.
+
+---
+
+## 12b. Sector pages `/solutions/*` (shipped 2026-08-20)
+
+Trade-specific landing pages, because SMEs search by their trade rather than their postcode: a Nice restaurateur searches "répondre aux avis Google restaurant", never "automatisation IA Nice".
+
+| Page | Named clients |
+|---|---|
+| `/solutions/restaurants` | ANDAAZ Desi Brasserie, Kurry Up, Spicy Chick |
+| `/solutions/ecoles-formation` | Beelingue Academy, SJ Academy |
+| `/solutions/ecommerce` | Magic Afro, Kurry Up |
+| `/solutions/commerce-local` | Beauty Chic |
+
+Files: `src/data/sectorData.ts` (bilingual content), `src/pages/SectorPage.tsx` (Service + FAQPage + BreadcrumbList schema; FAQ uses CSS collapse so answers stay crawlable). Wired into `App.tsx`, `generate-sitemap.mjs` (77 URLs + an llms.txt section) and `prerender.mjs` (149 routes). **The slug list is hardcoded in both .mjs scripts — keep in sync with `sectorData.ts`.**
+
+**RULE FOR ADDING A SECTOR — do not break this.** A sector only earns a page if you can NAME the client and describe real delivered work. Documented at the top of `sectorData.ts`. The reasoning is measured, not aesthetic:
+
+- The 48 geo pages run **65–70% mutual vocabulary overlap** (measured pairwise across all 48). Every city sits in a 65.4–68.3% band — they are uniformly templated, not selectively thin. That is why only ~30 of 73 submitted URLs were indexed.
+- The four sector pages measure **38.4% mutual overlap** — the residue is nav/footer/CTA.
+- Sector pages are ~733–866 words vs ~1,450 for a geo page, but ~62% unique vs ~32%. **More unique substance in half the length.** The geo pages were padded.
+
+A sector page with invented proof is the geo-page mistake in a new shape. Immobilier/santé/hôtellerie were deliberately NOT created — no clients to name.
+
+**Open experiment:** request indexing on `/solutions/restaurants` in GSC. If a sector page indexes while 43 geo URLs sit rejected, the approach is validated and the geo cull (48 → 12–18) is worth doing. If it is also rejected, the constraint is domain authority, not page quality — and the priority becomes reviews, citations and GBP instead. **Do not start the geo cull before that answer.**
+
+**Full SEO/AEO/GEO plan** (diagnosis, backlink guidance, phased priorities): https://claude.ai/code/artifact/10eb939f-40d9-46b9-9000-374862daed6d
+
+⚠️ **On "auto backlinks":** automated link building (paid packages, PBNs, directory blasts, comment spam) violates Google's link spam policy and risks a manual action — especially dangerous on a young domain mid-migration. Legitimate scalable options: Google Business Profile, French citations (Pages Jaunes, Societe.com, Kompass, CCI), tool partner directories, client case studies, journalist sourcing. Automate the monitoring, never the placement.
+
+**Google Business Profile exists** and is managed. Needs: website field → `https://www.stepupai.fr` (still on the old domain), primary category off "Software company" (wrong for an automation agency), real opening hours (currently "Open 24 hours", a trust signal problem), and reviews — the biggest unused lever, with six named clients who could write one. NAP to match: `Step UpAI` · `+33 6 98 22 95 33` · Paris, FR (schema declares no street address).
 
 ---
 
