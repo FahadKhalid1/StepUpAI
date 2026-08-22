@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Check, Loader2, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { trackSubscribe } from '../lib/analytics';
 
 // n8n "Blog Subscribe" webhook (same n8n instance as the contact form).
 const SUBSCRIBE_WEBHOOK = 'https://fk92.app.n8n.cloud/webhook/step-up-subscribe';
@@ -50,6 +51,8 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ source = 'blog', va
         }),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      trackSubscribe({ source, language });
+
       setStatus('success');
       setEmail('');
     } catch (err) {

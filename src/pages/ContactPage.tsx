@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { trackLead } from '../lib/analytics';
 import { useLanguage } from '../contexts/LanguageContext';
 
 
@@ -13,7 +14,7 @@ const ContactPage: React.FC = () => {
     service: '',
     message: ''
   });
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -53,6 +54,8 @@ const ContactPage: React.FC = () => {
       if (!response.ok) {
         throw new Error('Failed to send message. Please try again.');
       }
+
+      trackLead({ service: formData.service, language });
 
       setIsSubmitted(true);
       setFormData({
