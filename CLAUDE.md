@@ -252,6 +252,30 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 
 ---
 
+## 12a. Analytics & conversion tracking (2026-08-20)
+
+GA4 property **Step-UpAi `530052823`** (account *SIV Automation* `387328588`), measurement ID `G-6FEDKY6N43`, tag in `index.html`.
+
+`src/lib/analytics.ts` fires two GA4 **recommended** events so they can be marked as key events and imported into Google Ads without remapping:
+
+| Event | Fires on | Verified |
+|---|---|---|
+| `generate_lead` | contact form success (`ContactPage.tsx`) | untested — no submission yet |
+| `sign_up` | newsletter success (`NewsletterSignup.tsx`) | ✅ seen in Realtime 2026-08-20 |
+
+Rules baked into that file: **no PII** (never email/name/message — Google policy + GDPR), SSR-safe (`typeof window` guard, so the 149-route prerender is unaffected), and errors swallowed so a tracking failure can never break a submission mid-conversion.
+
+**STILL OPEN:**
+- Star `generate_lead` + `sign_up` in GA4 → Admin → Data display → Events → **Recent events** (this UI has no create-by-name; the event must fire first, and that list lags hours). Only then can they import into Google Ads.
+- Three dead key events (`close_convert_lead`, `purchase`, `qualify_lead`) show "No stream data detected" — nothing fires them. Delete.
+- **No environment guard on GA4** — localhost dev traffic counts in the production property. Explains the +4,800% spike on 2026-08-20.
+- GA4 recommends linking a Search Console property — **link `stepupai.fr`, NOT the old `step-upai.com`** it suggests.
+- ⚠️ GA4 runs with **no consent mechanism**. For a French company that is CNIL exposure. Predates this work; needs a decision.
+
+**Before spending the €400 Google Ads credit:** conversion tracking live and key events marked, a few Google reviews, GBP pointing at the new domain, sector pages indexed. Ads amplify a conversion rate; they do not create one. Check the credit's expiry conditions — these offers usually require matched spend inside a window.
+
+---
+
 ## 12b. Sector pages `/solutions/*` (shipped 2026-08-20)
 
 Trade-specific landing pages, because SMEs search by their trade rather than their postcode: a Nice restaurateur searches "répondre aux avis Google restaurant", never "automatisation IA Nice".
@@ -274,6 +298,41 @@ Files: `src/data/sectorData.ts` (bilingual content), `src/pages/SectorPage.tsx` 
 A sector page with invented proof is the geo-page mistake in a new shape. Immobilier/santé/hôtellerie were deliberately NOT created — no clients to name.
 
 **Open experiment:** request indexing on `/solutions/restaurants` in GSC. If a sector page indexes while 43 geo URLs sit rejected, the approach is validated and the geo cull (48 → 12–18) is worth doing. If it is also rejected, the constraint is domain authority, not page quality — and the priority becomes reviews, citations and GBP instead. **Do not start the geo cull before that answer.**
+
+
+### Authority / backlinks — the actual bottleneck (assessed 2026-08-20)
+
+Technical SEO is **done and is not the constraint**. 32 clicks in ~3 months with 30 of 73 URLs indexed is an authority problem, not a markup problem. Adding more schema to a site nobody links to is busywork.
+
+⚠️ **NEVER buy automated backlinks.** Paid packages, PBNs, directory blasts, comment spam all violate Google's link spam policy. On a one-year-old domain mid-migration the downside is a manual action, not "no benefit". Automate monitoring, never placement.
+
+**1. Client credit links — biggest untapped source.** Measured 2026-08-20: **zero of the five client sites we built link back**, none even mention "Step Up".
+
+| Site | State |
+|---|---|
+| `andaaz.fr` | no link, no mention |
+| `kurryup.fr` | no link, no mention |
+| `spicychicken.fr` | no link, no mention |
+| `magicafro.fr` | no link, no mention |
+| `beelingueacademy.com` | no link, no mention |
+
+Fix: a footer credit — "Site réalisé par Step UpAI" → `https://www.stepupai.fr`. Legitimate (we built them), contextually relevant (a restaurant site → a restaurant-automation agency). **Vary the anchor text across the five** — five byte-identical footers reads as manufactured. (Check was on raw HTML; a JS-injected footer would not show.)
+
+**2. France Num Activateur** (`francenum.gouv.fr`) — government directory of advisors helping PME digitalise. A `.gouv.fr` link, a real credential, and it puts us in front of the exact buyer. Best single item on this list after the client links.
+
+**3. Tool partner directories** — n8n (expert listing **and** the template library: publish a workflow, it links back), Make Partner Program, Shopify Partners (two Shopify stores delivered). High relevance, already qualified.
+
+**4. French citations** — Pages Jaunes, Societe.com, Kompass, CCI Paris Île-de-France. Individually weak; collectively they establish the entity consistency that also feeds AEO/GEO.
+
+**5. Digital PR (Q4)** — Sourcee.fr for journalist sourcing, pitched off an original data asset (survey of IDF SMEs on AI adoption, or an automation ROI calculator). Earns citations rather than requesting links.
+
+**Reviews — the highest-return item overall.** GBP shows **zero reviews** against 213 customer interactions (Google itself prompts "Get your first reviews"). Seven named clients could each write one. Ask individually, never incentivise, spread over weeks not one afternoon, and reply to each — response rate is itself a ranking signal.
+
+⚠️ **Do NOT add `Review`/`AggregateRating` schema about ourselves.** Verified clean 2026-08-20: homepage testimonials carry no review markup, which is correct. Self-serving review markup produces no rich result (Google removed that in 2019) and violates structured-data policy. Website testimonials convert; Google reviews rank. Different jobs.
+
+**Entity consistency (AEO/GEO):** LinkedIn currently surfaces as "Step-up.ai — transform career aspirations into reality", which describes a different business. Answer engines resolve identity by corroborating across sources; contradictory profiles make us harder to cite. Worth auditing.
+
+**Measure:** referring domains monthly. Should climb slowly and steadily — a burst is the signature of the thing in the "never" paragraph above.
 
 **Full SEO/AEO/GEO plan** (diagnosis, backlink guidance, phased priorities): https://claude.ai/code/artifact/10eb939f-40d9-46b9-9000-374862daed6d
 
