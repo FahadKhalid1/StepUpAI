@@ -10,6 +10,7 @@
  * Content checks are scoped to <article>…</article> so nav/footer never false-positive.
  */
 import { readFileSync, existsSync, readdirSync } from 'fs';
+import { createHash } from 'crypto';
 import { resolve, dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -24,9 +25,43 @@ const warns = [];
 const fail = (slug, msg) => errors.push(`[${slug}] ${msg}`);
 const warn = (slug, msg) => warns.push(`[${slug}] ${msg}`);
 
+// --- CSP integrity -----------------------------------------------------------
+// The Content-Security-Policy in vercel.json allows index.html's inline gtag
+// snippet BY HASH (no 'unsafe-inline', so that an injected on*= handler cannot
+// run). That means editing the snippet silently kills analytics in production
+// unless the hash is updated too. Fail the build instead.
+function checkCspHashes() {
+  const idx = join(DIST, 'index.html');
+  const cfg = resolve(__dirname, '..', 'vercel.json');
+  if (!existsSync(idx) || !existsSync(cfg)) return;
+
+  const csp = (JSON.parse(readFileSync(cfg, 'utf-8')).headers || [])
+    .flatMap((h) => h.headers || [])
+    .find((h) => h.key === 'Content-Security-Policy')?.value;
+  if (!csp) return;
+
+  const html = readFileSync(idx, 'utf-8');
+  const inline = [...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)]
+    .filter((m) => !/application\/ld\+json/i.test(m[1])); // ld+json is data, never executed
+
+  for (const m of inline) {
+    const hash = 'sha256-' + createHash('sha256').update(m[2], 'utf-8').digest('base64');
+    if (!csp.includes(hash)) {
+      fail('csp', `inline <script> in index.html is not allow-listed by the CSP ('${hash}'). ` +
+        'Add it to script-src in vercel.json, or analytics/that script will be blocked in production.');
+    }
+  }
+}
+checkCspHashes();
+
 const blogDir = join(DIST, 'blog');
 if (!existsSync(blogDir)) {
-  console.warn('validate-publish: no dist/blog directory — skipped');
+  console.warn('validate-publish: no dist/blog directory — blog checks skipped');
+  if (errors.length) {
+    console.error(`\n❌ PUBLISH BLOCKED — ${errors.length} critical issue(s):`);
+    errors.forEach((e) => console.error('   ✗ ' + e));
+    process.exit(1);
+  }
   process.exit(0);
 }
 const posts = readdirSync(blogDir).filter((d) => existsSync(join(blogDir, d, 'index.html')));
