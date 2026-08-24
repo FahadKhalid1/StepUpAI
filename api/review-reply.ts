@@ -27,8 +27,8 @@ export const config = { maxDuration: 30 };
 const MAX_REVIEW_CHARS = 1500;
 const MAX_NAME_CHARS = 80;
 const MAX_TOKENS = 256;
-const PER_IP_HOURLY = 10;
-const PER_IP_DAILY = 30;
+/** Free and ungated, so the fair-use cap does the work an email gate would: 3 per rolling 24h. */
+const PER_IP_PER_DAY = 3;
 const DEFAULT_DAILY_MAX = 500;
 
 const ALLOWED_ORIGINS = new Set([
@@ -119,9 +119,7 @@ function clientIp(req: VercelRequest): string {
 }
 
 function buckets() {
-  const d = new Date();
-  const day = d.toISOString().slice(0, 10);
-  return { day, hour: `${day}T${String(d.getUTCHours()).padStart(2, '0')}` };
+  return { day: new Date().toISOString().slice(0, 10) };
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -160,7 +158,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const tone = TONE_LABELS[body.tone || 'chaleureux'] || TONE_LABELS.chaleureux;
   const uiLanguage = body.language === 'en' ? 'English' : 'French';
 
-  const { day, hour } = buckets();
+  const { day } = buckets();
   const ip = clientIp(req);
 
   // Parsed explicitly: `Number(x) || DEFAULT` would turn REVIEW_DAILY_MAX=0 —
@@ -171,11 +169,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const globalCount = await bump(`rr:all:${day}`, 86_400);
   if (globalCount > globalMax) return res.status(503).json({ error: 'daily_cap' });
 
-  const hourly = await bump(`rr:ip:${ip}:${hour}`, 3_600);
-  if (hourly > PER_IP_HOURLY) return res.status(429).json({ error: 'rate_limited', scope: 'hour' });
-
-  const daily = await bump(`rr:ip:${ip}:${day}`, 86_400);
-  if (daily > PER_IP_DAILY) return res.status(429).json({ error: 'rate_limited', scope: 'day' });
+  // Deliberately NOT keyed on the calendar day: the key's own 24h TTL starts at
+  // the visitor's first generation, so the window rolls with them instead of
+  // resetting for everyone at midnight UTC.
+  const used = await bump(`rr:ip:${ip}`, 86_400);
+  if (used > PER_IP_PER_DAY) return res.status(429).json({ error: 'rate_limited', scope: 'day' });
 
   // Sonnet 5 by choice: two-sentence review replies do not need Opus, and this
   // endpoint is public and ungated. REVIEW_MODEL can override it without a

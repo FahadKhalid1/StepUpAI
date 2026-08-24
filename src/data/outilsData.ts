@@ -132,8 +132,8 @@ export const reviewTool = {
     en: 'Answer a Google review in ten seconds.',
   },
   subhead: {
-    fr: "Collez l'avis, choisissez le ton, obtenez une réponse en deux phrases dans la langue du client. Vous relisez, vous copiez, vous publiez. Gratuit et sans inscription.",
-    en: 'Paste the review, pick a tone, get a two-sentence reply in the customer’s own language. You read it, copy it, post it. Free, no signup.',
+    fr: "Collez l'avis, choisissez le ton, obtenez une réponse en deux phrases dans la langue du client. Vous relisez, vous copiez, vous publiez. Gratuit, sans inscription — 3 réponses par 24 h.",
+    en: 'Paste the review, pick a tone, get a two-sentence reply in the customer’s own language. You read it, copy it, post it. Free, no signup — 3 replies per 24h.',
   },
 
   form: {
@@ -200,10 +200,10 @@ export const reviewTool = {
       fr: "Réessayez dans un instant. Si cela persiste, écrivez-nous — nous répondrons avec une proposition rédigée à la main.",
       en: 'Try again in a moment. If it keeps failing, write to us and we will send a hand-written suggestion.',
     },
-    rateLimitedTitle: { fr: 'Vous avez atteint la limite horaire', en: 'You have hit the hourly limit' },
+    rateLimitedTitle: { fr: 'Vous avez utilisé vos 3 réponses du jour', en: 'You have used your 3 replies for today' },
     rateLimitedBody: {
-      fr: "L'outil est gratuit et sans inscription, donc plafonné pour rester disponible pour tout le monde. Réessayez dans une heure — ou laissez Reviews Hub s'en charger en continu.",
-      en: 'The tool is free and ungated, so it is capped to stay available for everyone. Try again in an hour — or let Reviews Hub handle it continuously.',
+      fr: "L'outil est gratuit et sans inscription : il est limité à 3 réponses par tranche de 24 heures pour rester disponible pour tout le monde. Revenez demain — ou laissez Reviews Hub traiter vos avis en continu, sans limite.",
+      en: 'The tool is free and ungated: it is limited to 3 replies per 24 hours so it stays available for everyone. Come back tomorrow — or let Reviews Hub handle your reviews continuously, with no limit.',
     },
     unavailableTitle: { fr: "L'outil est très demandé aujourd'hui", en: 'The tool is in high demand today' },
     unavailableBody: {
@@ -338,8 +338,8 @@ export const reviewTool = {
     {
       q: { fr: "L'outil est-il vraiment gratuit ?", en: 'Is the tool really free?' },
       a: {
-        fr: "Oui, sans inscription, sans e-mail à laisser et sans limite d'essai. Il est plafonné par heure pour éviter les abus automatisés, rien de plus. Nous le proposons parce qu'il montre concrètement ce que fait notre produit Reviews Hub, qui traite les avis en continu plutôt qu'un par un.",
-        en: 'Yes — no signup, no email, no trial limit. There is an hourly cap to prevent automated abuse, nothing more. We offer it because it shows concretely what our Reviews Hub product does, handling reviews continuously rather than one at a time.',
+        fr: "Oui, sans inscription, sans e-mail à laisser et sans limite d'essai. Il est limité à 3 réponses par 24 heures pour éviter les abus automatisés, rien de plus. Nous le proposons parce qu'il montre concrètement ce que fait notre produit Reviews Hub, qui traite les avis en continu plutôt qu'un par un.",
+        en: 'Yes — no signup, no email, no trial limit. There is a cap of 3 replies per 24 hours to prevent automated abuse, nothing more. We offer it because it shows concretely what our Reviews Hub product does, handling reviews continuously rather than one at a time.',
       },
     },
     {
