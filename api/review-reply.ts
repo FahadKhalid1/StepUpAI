@@ -13,7 +13,7 @@ import Anthropic from '@anthropic-ai/sdk';
  *
  * Config (Vercel → Settings → Environment Variables):
  *   ANTHROPIC_API_KEY        required  without it the endpoint answers 503 and the UI degrades
- *   REVIEW_MODEL             optional  default claude-opus-5
+ *   REVIEW_MODEL             optional  default claude-sonnet-5
  *   REVIEW_DAILY_MAX         optional  global generations/day, default 500 — the spend ceiling
  *   UPSTASH_REDIS_REST_URL   optional  durable rate limiting; without it limits are per-instance
  *   UPSTASH_REDIS_REST_TOKEN optional
@@ -177,7 +177,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const daily = await bump(`rr:ip:${ip}:${day}`, 86_400);
   if (daily > PER_IP_DAILY) return res.status(429).json({ error: 'rate_limited', scope: 'day' });
 
-  const model = process.env.REVIEW_MODEL || 'claude-opus-5';
+  // Sonnet 5 by choice: two-sentence review replies do not need Opus, and this
+  // endpoint is public and ungated. REVIEW_MODEL can override it without a
+  // deploy, but the default is what runs if nobody ever sets anything.
+  const model = process.env.REVIEW_MODEL || 'claude-sonnet-5';
   const client = new Anthropic({ apiKey });
 
   const userTurn = [
