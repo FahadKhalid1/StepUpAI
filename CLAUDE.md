@@ -1,7 +1,7 @@
 # CLAUDE.md — Step Up AI Website & Automation System
 
 > **Purpose:** This file is the single source of truth for everything built on the Step Up AI website + its email/automation backend. Read it first when resuming work. It covers the React site, the n8n workflows (cloud + local), credentials, storage, key decisions + *why*, and the open TODOs.
-> **Last updated:** 2026-08-20 (Workspace primary domain moved to stepupai.fr; sector pages shipped).
+> **Last updated:** 2026-08-24 (free tools at /outils shipped; security review + CSP; Reviews Hub on /services).
 
 ---
 
@@ -19,11 +19,22 @@ The **Step Up AI** marketing website (an AI‑automation agency, Paris / Île‑
 - **Vite + React + TypeScript + Tailwind + framer-motion + react-router + react-helmet-async.**
 - **Bilingual**, French is the default. All UI text goes through `useLanguage()` → `t('key')` (keys in `src/contexts/LanguageContext.tsx`) **or** inline `language === 'fr' ? '…' : '…'`. Keep both languages whenever you add copy.
 - **SSR-safe / prerendered:** the build prerenders every route with Puppeteer, so **no `window`/`document` access during render**. Canonical host is `https://www.stepupai.fr`.
-- **Build chain:** `npm run build` = `vite build && node scripts/generate-sitemap.mjs && node scripts/prerender.mjs`.
-  - `generate-sitemap.mjs` parses `src/data/blog.ts` and writes `dist/sitemap.xml`, `dist/llms.txt`, **and `dist/rss.xml`**.
-  - `prerender.mjs` (Puppeteer locally, @sparticuz/chromium on Vercel) renders routes to static HTML. Non‑fatal: failures fall back to the SPA.
+- **Build chain (FIVE steps):** `npm run build` = `vite build && generate-sitemap.mjs && prerender.mjs && validate-publish.mjs && ping-indexnow.mjs`.
+  - `generate-sitemap.mjs` parses `src/data/blog.ts` and writes `dist/sitemap.xml`, `dist/llms.txt`, **and `dist/rss.xml`**. **79 URLs** as of 2026-08-24.
+  - `prerender.mjs` (Puppeteer locally, @sparticuz/chromium on Vercel) renders routes to static HTML. Non‑fatal: failures fall back to the SPA. **151 routes.**
+  - `validate-publish.mjs` is a **hard gate** — exit 1 fails the Vercel build and nothing deploys. Checks every prerendered blog post for unrendered markdown, generic titles, bad canonicals, missing og:image/`<img>` files, invalid BlogPosting JSON-LD, thin shells, **hostile markup (see §14)**, and **CSP hash drift (see §14)**.
+  - `ping-indexnow.mjs` runs on Vercel production only.
 - **`vercel.json`** rewrites everything to `/index.html` **except** `assets`, `sitemap.xml`, `robots.txt`, `rss.xml`, `llms.txt` (those serve as real files). If you add another root static file, add it to that negative‑lookahead or it'll serve the app HTML.
+- **Serverless API (`api/*.ts`, Vercel functions, excluded from the SPA rewrite):**
+  - `api/review-reply.ts` — powers the free review-reply tool (§14). Anthropic SDK, `claude-sonnet-5` by default.
+  - `api/chat.ts` — hero "describe what you want to automate" box (`AIPromptBox` on the homepage). Proxies a self-hosted OpenAI-compatible model at `LLM_BASE_URL`. **`llm.step-upai.com` has never resolved, so this answers `503 unconfigured` in production** and the box falls back to routing the prompt into the contact form. Working as designed; do not "fix" it by pointing it somewhere paid without deciding to.
+- **Vercel env vars:** `ANTHROPIC_API_KEY` (set, Production+Preview), `REVIEW_MODEL` (optional, default `claude-sonnet-5`), `REVIEW_DAILY_MAX` (optional, default 500, `0` = kill switch), `UPSTASH_REDIS_REST_URL`/`_TOKEN` (optional, durable rate limiting — **not set**, so per-IP limits are per-instance).
 - **To deploy:** commit + `git push origin main`. Don't commit the local `.claude/` dir.
+
+### Known drift / dead code (verified 2026-08-24)
+- `src/pages/BlogWriter.tsx` (308 lines) is **dead** — no route, no import, referenced nowhere. The real blog pipeline is n8n appending to `blog.ts`.
+- `public/images/blog/` holds **31 folders for 17 posts** — 15 are orphans from renamed/abandoned slugs, shipping in every deploy.
+- The services grid has **12** services (`ServicesPage.tsx`), not the 9 described in §4.
 
 ---
 
@@ -153,7 +164,7 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 | *(temp)* StepUpAI — Digest TEST | `gdQFcWttqWdlRQ1t` | **DELETED** | — |
 
 ### Pre-existing workflows (NOT built here — context only)
-- **Step-up Contact Form** (`8PglFIW45SFFgOAr`, active): webhook `/step-up-contact` → Google Sheets (contact spreadsheet `1B0m3HOei13sAknOMWDKGBIbf6I4SPO5rNaIvTzSVil0`, Sheets cred *Asad*). The site's Contact page posts here.
+- **Step-up Contact Form** (`8PglFIW45SFFgOAr`, active): webhook `/step-up-contact` → Google Sheets (contact spreadsheet `1B0m3HOei13sAknOMWDKGBIbf6I4SPO5rNaIvTzSVil0`, Sheets cred *Asad*). The site's Contact page posts here. ⚠️ **Cell Format = RAW since 2026-08-24** — do not revert it to `USER_ENTERED`; see §15 finding #2.
 - **StepUpAI — Form Submissions** (`1rHBRJmtWuZNkrOd`, active): webhook `/client-form-submission` → Sheets (`1Aj7xNqqBO6QESQeG1GRs8H4dXlXmhQPxuFkz6xBiiYI` via Drive cred) + Gmail notification. ⚠️ Its Gmail node uses the **dead beelingue credential**, so those "New Client Form" alert emails are currently failing.
 
 ### Workflow node details
@@ -207,6 +218,18 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 - **G. Workspace — STILL OPEN:** change the account's primary email / sign-in from `contact@step-upai.com` to `contact@stepupai.fr` (Directory → Users → Step Up → **UPDATE USER**, NOT the "Contact information" panel, which only accepts addresses outside the managed domains). Same password; signs you out; old address auto-retained as an alias. See §3b.
 - **H. Workspace — STILL OPEN:** update the **billing email**, still on the old domain.
 - ~~**F. OVH** cleanup~~ — ✅ done 2026-08-19 (`ftp` CNAME deleted; zone re-verified, nothing collateral).
+### Shipped 2026-08-24 (this session)
+- ~~Reviews Hub service card on `/services`~~ — ✅ live (12th card, links to `reviewshub.step-upai.com`; also in the footer, contact dropdown, llms.txt and JSON-LD position 12).
+- ~~`/outils` hub + review reply generator~~ — ✅ live (§14).
+- ~~Security review + fixes~~ — ✅ XSS sanitiser, build gate, Sheets formula injection, origin bypass, CSP (§15).
+- ~~Anthropic spend limit~~ — ✅ **$15/month** set in the Claude Console. ⚠️ It is **org-wide**: if Reviews Hub bills to the same organisation, that $15 is shared with it. ~$5 of it was already used by other work when it was set.
+
+### Now open
+- **Upstash (or Vercel KV) for the review tool's rate limiting.** Without it the 3/24h cap is per serverless instance, so the real allowance is looser than advertised. `UPSTASH_REDIS_REST_URL` + `_TOKEN` in Vercel is all the code needs — it already falls back gracefully.
+- **Spend notification** — Claude Console → Billing → *Add notification* at ~$12, so the $15 ceiling is not discovered by something breaking.
+- **Consent/cookie mechanism** — still absent, GA4 still runs unconditionally (§12a). The tools add form interactions to that exposure. CNIL risk, predates this work, needs a decision.
+- **Delete `src/pages/BlogWriter.tsx`** (dead) and the **15 orphaned `public/images/blog/` folders** (§2 drift note).
+- **Request indexing on `/outils/generateur-reponse-avis-google`** in GSC, and watch whether a tool page indexes faster than the geo pages did — same experiment as `/solutions/restaurants`.
 1. **Finish Brevo** → switch sender to `dailydigest@stepupai.fr` (see §8). DNS records go in **OVHcloud**.
 2. **Activate the Daily Digest** (`v9D7wfMrcsfvACdt`) once the sender is finalized and reviewed.
 3. ~~Delete temp test workflow~~ — ✅ done (both temporary workflows removed).
@@ -340,7 +363,89 @@ Fix: a footer credit — "Site réalisé par Step UpAI" → `https://www.stepupa
 
 **Google Business Profile exists** and is managed. Needs: website field → `https://www.stepupai.fr` (still on the old domain), primary category off "Software company" (wrong for an automation agency), real opening hours (currently "Open 24 hours", a trust signal problem), and reviews — the biggest unused lever, with six named clients who could write one. NAP to match: `Step UpAI` · `+33 6 98 22 95 33` · Paris, FR (schema declares no street address).
 
----
-
 ## 13. Related project (separate repo, NOT this one)
 **Jarvis** — a voice‑agent build spec lives at `/Users/fahad/Projects/jarvis/HANDOFF.md` (Claude Agent SDK brain + Whisper + Kokoro TTS + openWakeWord + a Telegram phone bridge). Free/no‑monthly. Independent of this website repo; mentioned here only so you know it exists.
+
+---
+
+## 14. Free tools `/outils` (shipped 2026-08-24)
+
+Lead-generation tools aimed at people who are **not** searching for an AI agency — they
+search for something they need anyway and arrive here. Full rationale and the backlog of
+further tools: `HANDOFF-outils-2026-08.md`; the spec for tool #1: `HANDOFF-outil-generateur-reponse-avis.md`.
+
+| Route | What | State |
+|---|---|---|
+| `/outils` | hub, cards from `src/data/outilsData.ts` | live |
+| `/outils/generateur-reponse-avis-google` | Google review reply generator | live |
+| facturation électronique · calculateur ROI | listed as "bientôt", no route | not built |
+
+**Adding a route means editing THREE places** — they are not derived from one another:
+`src/App.tsx` (the `<Route>`), `scripts/prerender.mjs` (`staticPages`), and
+`scripts/generate-sitemap.mjs` (its own `staticPages`). Miss one and the page is either
+unprerendered or missing from the sitemap.
+
+### Tool #1 — review reply generator
+- **Copy lives in `src/data/outilsData.ts`** (fr/en pairs), following the `sectorData.ts`
+  convention, NOT `LanguageContext`. Page: `src/pages/outils/ReviewReplyPage.tsx`.
+- **The reply rules mirror the Reviews Hub product prompt** (`REVIEWS_HUB.md` §3) so the
+  free sample and the paid product speak with one voice: reply in the language of the
+  review, no emojis, never mention the star rating, never name staff, **two sentences
+  max**, and the single token `SKIP` on genuine abuse. Change them in both places or not
+  at all. The UI renders `SKIP` as a first-class state (explains why replying publicly
+  makes it worse, points at Google's removal flow) — not as an error.
+- **Free and ungated by design** — no account, no email. `HANDOFF-outils-2026-08.md` is
+  explicit: gating destroys the point. An email gate was built on 2026-08-24 and then
+  **reverted the same day** in favour of the fair-use cap below.
+- **Fair-use cap: 3 generations per visitor per rolling 24h.** Keyed `rr:ip:<ip>` with a
+  24h TTL and deliberately NOT on the calendar day, so the window starts at the visitor's
+  first use. It is a user-facing promise, stated in the hero subheadline, the limit state
+  and the FAQ — if you change the number, change all three.
+- **Cost controls, in layers:** the 3/24h cap → `REVIEW_DAILY_MAX` (500/day global) →
+  the Anthropic org spend limit (**$15/month**, set 2026-08-24). At ~$0.0025 per
+  generation on Sonnet 5, 500/day is about $1.25/day.
+- **Nothing is stored.** No review text, no reply, no email — the page says so and it must
+  stay true. Only counters and token usage are logged (`console.log`, no PII).
+- GA4 events: `tool_use`, `tool_skip`, `tool_copy`, `select_item`. **`tool_copy` is the
+  metric that matters** — a generation is curiosity, a copy is usage.
+
+---
+
+## 15. Security posture (review + fixes, 2026-08-24)
+
+Three real findings, all fixed and verified in production.
+
+1. **Stored XSS via the blog pipeline.** `BlogPostPage.tsx` injects raw HTML blocks with
+   `dangerouslySetInnerHTML`, and `blog.ts` is appended to by the n8n Publishing Agent and
+   pushed with no human review. Fixed in two layers: `src/lib/sanitizeHtml.ts`
+   (DOM-based **allowlist**, no dependency — unknown elements are unwrapped, every `on*`
+   handler and unsafe URL scheme stripped) plus a **build gate** in `validate-publish.mjs`
+   that fails the build on `<script`, `<iframe|object|embed|form`, inline `on*=`,
+   `javascript:` and `data:text/html` inside `<article>`.
+2. **Google Sheets formula injection.** The pre-existing `Step-up Contact Form` workflow
+   appended anonymous free text with n8n's default `USER_ENTERED` cell format, so
+   `=IMPORTXML(...)` in a contact message would execute when the sheet was opened and
+   could exfiltrate other leads' rows. **Cell Format is now `RAW`** on the live workflow
+   (`8PglFIW45SFFgOAr`). ⚠️ Any new Sheets-writing node must do the same — the Blog
+   Subscribe workflow already did (`valueInputOption=RAW`).
+3. **Origin allow-list bypass.** `api/chat.ts` only checked the Origin header *when
+   present*, so any script without one skipped it. Now required, matching
+   `api/review-reply.ts`.
+
+### CSP — read before touching `index.html`
+`vercel.json` sets a **Content-Security-Policy** plus `X-Content-Type-Options`,
+`Referrer-Policy`, `X-Frame-Options` and `Permissions-Policy` (HSTS comes from Vercel).
+
+⚠️ The inline gtag snippet in `index.html` is allowed **by hash, not `'unsafe-inline'`** —
+that is the entire point, because `'unsafe-inline'` would still permit the injected
+`onerror=` handlers that finding #1 is about. **Editing that snippet changes its hash and
+would silently kill analytics**, so `validate-publish.mjs` recomputes the hash of every
+inline classic script and fails the build if it is not allow-listed in `vercel.json`.
+Verified: `application/ld+json` is unaffected (it is data, never executed) — all JSON-LD
+still parses in production.
+
+`style-src` keeps `'unsafe-inline'` (framer-motion writes style attributes; not a script
+vector). `connect-src` allows the n8n webhooks + GA4 + same-origin `/api`. There are no
+iframes or external fonts anywhere, so `default-src 'self'` is safe — **check that again
+before adding a YouTube embed or a Google Font**, or it will be blocked.
+
