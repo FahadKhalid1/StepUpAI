@@ -15,10 +15,13 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import { getAllGeoRoutes } from './data/geoData';
 import { sectorSlugs } from './data/sectorData';
+import { reviewTool } from './data/outilsData';
 import { useLanguage } from './contexts/LanguageContext';
 
 const GeoServicePage = React.lazy(() => import('./pages/GeoServicePage'));
 const SectorPage = React.lazy(() => import('./pages/SectorPage'));
+const OutilsPage = React.lazy(() => import('./pages/OutilsPage'));
+const ReviewReplyPage = React.lazy(() => import('./pages/outils/ReviewReplyPage'));
 
 const geoRoutes = getAllGeoRoutes();
 
@@ -92,6 +95,7 @@ const Footer: React.FC = () => {
               <li>+33 6 98 22 95 33</li>
               <li><Link to="/contact" className="hover:text-white transition-colors duration-200">{t('footer.contact_us')}</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors duration-200">{t('footer.about_us')}</Link></li>
+              <li><Link to="/outils" className="hover:text-white transition-colors duration-200">{language === 'fr' ? 'Outils gratuits' : 'Free tools'}</Link></li>
             </ul>
           </div>
         </div>
@@ -128,6 +132,8 @@ function App() {
                   <Route path="/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/privacy" element={<PrivacyPolicyPage />} />
                   <Route path="/terms" element={<TermsOfServicePage />} />
+                  <Route path="/outils" element={<OutilsPage />} />
+                  <Route path={`/outils/${reviewTool.slug}`} element={<ReviewReplyPage />} />
                   {sectorSlugs.map((slug) => (
                     <Route
                       key={slug}

@@ -17,6 +17,10 @@ const staticPages = [
   { path: '/blog', priority: '0.7', changefreq: 'weekly' },
   { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
+  // Free tools (/outils/*). Keep in sync with src/data/outilsData.ts — only
+  // tools with status 'live' belong here; 'soon' entries have no route yet.
+  { path: '/outils', priority: '0.7', changefreq: 'monthly' },
+  { path: '/outils/generateur-reponse-avis-google', priority: '0.8', changefreq: 'monthly' },
 ];
 
 // City slugs — ONLY primary/indexed cities belong in the sitemap.
@@ -164,6 +168,10 @@ ${serviceSlugs.map(s => `- [${serviceLabels[s] || s}](${siteUrl}/${s}-paris)`).j
 ## Solutions par secteur d'activité
 ${sectorSlugs.map(x => `- [${sectorLabels[x] || x}](${siteUrl}/solutions/${x})`).join('\n')}
 
+## Outils gratuits (sans inscription)
+- [Générateur de réponse aux avis Google](${siteUrl}/outils/generateur-reponse-avis-google): collez un avis Google, obtenez une réponse professionnelle de deux phrases dans la langue du client. Gratuit, sans inscription.
+- [Tous les outils](${siteUrl}/outils)
+
 ## Services par ville (Île-de-France)
 ${citySlugs.map(c => `- ${cityLabels[c] || c}: ${serviceSlugs.map(s => `[${serviceLabels[s] || s}](${siteUrl}/${s}-${c})`).join(' · ')}`).join('\n')}
 
@@ -175,6 +183,7 @@ ${blogPosts.map(p => `- [${p.title}](${siteUrl}/blog/${p.slug})${p.excerpt ? `: 
 - [Réalisations](${siteUrl}/projects)
 - [À propos](${siteUrl}/about)
 - [Blog](${siteUrl}/blog)
+- [Outils gratuits](${siteUrl}/outils)
 - [Contact](${siteUrl}/contact)
 
 ## Flux

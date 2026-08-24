@@ -34,6 +34,10 @@ const translations: Translations = {
     en: 'Projects',
     fr: 'Projets',
   },
+  'nav.tools': {
+    en: 'Tools',
+    fr: 'Outils',
+  },
   'nav.blog': {
     en: 'Blog',
     fr: 'Blog',
