@@ -384,16 +384,14 @@ const ReviewReplyPage: React.FC = () => {
           <div className="mt-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 p-6 md:p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-3 text-balance">{pick(reviewTool.cta.title)}</h2>
             <p className="text-gray-700 leading-relaxed mb-5">{pick(reviewTool.cta.body)}</p>
-            <a
-              href={reviewTool.cta.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent('select_item', { item_id: 'reviews_hub', location: 'tool_review_reply' })}
+            <Link
+              to={reviewTool.cta.url}
+              onClick={() => trackEvent('select_item', { item_id: 'quote_review_automation', location: 'tool_review_reply' })}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
             >
               {pick(reviewTool.cta.button)}
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

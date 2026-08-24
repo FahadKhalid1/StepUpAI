@@ -845,8 +845,8 @@ const translations: Translations = {
     fr: 'A/B Testing & optimisation des conversions',
   },
   'contact.service.reviews': {
-    en: 'Reviews Hub — Google review replies',
-    fr: 'Reviews Hub — réponses aux avis Google',
+    en: 'Automated Google review replies',
+    fr: 'Réponses automatiques aux avis Google',
   },
   'contact.service.consultation': {
     en: 'Consultation & Strategy',

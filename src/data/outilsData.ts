@@ -202,8 +202,8 @@ export const reviewTool = {
     },
     rateLimitedTitle: { fr: 'Vous avez utilisé vos 3 réponses du jour', en: 'You have used your 3 replies for today' },
     rateLimitedBody: {
-      fr: "L'outil est gratuit et sans inscription : il est limité à 3 réponses par tranche de 24 heures pour rester disponible pour tout le monde. Revenez demain — ou laissez Reviews Hub traiter vos avis en continu, sans limite.",
-      en: 'The tool is free and ungated: it is limited to 3 replies per 24 hours so it stays available for everyone. Come back tomorrow — or let Reviews Hub handle your reviews continuously, with no limit.',
+      fr: "Vous avez utilisé vos 3 réponses gratuites du jour. Si vous avez autant d'avis à traiter, autant ne plus le faire à la main : nous automatisons vos réponses pour votre établissement. Devis gratuit.",
+      en: 'You have used your 3 free replies for today. If you have this many reviews to handle, stop doing it by hand — we can automate your replies for your business. Free quote.',
     },
     unavailableTitle: { fr: "L'outil est très demandé aujourd'hui", en: 'The tool is in high demand today' },
     unavailableBody: {
@@ -216,15 +216,16 @@ export const reviewTool = {
 
   cta: {
     title: {
-      fr: 'Vous venez de répondre à un avis. Reviews Hub répond à tous les autres.',
-      en: 'You just answered one review. Reviews Hub answers all the others.',
+      fr: 'Ne laissez plus jamais un avis sans réponse.',
+      en: 'Never leave a review unanswered again.',
     },
     body: {
-      fr: "Reviews Hub surveille votre fiche Google et prépare une réponse pour chaque nouvel avis, dans le ton de votre établissement. Vous gardez le contrôle avant publication. 4,99 €/mois, 7 jours d'essai gratuit.",
-      en: 'Reviews Hub watches your Google listing and drafts a reply for every new review, in your business’s own tone. You stay in control before anything is published. €4.99/month, 7-day free trial.',
+      fr: "Nous automatisons les réponses aux avis Google de votre établissement : chaque nouvel avis reçoit une réponse dans votre ton, vous validez avant publication. Devis gratuit, sans engagement.",
+      en: 'We automate your business’s Google review replies: every new review gets an answer in your tone, and you approve before it goes out. Free quote, no commitment.',
     },
-    button: { fr: 'Découvrir Reviews Hub', en: 'Discover Reviews Hub' },
-    url: 'https://reviewshub.step-upai.com',
+    button: { fr: 'Recevoir un devis gratuit', en: 'Get a free quote' },
+    /** Internal: prefills the service in the contact form. */
+    url: '/contact?service=reviews',
   },
 
   // -- Editorial content. This is what actually earns the page its ranking:
@@ -338,8 +339,8 @@ export const reviewTool = {
     {
       q: { fr: "L'outil est-il vraiment gratuit ?", en: 'Is the tool really free?' },
       a: {
-        fr: "Oui, sans inscription, sans e-mail à laisser et sans limite d'essai. Il est limité à 3 réponses par 24 heures pour éviter les abus automatisés, rien de plus. Nous le proposons parce qu'il montre concrètement ce que fait notre produit Reviews Hub, qui traite les avis en continu plutôt qu'un par un.",
-        en: 'Yes — no signup, no email, no trial limit. There is a cap of 3 replies per 24 hours to prevent automated abuse, nothing more. We offer it because it shows concretely what our Reviews Hub product does, handling reviews continuously rather than one at a time.',
+        fr: "Oui, sans inscription et sans e-mail à laisser. Il est limité à 3 réponses par 24 heures pour éviter les abus automatisés, rien de plus. Si vous voulez traiter tous vos avis en continu plutôt qu'un par un, nous pouvons le mettre en place pour votre établissement — demandez un devis.",
+        en: 'Yes — no signup, no email. There is a cap of 3 replies per 24 hours to prevent automated abuse, nothing more. If you want every review handled continuously rather than one at a time, we can set that up for your business — ask for a quotation.',
       },
     },
     {
@@ -352,8 +353,8 @@ export const reviewTool = {
     {
       q: { fr: 'La réponse est-elle publiée automatiquement ?', en: 'Is the reply posted automatically?' },
       a: {
-        fr: "Non. Cet outil rédige, vous publiez. Même notre produit payant, Reviews Hub, prépare la réponse et vous laisse valider avant publication : personne ne parle au nom de votre établissement sans votre accord.",
-        en: 'No. This tool drafts, you publish. Even our paid product, Reviews Hub, prepares the reply and leaves the approval to you: nobody speaks for your business without your say-so.',
+        fr: "Non. Cet outil rédige, vous publiez. Et si nous automatisons vos réponses, vous gardez le contrôle avant publication : personne ne parle au nom de votre établissement sans votre accord.",
+        en: 'No. This tool drafts, you publish. And if we automate your replies, you still approve before anything goes out: nobody speaks for your business without your say-so.',
       },
     },
     {
