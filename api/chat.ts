@@ -64,9 +64,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'method_not_allowed' });
   }
 
-  // Origin allow-list — soft guard against scripted cross-origin abuse.
+  // Origin allow-list. The header is REQUIRED: browsers always send it on a
+  // cross-origin POST, so a request without one is a script, not a visitor.
+  // Accepting empty origins made this an open proxy to LLM_BASE_URL the moment
+  // that variable was ever set. Matches api/review-reply.ts.
   const origin = (req.headers.origin as string) || '';
-  if (origin && !ALLOWED_ORIGINS.has(origin)) {
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) {
     return res.status(403).json({ error: 'forbidden_origin' });
   }
 

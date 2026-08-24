@@ -61,6 +61,23 @@ for (const slug of posts) {
   if (!bp) fail(slug, 'missing BlogPosting JSON-LD');
   else ['headline', 'image', 'datePublished'].forEach((f) => { if (!bp[f]) fail(slug, `BlogPosting JSON-LD missing "${f}"`); });
 
+  // --- SECURITY GATE: hostile markup from the publishing pipeline ---
+  // blog.ts is appended to by the n8n Publishing Agent and pushed without human
+  // review, and BlogPostPage renders raw HTML blocks. <script> does not execute
+  // via innerHTML, but <img onerror>, <svg onload> and <iframe> do. Runtime
+  // sanitising lives in src/lib/sanitizeHtml.ts; this gate stops it at the door.
+  const rawArt = (html.match(/<article[\s\S]*?<\/article>/) || [html])[0];
+  const injections = [
+    [/<\s*script\b/i, '<script> tag in article content'],
+    [/<\s*(iframe|object|embed|form)\b/i, 'embedded frame/object/form in article content'],
+    [/<[^>]+\son\w+\s*=/i, 'inline event handler (on*=) in article content'],
+    [/(href|src|xlink:href)\s*=\s*["']?\s*javascript:/i, 'javascript: URL in article content'],
+    [/(href|src)\s*=\s*["']?\s*data:text\/html/i, 'data:text/html URL in article content'],
+  ];
+  for (const [re, label] of injections) {
+    if (re.test(rawArt)) fail(slug, `SECURITY: ${label}`);
+  }
+
   const art = (html.match(/<article[\s\S]*?<\/article>/) || [html])[0]
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')

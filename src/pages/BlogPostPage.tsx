@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { sanitizeHtml } from '../lib/sanitizeHtml';
 import SEO from '../components/SEO';
 import { getPostBySlug, getRelatedPosts, blogCategories, categoryToService } from '../data/blog';
 import { shortTitle, trimDesc } from '../utils/seo';
@@ -82,9 +83,11 @@ const BlogPostPage: React.FC = () => {
   const renderContent = (text: string) =>
     text.split('\n\n').map((block, i) => {
       const key = `block-${i}`;
-      // Raw HTML / inline SVG passthrough (diagrams, figures from the pipeline)
+      // Raw HTML / inline SVG passthrough (diagrams, figures from the pipeline).
+      // Sanitised: blog.ts is appended to by the automated publishing agent with
+      // no human review, so this is an untrusted-to-trusted boundary.
       if (block.trimStart().startsWith('<')) {
-        return <div key={key} className="my-8" dangerouslySetInnerHTML={{ __html: block }} />;
+        return <div key={key} className="my-8" dangerouslySetInnerHTML={{ __html: sanitizeHtml(block) }} />;
       }
       // Inline image: ![alt](src)
       const imgMatch = block.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
