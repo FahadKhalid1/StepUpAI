@@ -20,6 +20,7 @@ import { useLanguage } from './contexts/LanguageContext';
 
 const GeoServicePage = React.lazy(() => import('./pages/GeoServicePage'));
 const SectorPage = React.lazy(() => import('./pages/SectorPage'));
+const SolutionsPage = React.lazy(() => import('./pages/SolutionsPage'));
 const OutilsPage = React.lazy(() => import('./pages/OutilsPage'));
 const ReviewReplyPage = React.lazy(() => import('./pages/outils/ReviewReplyPage'));
 
@@ -132,6 +133,7 @@ function App() {
                   <Route path="/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/privacy" element={<PrivacyPolicyPage />} />
                   <Route path="/terms" element={<TermsOfServicePage />} />
+                  <Route path="/solutions" element={<SolutionsPage />} />
                   <Route path="/outils" element={<OutilsPage />} />
                   <Route path={`/outils/${reviewTool.slug}`} element={<ReviewReplyPage />} />
                   {sectorSlugs.map((slug) => (

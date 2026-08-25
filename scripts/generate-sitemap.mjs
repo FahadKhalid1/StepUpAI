@@ -48,6 +48,10 @@ const sectorLabels = {
   'ecommerce': 'E-commerce et boutiques en ligne',
   'commerce-local': 'Commerce local, beauté et bien-être',
 };
+// The sector hub. Every sector page's BreadcrumbList already pointed at
+// /solutions; before 2026-08-24 no route existed and Vercel served the SPA
+// shell, so Google indexed a soft 404 under the generic homepage title.
+const sectorHub = [{ path: '/solutions', priority: '0.8', changefreq: 'monthly' }];
 const sectorPages = sectorSlugs.map((slug) => ({
   path: `/solutions/${slug}`,
   priority: '0.9',
@@ -115,7 +119,7 @@ try {
   console.warn('⚠️  Could not parse blog.ts for sitemap/llms.txt:', e.message);
 }
 
-const allPages = [...staticPages, ...sectorPages, ...geoPages, ...blogPages];
+const allPages = [...staticPages, ...sectorHub, ...sectorPages, ...geoPages, ...blogPages];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -166,6 +170,7 @@ ${serviceSlugs.map(s => `- [${serviceLabels[s] || s}](${siteUrl}/${s}-paris)`).j
 - [Reviews Hub — réponses IA aux avis Google pour les commerces locaux](https://reviewshub.step-upai.com)
 
 ## Solutions par secteur d'activité
+- [Toutes les solutions par secteur](${siteUrl}/solutions)
 ${sectorSlugs.map(x => `- [${sectorLabels[x] || x}](${siteUrl}/solutions/${x})`).join('\n')}
 
 ## Outils gratuits (sans inscription)

@@ -123,6 +123,10 @@ const SectorPage: React.FC<SectorPageProps> = ({ slug }) => {
               {fr ? 'Accueil' : 'Home'}
             </Link>
             <span aria-hidden="true">/</span>
+            <Link to="/solutions" className="hover:text-white transition-colors">
+              {fr ? 'Solutions' : 'Solutions'}
+            </Link>
+            <span aria-hidden="true">/</span>
             <span className="text-white">{pick(sector.short)}</span>
           </motion.nav>
 

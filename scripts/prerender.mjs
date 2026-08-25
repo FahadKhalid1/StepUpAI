@@ -22,7 +22,7 @@ const CONCURRENCY = 5;
 function buildRoutes() {
   // Free tools — keep in sync with src/data/outilsData.ts (live tools only)
   const staticPages = ['/', '/about', '/services', '/projects', '/contact', '/blog', '/privacy', '/terms',
-    '/outils', '/outils/generateur-reponse-avis-google'];
+    '/outils', '/outils/generateur-reponse-avis-google', '/solutions'];
   const citySlugs = [
     'paris', 'boulogne-billancourt', 'neuilly-sur-seine', 'levallois-perret', 'nanterre',
     'saint-denis', 'montreuil', 'versailles', 'saint-germain-en-laye', 'creteil', 'vincennes',
