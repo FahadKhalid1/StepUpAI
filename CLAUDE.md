@@ -224,6 +224,8 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 - ~~Reviews Hub service card on `/services`~~ — ✅ live (12th card, links to `reviewshub.step-upai.com`; also in the footer, contact dropdown, llms.txt and JSON-LD position 12).
 - ~~`/outils` hub + review reply generator~~ — ✅ live (§14).
 - ~~`/solutions` hub~~ — ✅ live. Fixes a soft 404 Google had indexed: the sector-page breadcrumbs pointed at a URL with no route (§12b).
+- ~~Upstash Redis for the rate limiter~~ — ✅ `step-up-ai-ratelimit`, free plan, fra1. The 3/24h cap is now durable rather than per-instance; verified on production (3 replies, then 429 holding across instances and time).
+- ~~Dead code + orphaned images~~ — ✅ `BlogWriter.tsx` and 15 orphaned blog image folders removed (46 files, ~7 MB).
 - ~~Security review + fixes~~ — ✅ XSS sanitiser, build gate, Sheets formula injection, origin bypass, CSP (§15).
 - ~~Anthropic spend limit~~ — ✅ **$15/month** set in the Claude Console. ⚠️ It is **org-wide**: if Reviews Hub bills to the same organisation, that $15 is shared with it. ~$5 of it was already used by other work when it was set.
 
@@ -256,11 +258,9 @@ the tool pages hold their index status and start collecting impressions while th
 geo pages do not, the geo cull (48 → 12–18) is justified. Re-check in a week.
 
 ### Now open
-- **Upstash (or Vercel KV) for the review tool's rate limiting.** Without it the 3/24h cap is per serverless instance, so the real allowance is looser than advertised. `UPSTASH_REDIS_REST_URL` + `_TOKEN` in Vercel is all the code needs — it already falls back gracefully.
 - **Spend notification** — Claude Console → Billing → *Add notification* at ~$12, so the $15 ceiling is not discovered by something breaking.
 - **Consent/cookie mechanism** — still absent, GA4 still runs unconditionally (§12a). The tools add form interactions to that exposure. CNIL risk, predates this work, needs a decision.
-- **Delete `src/pages/BlogWriter.tsx`** (dead) and the **15 orphaned `public/images/blog/` folders** (§2 drift note).
-- **Request indexing on `/outils/generateur-reponse-avis-google`** in GSC, and watch whether a tool page indexes faster than the geo pages did — same experiment as `/solutions/restaurants`.
+- **Watch the indexing experiment.** Indexing was requested on `/outils`, the tool page and `/solutions` on 2026-08-24; both tool pages were already indexed within ~3 hours of launch. Re-check in a week against the §10 baseline — if they hold while the 40 "Discovered, not indexed" URLs do not, the geo cull is justified.
 1. **Finish Brevo** → switch sender to `dailydigest@stepupai.fr` (see §8). DNS records go in **OVHcloud**.
 2. **Activate the Daily Digest** (`v9D7wfMrcsfvACdt`) once the sender is finalized and reviewed.
 3. ~~Delete temp test workflow~~ — ✅ done (both temporary workflows removed).
@@ -450,6 +450,15 @@ a 404 — the SPA rewrite serves a 200 with the homepage title, which Google wil
   24h TTL and deliberately NOT on the calendar day, so the window starts at the visitor's
   first use. It is a user-facing promise, stated in the hero subheadline, the limit state
   and the FAQ — if you change the number, change all three.
+- **The cap is backed by the Upstash store (§2) since 2026-08-24 and is now real.** Before
+  that the counters lived in per-instance memory and the cap did not hold: a measurement on
+  2026-08-24 got a 4th reply from an IP already past its 3. Verified after the store went
+  live — 3 replies then a hard 429 that persists across instances and over time. If the
+  store is ever removed, the endpoint keeps working but the promise on the page stops being
+  true; `api/review-reply.ts` logs loudly when the store is unreachable, so check the
+  function logs before believing the limiter.
+- **`X-Forwarded-For` cannot be spoofed here** — Vercel overwrites it with the real client
+  IP, so `clientIp()` is trustworthy. Verified 2026-08-24 by sending a forged header.
 - **Cost controls, in layers:** the 3/24h cap → `REVIEW_DAILY_MAX` (500/day global) →
   the Anthropic org spend limit (**$15/month**, set 2026-08-24). At ~$0.0025 per
   generation on Sonnet 5, 500/day is about $1.25/day.
