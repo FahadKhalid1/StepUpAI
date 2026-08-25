@@ -20,8 +20,8 @@ The **Step Up AI** marketing website (an AI‑automation agency, Paris / Île‑
 - **Bilingual**, French is the default. All UI text goes through `useLanguage()` → `t('key')` (keys in `src/contexts/LanguageContext.tsx`) **or** inline `language === 'fr' ? '…' : '…'`. Keep both languages whenever you add copy.
 - **SSR-safe / prerendered:** the build prerenders every route with Puppeteer, so **no `window`/`document` access during render**. Canonical host is `https://www.stepupai.fr`.
 - **Build chain (FIVE steps):** `npm run build` = `vite build && generate-sitemap.mjs && prerender.mjs && validate-publish.mjs && ping-indexnow.mjs`.
-  - `generate-sitemap.mjs` parses `src/data/blog.ts` and writes `dist/sitemap.xml`, `dist/llms.txt`, **and `dist/rss.xml`**. **79 URLs** as of 2026-08-24.
-  - `prerender.mjs` (Puppeteer locally, @sparticuz/chromium on Vercel) renders routes to static HTML. Non‑fatal: failures fall back to the SPA. **151 routes.**
+  - `generate-sitemap.mjs` parses `src/data/blog.ts` and writes `dist/sitemap.xml`, `dist/llms.txt`, **and `dist/rss.xml`**. **80 URLs** as of 2026-08-24.
+  - `prerender.mjs` (Puppeteer locally, @sparticuz/chromium on Vercel) renders routes to static HTML. Non‑fatal: failures fall back to the SPA. **152 routes.**
   - `validate-publish.mjs` is a **hard gate** — exit 1 fails the Vercel build and nothing deploys. Checks every prerendered blog post for unrendered markdown, generic titles, bad canonicals, missing og:image/`<img>` files, invalid BlogPosting JSON-LD, thin shells, **hostile markup (see §14)**, and **CSP hash drift (see §14)**.
   - `ping-indexnow.mjs` runs on Vercel production only.
 - **`vercel.json`** rewrites everything to `/index.html` **except** `assets`, `sitemap.xml`, `robots.txt`, `rss.xml`, `llms.txt` (those serve as real files). If you add another root static file, add it to that negative‑lookahead or it'll serve the app HTML.
@@ -221,8 +221,37 @@ Daily 08:00 (Europe/Paris)  ── "Daily Blog Digest" workflow (currently OFF)
 ### Shipped 2026-08-24 (this session)
 - ~~Reviews Hub service card on `/services`~~ — ✅ live (12th card, links to `reviewshub.step-upai.com`; also in the footer, contact dropdown, llms.txt and JSON-LD position 12).
 - ~~`/outils` hub + review reply generator~~ — ✅ live (§14).
+- ~~`/solutions` hub~~ — ✅ live. Fixes a soft 404 Google had indexed: the sector-page breadcrumbs pointed at a URL with no route (§12b).
 - ~~Security review + fixes~~ — ✅ XSS sanitiser, build gate, Sheets formula injection, origin bypass, CSP (§15).
 - ~~Anthropic spend limit~~ — ✅ **$15/month** set in the Claude Console. ⚠️ It is **org-wide**: if Reviews Hub bills to the same organisation, that $15 is shared with it. ~$5 of it was already used by other work when it was set.
+
+### Search Console baseline — measured 2026-08-24
+
+The `stepupai.fr` property only has data from 2026-08-18 (verified on the 19th).
+
+| Metric | Value |
+|---|---|
+| Indexed | **25** |
+| Not indexed | **106** |
+| — excluded by `noindex` | 50 — **by design** (secondary geo pages) |
+| — **Discovered, currently not indexed** | **40** — the real problem |
+| — duplicate / crawled-not-indexed / redirect / alternate | 6 / 6 / 2 / 2 |
+| Clicks (all time on this property) | **0** |
+| Impressions | 23 · avg position **37.8** |
+
+Impressions by page: `/` 9 · `/appels-ia-paris` 5 · `/services` 4 ·
+`/developpement-web-paris` 4 · `/developpement-web-levallois-perret` 4 ·
+`/developpement-web-boulogne-billancourt` 3 · `/contact` 2 · `/solutions` 2.
+
+"Discovered – currently not indexed" ×40 means Google found those URLs in the
+sitemap and chose not to spend crawl budget. **That is not fixable with markup** —
+it is the authority problem, quantified.
+
+⚠️ **Signal worth watching:** `/outils` and `/outils/generateur-reponse-avis-google`
+were **already indexed within ~3 hours of going live** on 2026-08-24, while 40 geo
+URLs sit undiscovered. Indexing was also requested for both plus `/solutions`. If
+the tool pages hold their index status and start collecting impressions while the
+geo pages do not, the geo cull (48 → 12–18) is justified. Re-check in a week.
 
 ### Now open
 - **Upstash (or Vercel KV) for the review tool's rate limiting.** Without it the 3/24h cap is per serverless instance, so the real allowance is looser than advertised. `UPSTASH_REDIS_REST_URL` + `_TOKEN` in Vercel is all the code needs — it already falls back gracefully.
@@ -320,6 +349,22 @@ Files: `src/data/sectorData.ts` (bilingual content), `src/pages/SectorPage.tsx` 
 
 A sector page with invented proof is the geo-page mistake in a new shape. Immobilier/santé/hôtellerie were deliberately NOT created — no clients to name.
 
+### `/solutions` — the hub, added 2026-08-24
+
+`src/pages/SolutionsPage.tsx` lists the four sectors with their named clients.
+
+⚠️ **Why it exists is the lesson.** Every sector page emits a `BreadcrumbList`
+whose second item is `https://www.stepupai.fr/solutions`. That route did not
+exist, so `vercel.json` rewrote it to the SPA shell — **HTTP 200 with the generic
+homepage title** — and Google indexed that soft 404 (2 impressions by 2026-08-24).
+The visible breadcrumb on sector pages now links to the hub as well, so it is
+reachable by following links and not only by schema.
+
+**The generalisable rule: never name a URL in structured data that has no route.**
+This site returns 200 for everything (SPA rewrite), so a wrong URL in JSON-LD does
+not 404 — it silently becomes an indexable duplicate of the homepage shell. The
+same trap applies to any `item`, `url` or `sameAs` you add.
+
 **Open experiment:** request indexing on `/solutions/restaurants` in GSC. If a sector page indexes while 43 geo URLs sit rejected, the approach is validated and the geo cull (48 → 12–18) is worth doing. If it is also rejected, the constraint is domain authority, not page quality — and the priority becomes reviews, citations and GBP instead. **Do not start the geo cull before that answer.**
 
 
@@ -383,7 +428,9 @@ further tools: `HANDOFF-outils-2026-08.md`; the spec for tool #1: `HANDOFF-outil
 **Adding a route means editing THREE places** — they are not derived from one another:
 `src/App.tsx` (the `<Route>`), `scripts/prerender.mjs` (`staticPages`), and
 `scripts/generate-sitemap.mjs` (its own `staticPages`). Miss one and the page is either
-unprerendered or missing from the sitemap.
+unprerendered or missing from the sitemap. Miss the route entirely and it is worse than
+a 404 — the SPA rewrite serves a 200 with the homepage title, which Google will index
+(that is exactly what happened to `/solutions`, see §12b).
 
 ### Tool #1 — review reply generator
 - **Copy lives in `src/data/outilsData.ts`** (fr/en pairs), following the `sectorData.ts`
