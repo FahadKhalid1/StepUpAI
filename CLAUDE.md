@@ -28,7 +28,9 @@ The **Step Up AI** marketing website (an AI‑automation agency, Paris / Île‑
 - **Serverless API (`api/*.ts`, Vercel functions, excluded from the SPA rewrite):**
   - `api/review-reply.ts` — powers the free review-reply tool (§14). Anthropic SDK, `claude-sonnet-5` by default.
   - `api/chat.ts` — hero "describe what you want to automate" box (`AIPromptBox` on the homepage). Proxies a self-hosted OpenAI-compatible model at `LLM_BASE_URL`. **`llm.step-upai.com` has never resolved, so this answers `503 unconfigured` in production** and the box falls back to routing the prompt into the contact form. Working as designed; do not "fix" it by pointing it somewhere paid without deciding to.
-- **Vercel env vars:** `ANTHROPIC_API_KEY` (set, Production+Preview), `REVIEW_MODEL` (optional, default `claude-sonnet-5`), `REVIEW_DAILY_MAX` (optional, default 500, `0` = kill switch), `UPSTASH_REDIS_REST_URL`/`_TOKEN` (optional, durable rate limiting — **not set**, so per-IP limits are per-instance).
+- **Vercel env vars:** `ANTHROPIC_API_KEY` (set, Production+Preview), `REVIEW_MODEL` (optional, default `claude-sonnet-5`), `REVIEW_DAILY_MAX` (optional, default 500, `0` = kill switch), `KV_REST_API_URL`/`KV_REST_API_TOKEN` (durable rate limiting — **set 2026-08-24** by the Upstash store below; `UPSTASH_REDIS_REST_URL`/`_TOKEN` are accepted as an alias).
+
+- **Upstash Redis — `step-up-ai-ratelimit`** (Vercel Marketplace → Upstash for Redis, Free plan, 500k commands/month, region **fra1 / Frankfurt**, eviction off, connected to Production + Preview). It backs the review tool's 3-per-24h cap. ⚠️ Connected with **no custom prefix** on purpose: a prefix would rename the injected vars (`STORAGE_KV_REST_API_URL` etc.) and `api/review-reply.ts` would silently fall back to per-instance counters. The free plan allows **one database per account**, so do not create a second — reuse this one with a different key namespace.
 - **To deploy:** commit + `git push origin main`. Don't commit the local `.claude/` dir.
 
 ### Known drift / dead code (verified 2026-08-24)
