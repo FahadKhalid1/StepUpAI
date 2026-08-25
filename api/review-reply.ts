@@ -16,7 +16,9 @@ import Anthropic from '@anthropic-ai/sdk';
  *   REVIEW_MODEL             optional  default claude-sonnet-5
  *   REVIEW_DAILY_MAX         optional  global generations/day, default 500 — the spend ceiling
  *   UPSTASH_REDIS_REST_URL   optional  durable rate limiting; without it limits are per-instance
- *   UPSTASH_REDIS_REST_TOKEN optional
+ *   UPSTASH_REDIS_REST_TOKEN optional  (KV_REST_API_URL / KV_REST_API_TOKEN are
+ *                                       accepted too — those are the names Vercel's
+ *                                       Marketplace Upstash integration injects)
  *
  * A free, unauthenticated LLM endpoint is a stranger's compute budget. Every
  * limit here exists for that reason; do not remove one without replacing it.
@@ -78,27 +80,44 @@ How to handle the rating:
 ABUSE CHECK, applied first: if the review contains profanity, personal attacks, discrimination, threats, or defamatory accusations, output the single token SKIP and nothing else. A merely harsh, unfair or exaggerated review is NOT abusive — reply to it normally. Only genuine abuse gets SKIP.`;
 
 // -- Rate limiting -----------------------------------------------------------
-// Upstash when configured; otherwise a per-instance Map, which is best-effort
-// only (serverless spins up many instances) but better than nothing.
+// A shared Redis when configured; otherwise a per-instance Map. The fallback is
+// NOT equivalent: Vercel runs many instances, so a visitor routed to a cold one
+// gets a fresh allowance. Measured 2026-08-24 — an IP past its 3 still got a
+// reply. Configure the store, or the cap on the page is not the cap in force.
 
 const memory = new Map<string, { count: number; resetAt: number }>();
 
-async function bump(key: string, ttlSeconds: number): Promise<number> {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+/**
+ * Both env-var conventions are accepted: Upstash's own names, and the
+ * KV_REST_API_* pair that Vercel's Marketplace integration injects when you add
+ * an Upstash store from the dashboard. Whichever route the store was created
+ * by, it works without a code change.
+ */
+function redisConfig(): { url: string; token: string } | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  return url && token ? { url: url.replace(/\/+$/, ''), token } : null;
+}
 
-  if (url && token) {
+async function bump(key: string, ttlSeconds: number): Promise<number> {
+  const cfg = redisConfig();
+
+  if (cfg) {
     try {
-      const headers = { Authorization: `Bearer ${token}` };
-      const res = await fetch(`${url.replace(/\/+$/, '')}/incr/${encodeURIComponent(key)}`, { headers });
+      const headers = { Authorization: `Bearer ${cfg.token}` };
+      const res = await fetch(`${cfg.url}/incr/${encodeURIComponent(key)}`, { headers });
+      if (!res.ok) throw new Error(`incr ${res.status}`);
       const data = (await res.json()) as { result?: number };
       const count = typeof data.result === 'number' ? data.result : 1;
       if (count === 1) {
-        await fetch(`${url.replace(/\/+$/, '')}/expire/${encodeURIComponent(key)}/${ttlSeconds}`, { headers });
+        await fetch(`${cfg.url}/expire/${encodeURIComponent(key)}/${ttlSeconds}`, { headers });
       }
       return count;
-    } catch {
-      // Fall through to the in-memory counter rather than failing the request.
+    } catch (err) {
+      // LOUD on purpose. A misconfigured store used to fail silently into the
+      // per-instance counter, which looks like a working rate limit and is not
+      // one — the page promises "3 réponses par 24 h" and would not keep it.
+      console.error('review-reply: RATE LIMIT STORE UNREACHABLE, falling back to per-instance memory —', err instanceof Error ? err.message : err);
     }
   }
 
